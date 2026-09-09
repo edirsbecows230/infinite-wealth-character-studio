@@ -1,0 +1,2404 @@
+{
+  "TABLE_ID": 3536,
+  "ROW_COUNT": 480,
+  "0": {
+    "": {
+      "name": null
+    }
+  },
+  "1": {
+    "kasuga_red": {
+      "name": null
+    }
+  },
+  "2": {
+    "kasuga_blue": {
+      "name": null
+    }
+  },
+  "3": {
+    "kasuga_yellow": {
+      "name": null
+    }
+  },
+  "4": {
+    "kiryu": {
+      "name": null
+    }
+  },
+  "5": {
+    "yojinbo_red": {
+      "name": null
+    }
+  },
+  "6": {
+    "yojinbo_blue": {
+      "name": null
+    }
+  },
+  "7": {
+    "yojinbo_yellow": {
+      "name": null
+    }
+  },
+  "8": {
+    "nanba_red": {
+      "name": null
+    }
+  },
+  "9": {
+    "nanba_blue": {
+      "name": null
+    }
+  },
+  "10": {
+    "nanba_yellow": {
+      "name": null
+    }
+  },
+  "11": {
+    "adachi_red": {
+      "name": null
+    }
+  },
+  "12": {
+    "adachi_blue": {
+      "name": null
+    }
+  },
+  "13": {
+    "adachi_yellow": {
+      "name": null
+    }
+  },
+  "14": {
+    "saeko_red": {
+      "name": null
+    }
+  },
+  "15": {
+    "saeko_blue": {
+      "name": null
+    }
+  },
+  "16": {
+    "saeko_yellow": {
+      "name": null
+    }
+  },
+  "17": {
+    "han_red": {
+      "name": null
+    }
+  },
+  "18": {
+    "han_blue": {
+      "name": null
+    }
+  },
+  "19": {
+    "han_yellow": {
+      "name": null
+    }
+  },
+  "20": {
+    "chou_red": {
+      "name": null
+    }
+  },
+  "21": {
+    "chou_blue": {
+      "name": null
+    }
+  },
+  "22": {
+    "chou_yellow": {
+      "name": null
+    }
+  },
+  "23": {
+    "eri_red": {
+      "name": null
+    }
+  },
+  "24": {
+    "eri_blue": {
+      "name": null
+    }
+  },
+  "25": {
+    "eri_yellow": {
+      "name": null
+    }
+  },
+  "26": {
+    "youjinbou_red": {
+      "name": null
+    }
+  },
+  "27": {
+    "youjinbou_blue": {
+      "name": null
+    }
+  },
+  "28": {
+    "youjinbou_yellow": {
+      "name": null
+    }
+  },
+  "29": {
+    "host_red": {
+      "name": null
+    }
+  },
+  "30": {
+    "host_blue": {
+      "name": null
+    }
+  },
+  "31": {
+    "host_yellow": {
+      "name": null
+    }
+  },
+  "32": {
+    "kaitaiya_red": {
+      "name": null
+    }
+  },
+  "33": {
+    "kaitaiya_blue": {
+      "name": null
+    }
+  },
+  "34": {
+    "kaitaiya_yellow": {
+      "name": null
+    }
+  },
+  "35": {
+    "music_red": {
+      "name": null
+    }
+  },
+  "36": {
+    "music_blue": {
+      "name": null
+    }
+  },
+  "37": {
+    "music_yellow": {
+      "name": null
+    }
+  },
+  "38": {
+    "dancer_red": {
+      "name": null
+    }
+  },
+  "39": {
+    "dancer_blue": {
+      "name": null
+    }
+  },
+  "40": {
+    "dancer_yellow": {
+      "name": null
+    }
+  },
+  "41": {
+    "kidou_red": {
+      "name": null
+    }
+  },
+  "42": {
+    "kidou_blue": {
+      "name": null
+    }
+  },
+  "43": {
+    "kidou_yellow": {
+      "name": null
+    }
+  },
+  "44": {
+    "cook_red": {
+      "name": null
+    }
+  },
+  "45": {
+    "cook_blue": {
+      "name": null
+    }
+  },
+  "46": {
+    "cook_yellow": {
+      "name": null
+    }
+  },
+  "47": {
+    "uranai_red": {
+      "name": null
+    }
+  },
+  "48": {
+    "uranai_blue": {
+      "name": null
+    }
+  },
+  "49": {
+    "uranai_yellow": {
+      "name": null
+    }
+  },
+  "50": {
+    "idol_red": {
+      "name": null
+    }
+  },
+  "51": {
+    "idol_blue": {
+      "name": null
+    }
+  },
+  "52": {
+    "idol_yellow": {
+      "name": null
+    }
+  },
+  "53": {
+    "kyaba_red": {
+      "name": null
+    }
+  },
+  "54": {
+    "kyaba_blue": {
+      "name": null
+    }
+  },
+  "55": {
+    "kyaba_yellow": {
+      "name": null
+    }
+  },
+  "56": {
+    "dealer_red": {
+      "name": null
+    }
+  },
+  "57": {
+    "dealer_blue": {
+      "name": null
+    }
+  },
+  "58": {
+    "dealer_yellow": {
+      "name": null
+    }
+  },
+  "59": {
+    "queen_red": {
+      "name": null
+    }
+  },
+  "60": {
+    "queen_blue": {
+      "name": null
+    }
+  },
+  "61": {
+    "queen_yellow": {
+      "name": null
+    }
+  },
+  "62": {
+    "akuma_red": {
+      "name": null
+    }
+  },
+  "63": {
+    "akuma_blue": {
+      "name": null
+    }
+  },
+  "64": {
+    "akuma_yellow": {
+      "name": null
+    }
+  },
+  "65": {
+    "anego_red": {
+      "name": null
+    }
+  },
+  "66": {
+    "anego_blue": {
+      "name": null
+    }
+  },
+  "67": {
+    "anego_yellow": {
+      "name": null
+    }
+  },
+  "68": {
+    "majima": {
+      "name": null
+    }
+  },
+  "69": {
+    "date": {
+      "name": null
+    }
+  },
+  "70": {
+    "akiyama": {
+      "name": null
+    }
+  },
+  "71": {
+    "saejima": {
+      "name": null
+    }
+  },
+  "72": {
+    "sayama": {
+      "name": null
+    }
+  },
+  "73": {
+    "haruka": {
+      "name": null
+    }
+  },
+  "74": {
+    "yuusya": {
+      "name": null
+    }
+  },
+  "75": {
+    "mahou": {
+      "name": null
+    }
+  },
+  "76": {
+    "senshi": {
+      "name": null
+    }
+  },
+  "77": {
+    "kenpou": {
+      "name": null
+    }
+  },
+  "78": {
+    "kenshi": {
+      "name": null
+    }
+  },
+  "79": {
+    "siroma": {
+      "name": null
+    }
+  },
+  "80": {
+    "thief": {
+      "name": null
+    }
+  },
+  "81": {
+    "kasuga": {
+      "name": "Normal"
+    }
+  },
+  "82": {
+    "nanba": {
+      "name": "Normal"
+    }
+  },
+  "83": {
+    "adachi": {
+      "name": "Normal"
+    }
+  },
+  "84": {
+    "saeko": {
+      "name": "Normal"
+    }
+  },
+  "85": {
+    "han": {
+      "name": "Normal"
+    }
+  },
+  "86": {
+    "chou": {
+      "name": "Normal"
+    }
+  },
+  "87": {
+    "eri": {
+      "name": null
+    }
+  },
+  "88": {
+    "youjinbou_1": {
+      "name": null
+    }
+  },
+  "89": {
+    "youjinbou_2": {
+      "name": null
+    }
+  },
+  "90": {
+    "youjinbou_3": {
+      "name": null
+    }
+  },
+  "91": {
+    "host_1": {
+      "name": "Normal"
+    }
+  },
+  "92": {
+    "host_2": {
+      "name": "Pattern A"
+    }
+  },
+  "93": {
+    "host_3": {
+      "name": "Pattern B"
+    }
+  },
+  "94": {
+    "kaitaiya_1": {
+      "name": null
+    }
+  },
+  "95": {
+    "kaitaiya_2": {
+      "name": null
+    }
+  },
+  "96": {
+    "kaitaiya_3": {
+      "name": null
+    }
+  },
+  "97": {
+    "music_1": {
+      "name": null
+    }
+  },
+  "98": {
+    "music_2": {
+      "name": null
+    }
+  },
+  "99": {
+    "music_3": {
+      "name": null
+    }
+  },
+  "100": {
+    "dancer_1": {
+      "name": "Normal"
+    }
+  },
+  "101": {
+    "dancer_2": {
+      "name": "Pattern A"
+    }
+  },
+  "102": {
+    "dancer_3": {
+      "name": "Pattern B"
+    }
+  },
+  "103": {
+    "kidou_1": {
+      "name": null
+    }
+  },
+  "104": {
+    "kidou_2": {
+      "name": null
+    }
+  },
+  "105": {
+    "kidou_3": {
+      "name": null
+    }
+  },
+  "106": {
+    "cook_1": {
+      "name": "Normal"
+    }
+  },
+  "107": {
+    "cook_2": {
+      "name": "Pattern A"
+    }
+  },
+  "108": {
+    "cook_3": {
+      "name": "Pattern B"
+    }
+  },
+  "109": {
+    "uranai_1": {
+      "name": null
+    }
+  },
+  "110": {
+    "uranai_2": {
+      "name": null
+    }
+  },
+  "111": {
+    "uranai_3": {
+      "name": null
+    }
+  },
+  "112": {
+    "idol_1": {
+      "name": "Normal"
+    }
+  },
+  "113": {
+    "idol_2": {
+      "name": "Pattern A"
+    }
+  },
+  "114": {
+    "idol_3": {
+      "name": "Pattern B"
+    }
+  },
+  "115": {
+    "kyaba_1": {
+      "name": null
+    }
+  },
+  "116": {
+    "kyaba_2": {
+      "name": null
+    }
+  },
+  "117": {
+    "kyaba_3": {
+      "name": null
+    }
+  },
+  "118": {
+    "dealer_1": {
+      "name": null
+    }
+  },
+  "119": {
+    "dealer_2": {
+      "name": null
+    }
+  },
+  "120": {
+    "dealer_3": {
+      "name": null
+    }
+  },
+  "121": {
+    "queen_1": {
+      "name": "Normal"
+    }
+  },
+  "122": {
+    "queen_2": {
+      "name": "Pattern A"
+    }
+  },
+  "123": {
+    "queen_3": {
+      "name": "Pattern B"
+    }
+  },
+  "124": {
+    "akuma_1": {
+      "name": null
+    }
+  },
+  "125": {
+    "akuma_2": {
+      "name": null
+    }
+  },
+  "126": {
+    "akuma_3": {
+      "name": null
+    }
+  },
+  "127": {
+    "anego_1": {
+      "name": null
+    }
+  },
+  "128": {
+    "anego_2": {
+      "name": null
+    }
+  },
+  "129": {
+    "anego_3": {
+      "name": null
+    }
+  },
+  "130": {
+    "kasuga_michio": {
+      "name": "Special Outfit: Ono Michio"
+    }
+  },
+  "131": {
+    "nanba_michio": {
+      "name": "Special Outfit: Ono Michio"
+    }
+  },
+  "132": {
+    "adachi_michio": {
+      "name": "Special Outfit: Ono Michio"
+    }
+  },
+  "133": {
+    "saeko_michio": {
+      "name": "Special Outfit: Ono Michio"
+    }
+  },
+  "134": {
+    "han_michio": {
+      "name": "Special Outfit: Ono Michio"
+    }
+  },
+  "135": {
+    "chou_michio": {
+      "name": "Special Outfit: Ono Michio"
+    }
+  },
+  "136": {
+    "eri_michio": {
+      "name": null
+    }
+  },
+  "137": {
+    "kasuga_souji": {
+      "name": null
+    }
+  },
+  "138": {
+    "nanba_kango": {
+      "name": null
+    }
+  },
+  "139": {
+    "adachi_keibi": {
+      "name": null
+    }
+  },
+  "140": {
+    "saeko_pub": {
+      "name": null
+    }
+  },
+  "141": {
+    "kasuga_mofuku": {
+      "name": null
+    }
+  },
+  "142": {
+    "nanba_mofuku": {
+      "name": null
+    }
+  },
+  "143": {
+    "adachi_mofuku": {
+      "name": null
+    }
+  },
+  "144": {
+    "saeko_mofuku": {
+      "name": null
+    }
+  },
+  "145": {
+    "kasuga_kiryu0": {
+      "name": "Special Outfit: Kazuma Kiryu (Yakuza 0)"
+    }
+  },
+  "146": {
+    "kasuga_majima0": {
+      "name": "Special Outfit: Goro Majima (Yakuza 0)"
+    }
+  },
+  "147": {
+    "kasuga_ryuji": {
+      "name": "Special Outfit: Ryuji Goda"
+    }
+  },
+  "148": {
+    "kasuga_daigo": {
+      "name": "Special Outfit: Daigo Dojima"
+    }
+  },
+  "149": {
+    "kasuga_date": {
+      "name": "Special Outfit: Makoto Date"
+    }
+  },
+  "150": {
+    "kasuga_saejima": {
+      "name": "Special Outfit: Taiga Saejima"
+    }
+  },
+  "151": {
+    "braver_1": {
+      "name": "Normal"
+    }
+  },
+  "152": {
+    "braver_2": {
+      "name": null
+    }
+  },
+  "153": {
+    "kasuga_braver": {
+      "name": null
+    }
+  },
+  "154": {
+    "nanba_majima0": {
+      "name": null
+    }
+  },
+  "155": {
+    "adachi_kiryu0": {
+      "name": null
+    }
+  },
+  "156": {
+    "han_han6": {
+      "name": "Special Outfit: Joongi (Yakuza 6)"
+    }
+  },
+  "157": {
+    "chou_daigo": {
+      "name": null
+    }
+  },
+  "158": {
+    "saeko_haruka": {
+      "name": null
+    }
+  },
+  "159": {
+    "eri_sayama": {
+      "name": null
+    }
+  },
+  "160": {
+    "kasuga_bleach": {
+      "name": null
+    }
+  },
+  "161": {
+    "nanba_bleach": {
+      "name": null
+    }
+  },
+  "162": {
+    "adachi_bleach": {
+      "name": null
+    }
+  },
+  "163": {
+    "han_bleach": {
+      "name": null
+    }
+  },
+  "164": {
+    "chou_bleach": {
+      "name": null
+    }
+  },
+  "165": {
+    "saeko_bleach": {
+      "name": null
+    }
+  },
+  "166": {
+    "eri_bleach": {
+      "name": null
+    }
+  },
+  "167": {
+    "saeko_sonhi": {
+      "name": null
+    }
+  },
+  "168": {
+    "saeko_hamako": {
+      "name": null
+    }
+  },
+  "169": {
+    "eri_sonhi": {
+      "name": null
+    }
+  },
+  "170": {
+    "eri_hamako": {
+      "name": null
+    }
+  },
+  "171": {
+    "kasuga_legendbraver": {
+      "name": null
+    }
+  },
+  "172": {
+    "kunoichi_1": {
+      "name": "Normal"
+    }
+  },
+  "173": {
+    "samurai_1": {
+      "name": "Normal"
+    }
+  },
+  "174": {
+    "kiryu_himself_1": {
+      "name": "Normal"
+    }
+  },
+  "175": {
+    "actionstar_1": {
+      "name": "Normal"
+    }
+  },
+  "176": {
+    "marine_1": {
+      "name": "Normal"
+    }
+  },
+  "177": {
+    "footballer_1": {
+      "name": "Normal"
+    }
+  },
+  "178": {
+    "western_1": {
+      "name": "Normal"
+    }
+  },
+  "179": {
+    "firedancer_1": {
+      "name": "Normal"
+    }
+  },
+  "180": {
+    "housekeeper_1": {
+      "name": "Normal"
+    }
+  },
+  "181": {
+    "tropicaldancer_1": {
+      "name": "Normal"
+    }
+  },
+  "182": {
+    "tennis_1": {
+      "name": "Normal"
+    }
+  },
+  "183": {
+    "kunoichi_2": {
+      "name": "Pattern A"
+    }
+  },
+  "184": {
+    "kunoichi_3": {
+      "name": "Pattern B"
+    }
+  },
+  "185": {
+    "samurai_2": {
+      "name": "Pattern A"
+    }
+  },
+  "186": {
+    "samurai_3": {
+      "name": "Pattern B"
+    }
+  },
+  "187": {
+    "kiryu_himself_2": {
+      "name": "Pattern A"
+    }
+  },
+  "188": {
+    "kiryu_himself_3": {
+      "name": "Pattern B"
+    }
+  },
+  "189": {
+    "actionstar_2": {
+      "name": "Pattern A"
+    }
+  },
+  "190": {
+    "actionstar_3": {
+      "name": "Pattern B"
+    }
+  },
+  "191": {
+    "marine_2": {
+      "name": "Pattern A"
+    }
+  },
+  "192": {
+    "marine_3": {
+      "name": "Pattern B"
+    }
+  },
+  "193": {
+    "footballer_2": {
+      "name": "Pattern A"
+    }
+  },
+  "194": {
+    "footballer_3": {
+      "name": "Pattern B"
+    }
+  },
+  "195": {
+    "western_2": {
+      "name": "Pattern A"
+    }
+  },
+  "196": {
+    "western_3": {
+      "name": "Pattern B"
+    }
+  },
+  "197": {
+    "firedancer_2": {
+      "name": "Pattern A"
+    }
+  },
+  "198": {
+    "firedancer_3": {
+      "name": "Pattern B"
+    }
+  },
+  "199": {
+    "housekeeper_2": {
+      "name": "Pattern A"
+    }
+  },
+  "200": {
+    "housekeeper_3": {
+      "name": "Pattern B"
+    }
+  },
+  "201": {
+    "tropicaldancer_2": {
+      "name": "Pattern A"
+    }
+  },
+  "202": {
+    "tropicaldancer_3": {
+      "name": "Pattern B"
+    }
+  },
+  "203": {
+    "tennis_2": {
+      "name": "Pattern A"
+    }
+  },
+  "204": {
+    "tennis_3": {
+      "name": "Pattern B"
+    }
+  },
+  "205": {
+    "chitose": {
+      "name": null
+    }
+  },
+  "206": {
+    "kiryu_elvis": {
+      "name": "Normal"
+    }
+  },
+  "207": {
+    "sonhi": {
+      "name": "Normal"
+    }
+  },
+  "208": {
+    "tomizawa": {
+      "name": "Normal"
+    }
+  },
+  "209": {
+    "sujimonmaster_1": {
+      "name": "Normal"
+    }
+  },
+  "210": {
+    "chitose_short": {
+      "name": "Normal (Short Hair)"
+    }
+  },
+  "211": {
+    "idol_1_short": {
+      "name": "Normal (Short Hair)"
+    }
+  },
+  "212": {
+    "idol_2_short": {
+      "name": "Pattern A (Short Hair)"
+    }
+  },
+  "213": {
+    "idol_3_short": {
+      "name": "Pattern B (Short Hair)"
+    }
+  },
+  "214": {
+    "queen_1_short": {
+      "name": "Normal (Short Hair)"
+    }
+  },
+  "215": {
+    "queen_2_short": {
+      "name": "Pattern A (Short Hair)"
+    }
+  },
+  "216": {
+    "queen_3_short": {
+      "name": "Pattern B (Short Hair)"
+    }
+  },
+  "217": {
+    "kunoichi_1_short": {
+      "name": "Normal (Short Hair)"
+    }
+  },
+  "218": {
+    "kunoichi_2_short": {
+      "name": "Pattern A (Short Hair)"
+    }
+  },
+  "219": {
+    "kunoichi_3_short": {
+      "name": "Pattern B (Short Hair)"
+    }
+  },
+  "220": {
+    "housekeeper_1_short": {
+      "name": "Normal (Short Hair)"
+    }
+  },
+  "221": {
+    "housekeeper_2_short": {
+      "name": "Pattern A (Short Hair)"
+    }
+  },
+  "222": {
+    "housekeeper_3_short": {
+      "name": "Pattern B (Short Hair)"
+    }
+  },
+  "223": {
+    "tropicaldancer_1_short": {
+      "name": "Normal (Short Hair)"
+    }
+  },
+  "224": {
+    "tropicaldancer_2_short": {
+      "name": "Pattern A (Short Hair)"
+    }
+  },
+  "225": {
+    "tropicaldancer_3_short": {
+      "name": "Pattern B (Short Hair)"
+    }
+  },
+  "226": {
+    "tennis_1_short": {
+      "name": "Normal (Short Hair)"
+    }
+  },
+  "227": {
+    "tennis_2_short": {
+      "name": "Pattern A (Short Hair)"
+    }
+  },
+  "228": {
+    "tennis_3_short": {
+      "name": "Pattern B (Short Hair)"
+    }
+  },
+  "229": {
+    "swim_1": {
+      "name": "Normal Swimsuit"
+    }
+  },
+  "230": {
+    "swim_2": {
+      "name": "Special Outfit: Traditional Swimsuit"
+    }
+  },
+  "231": {
+    "swim_3": {
+      "name": "Special Outfit: Tasty Swimsuit"
+    }
+  },
+  "232": {
+    "swim_1_short": {
+      "name": "Normal Swimsuit (Short Hair)"
+    }
+  },
+  "233": {
+    "swim_2_short": {
+      "name": "Special Outfit: Traditional Swimsuit (Short Hair)"
+    }
+  },
+  "234": {
+    "swim_3_short": {
+      "name": "Special Outfit: Tasty Swimsuit (Short Hair)"
+    }
+  },
+  "235": {
+    "kasuga_nanbacode": {
+      "name": "Special Outfit: Nanba Style"
+    }
+  },
+  "236": {
+    "kasuga_adachicode": {
+      "name": "Special Outfit: Adachi Style"
+    }
+  },
+  "237": {
+    "kasuga_casino": {
+      "name": "Special Outfit: Casino Attire"
+    }
+  },
+  "238": {
+    "tomizawa_casino": {
+      "name": "Special Outfit: Casino Attire"
+    }
+  },
+  "239": {
+    "kiryu_casino": {
+      "name": "Special Outfit: Casino Attire"
+    }
+  },
+  "240": {
+    "chitose_casino": {
+      "name": "Special Outfit: Casino Attire"
+    }
+  },
+  "241": {
+    "chitose_spy": {
+      "name": "Special Outfit: Waitress Attire"
+    }
+  },
+  "242": {
+    "kasuga_dlcbraver": {
+      "name": "Special Outfit: Hero"
+    }
+  },
+  "243": {
+    "nanba_tomizawa": {
+      "name": "Special Outfit: Tomizawa"
+    }
+  },
+  "244": {
+    "adachi_chou": {
+      "name": "Special Outfit: Zhao"
+    }
+  },
+  "245": {
+    "chou_han": {
+      "name": "Special Outfit: Joongi"
+    }
+  },
+  "246": {
+    "kiryu_dlcbraver": {
+      "name": "Special Outfit: Hero"
+    }
+  },
+  "247": {
+    "tomizawa_nanba": {
+      "name": "Special Outfit: Nanba"
+    }
+  },
+  "248": {
+    "chitose_short_sonhi": {
+      "name": "Special Outfit: Seonhee (Short Hair)"
+    }
+  },
+  "249": {
+    "chitose_sonhi": {
+      "name": null
+    }
+  },
+  "250": {
+    "saeko_awake": {
+      "name": "Special Outfit: AWAKE"
+    }
+  },
+  "251": {
+    "sonhi_chitose": {
+      "name": "Special Outfit: Chitose"
+    }
+  },
+  "252": {
+    "kasuga_kiryu": {
+      "name": "Special Outfit: Dragon of Dojima"
+    }
+  },
+  "253": {
+    "nanba_majima": {
+      "name": "Special Outfit: Goro Majima"
+    }
+  },
+  "254": {
+    "adachi_date": {
+      "name": "Special Outfit: Makoto Date"
+    }
+  },
+  "255": {
+    "han_akiyama": {
+      "name": "Special Outfit: Shun Akiyama"
+    }
+  },
+  "256": {
+    "chou_saejima": {
+      "name": "Special Outfit: Taiga Saejima"
+    }
+  },
+  "257": {
+    "kiryu_kasuga": {
+      "name": "Special Outfit: Ichiban Kasuga"
+    }
+  },
+  "258": {
+    "tomizawa_daigo": {
+      "name": "Special Outfit: Daigo Dojima"
+    }
+  },
+  "259": {
+    "chitose_short_haruka": {
+      "name": "Special Outfit: Haruka Sawamura (Short Hair)"
+    }
+  },
+  "260": {
+    "chitose_haruka": {
+      "name": null
+    }
+  },
+  "261": {
+    "saeko_sayama": {
+      "name": "Special Outfit: Kaoru Sayama"
+    }
+  },
+  "262": {
+    "sonhi_hamako": {
+      "name": "Special Outfit: Hamako"
+    }
+  },
+  "263": {
+    "kasuga_nishiki": {
+      "name": "Special Outfit: Akira Nishikiyama (Yakuza 0)"
+    }
+  },
+  "264": {
+    "kasuga_majima": {
+      "name": "Special Outfit: Goro Majima"
+    }
+  },
+  "265": {
+    "kasuga_akiyama": {
+      "name": "Special Outfit: Shun Akiyama"
+    }
+  },
+  "266": {
+    "kasuga_judge": {
+      "name": "Special Outfit: Judgement"
+    }
+  },
+  "267": {
+    "kasuga_kiryu8": {
+      "name": "Special Outfit: Kazuma Kiryu (Infinite Wealth)"
+    }
+  },
+  "268": {
+    "kiryu_nishiki0": {
+      "name": "Special Outfit: Akira Nishikiyama (Yakuza 0)"
+    }
+  },
+  "269": {
+    "kiryu_kiryu0": {
+      "name": "Special Outfit: Kazuma Kiryu (Yakuza 0)"
+    }
+  },
+  "270": {
+    "kiryu_majima0": {
+      "name": "Special Outfit: Goro Majima (Yakuza 0)"
+    }
+  },
+  "271": {
+    "kiryu_majima": {
+      "name": "Special Outfit: Goro Majima"
+    }
+  },
+  "272": {
+    "kiryu_daigo": {
+      "name": "Special Outfit: Daigo Dojima"
+    }
+  },
+  "273": {
+    "kiryu_ryuji": {
+      "name": "Special Outfit: Ryuji Goda"
+    }
+  },
+  "274": {
+    "kiryu_saejima": {
+      "name": "Special Outfit: Taiga Saejima"
+    }
+  },
+  "275": {
+    "kiryu_date": {
+      "name": "Special Outfit: Makoto Date"
+    }
+  },
+  "276": {
+    "kiryu_akiyama": {
+      "name": "Special Outfit: Shun Akiyama"
+    }
+  },
+  "277": {
+    "kiryu_judge": {
+      "name": "Special Outfit: Judgement"
+    }
+  },
+  "278": {
+    "kiryu_dlckiryu": {
+      "name": "Special Outfit: Dragon of Dojima"
+    }
+  },
+  "279": {
+    "kasuga_robomichio": {
+      "name": "Special Outfit: Robo Michio"
+    }
+  },
+  "280": {
+    "nanba_robomichio": {
+      "name": "Special Outfit: Robo Michio"
+    }
+  },
+  "281": {
+    "adachi_robomichio": {
+      "name": "Special Outfit: Robo Michio"
+    }
+  },
+  "282": {
+    "tomizawa_robomichio": {
+      "name": "Special Outfit: Robo Michio"
+    }
+  },
+  "283": {
+    "han_robomichio": {
+      "name": "Special Outfit: Robo Michio"
+    }
+  },
+  "284": {
+    "chou_robomichio": {
+      "name": "Special Outfit: Robo Michio"
+    }
+  },
+  "285": {
+    "kiryu_robomichio": {
+      "name": "Special Outfit: Robo Michio"
+    }
+  },
+  "286": {
+    "chitose_robomichio": {
+      "name": "Special Outfit: Robo Michio"
+    }
+  },
+  "287": {
+    "saeko_robomichio": {
+      "name": "Special Outfit: Robo Michio"
+    }
+  },
+  "288": {
+    "sonhi_robomichio": {
+      "name": "Special Outfit: Robo Michio"
+    }
+  },
+  "289": {
+    "kasuga_hellowork": {
+      "name": "Special Outfit: Hello Worker"
+    }
+  },
+  "290": {
+    "kasuga_lovetshirt": {
+      "name": "Special Outfit: Love♥Saeko Shirt"
+    }
+  },
+  "291": {
+    "adachi_suit": {
+      "name": "Special Outfit: Security Detail"
+    }
+  },
+  "292": {
+    "nanba_suit": {
+      "name": "Special Outfit: Tech Inspector"
+    }
+  },
+  "293": {
+    "kiryu_c14": {
+      "name": "Special Outfit: Resurrected Dragon"
+    }
+  },
+  "294": {
+    "saeko_mama": {
+      "name": "Special Outfit: Classic Saeko"
+    }
+  },
+  "295": {
+    "saeko_caba": {
+      "name": "Special Outfit: Hostess"
+    }
+  },
+  "296": {
+    "saeko_date": {
+      "name": "Special Outfit: Date Outfit"
+    }
+  },
+  "297": {
+    "swim_4": {
+      "name": "Special Outfit: Gold Swimsuit"
+    }
+  },
+  "298": {
+    "swim_4_short": {
+      "name": "Special Outfit: Gold Swimsuit (Short Hair)"
+    }
+  },
+  "299": {
+    "chitose_amikomi": {
+      "name": "Normal"
+    }
+  },
+  "300": {
+    "idol_1_amikomi": {
+      "name": "Normal"
+    }
+  },
+  "301": {
+    "idol_2_amikomi": {
+      "name": "Pattern A"
+    }
+  },
+  "302": {
+    "idol_3_amikomi": {
+      "name": "Pattern B"
+    }
+  },
+  "303": {
+    "queen_1_amikomi": {
+      "name": "Normal"
+    }
+  },
+  "304": {
+    "queen_2_amikomi": {
+      "name": "Pattern A"
+    }
+  },
+  "305": {
+    "queen_3_amikomi": {
+      "name": "Pattern B"
+    }
+  },
+  "306": {
+    "kunoichi_1_amikomi": {
+      "name": "Normal"
+    }
+  },
+  "307": {
+    "kunoichi_2_amikomi": {
+      "name": "Pattern A"
+    }
+  },
+  "308": {
+    "kunoichi_3_amikomi": {
+      "name": "Pattern B"
+    }
+  },
+  "309": {
+    "housekeeper_1_amikomi": {
+      "name": "Normal"
+    }
+  },
+  "310": {
+    "housekeeper_2_amikomi": {
+      "name": "Pattern A"
+    }
+  },
+  "311": {
+    "housekeeper_3_amikomi": {
+      "name": "Pattern B"
+    }
+  },
+  "312": {
+    "tropicaldancer_1_amikomi": {
+      "name": "Normal"
+    }
+  },
+  "313": {
+    "tropicaldancer_2_amikomi": {
+      "name": "Pattern A"
+    }
+  },
+  "314": {
+    "tropicaldancer_3_amikomi": {
+      "name": "Pattern B"
+    }
+  },
+  "315": {
+    "tennis_1_amikomi": {
+      "name": "Normal"
+    }
+  },
+  "316": {
+    "tennis_2_amikomi": {
+      "name": "Pattern A"
+    }
+  },
+  "317": {
+    "tennis_3_amikomi": {
+      "name": "Pattern B"
+    }
+  },
+  "318": {
+    "swim_1_amikomi": {
+      "name": "Normal Swimsuit"
+    }
+  },
+  "319": {
+    "swim_2_amikomi": {
+      "name": "Special Outfit: Traditional Swimsuit"
+    }
+  },
+  "320": {
+    "swim_3_amikomi": {
+      "name": "Special Outfit: Tasty Swimsuit"
+    }
+  },
+  "321": {
+    "swim_4_amikomi": {
+      "name": "Special Outfit: Gold Swimsuit"
+    }
+  },
+  "322": {
+    "chitose_amikomi_sonhi": {
+      "name": "Special Outfit: Seonhee"
+    }
+  },
+  "323": {
+    "chitose_amikomi_haruka": {
+      "name": "Special Outfit: Haruka Sawamura"
+    }
+  },
+  "324": {
+    "tomizawa_michio": {
+      "name": "Special Outfit: Ono Michio"
+    }
+  },
+  "325": {
+    "kiryu_michio": {
+      "name": "Special Outfit: Ono Michio"
+    }
+  },
+  "326": {
+    "chitose_michio": {
+      "name": "Special Outfit: Ono Michio"
+    }
+  },
+  "327": {
+    "sonhi_michio": {
+      "name": "Special Outfit: Ono Michio"
+    }
+  },
+  "328": {
+    "swim_4_kasuga": {
+      "name": "Special Outfit: Gold Swimsuit"
+    }
+  },
+  "329": {
+    "swim_1_kasuga": {
+      "name": null
+    }
+  },
+  "330": {
+    "swim_1_kiryu": {
+      "name": null
+    }
+  },
+  "331": {
+    "swim_1_tomizawa": {
+      "name": null
+    }
+  },
+  "332": {
+    "swim_1_nanba": {
+      "name": null
+    }
+  },
+  "333": {
+    "swim_1_adachi": {
+      "name": null
+    }
+  },
+  "334": {
+    "swim_1_han": {
+      "name": null
+    }
+  },
+  "335": {
+    "swim_1_chou": {
+      "name": null
+    }
+  },
+  "336": {
+    "swim_1_saeko": {
+      "name": null
+    }
+  },
+  "337": {
+    "swim_1_sonhi": {
+      "name": null
+    }
+  },
+  "338": {
+    "kasuga_fudangi_y": {
+      "name": "Yokohama Outfit"
+    }
+  },
+  "339": {
+    "kasuga_fudangi_h": {
+      "name": "Hawaii Outfit"
+    }
+  },
+  "340": {
+    "kiryu_fudangi_y": {
+      "name": "Yokohama Outfit"
+    }
+  },
+  "341": {
+    "tomizawa_fudangi_y": {
+      "name": "Yokohama Outfit"
+    }
+  },
+  "342": {
+    "tomizawa_fudangi_h": {
+      "name": "Hawaii Outfit"
+    }
+  },
+  "343": {
+    "adachi_fudangi_y": {
+      "name": "Yokohama Outfit"
+    }
+  },
+  "344": {
+    "adachi_fudangi_h": {
+      "name": "Hawaii Outfit"
+    }
+  },
+  "345": {
+    "chitose_fudangi_y": {
+      "name": "Yokohama Outfit"
+    }
+  },
+  "346": {
+    "chitose_fudangi_short_y": {
+      "name": "Yokohama Outfit (Short Hair)"
+    }
+  },
+  "347": {
+    "chitose_fudangi_h": {
+      "name": "Hawaii Outfit"
+    }
+  },
+  "348": {
+    "chitose_fudangi_short_h": {
+      "name": "Hawaii Outfit (Short Hair)"
+    }
+  },
+  "349": {
+    "chou_fudangi_y": {
+      "name": "Yokohama Outfit"
+    }
+  },
+  "350": {
+    "chou_fudangi_h": {
+      "name": "Hawaii Outfit"
+    }
+  },
+  "351": {
+    "han_fudangi_y": {
+      "name": "Yokohama Outfit"
+    }
+  },
+  "352": {
+    "han_fudangi_h": {
+      "name": "Hawaii Outfit"
+    }
+  },
+  "353": {
+    "nanba_fudangi_y": {
+      "name": "Yokohama Outfit"
+    }
+  },
+  "354": {
+    "nanba_fudangi_h": {
+      "name": "Hawaii Outfit"
+    }
+  },
+  "355": {
+    "sonhi_fudangi_y": {
+      "name": "Yokohama Outfit"
+    }
+  },
+  "356": {
+    "sonhi_fudangi_h": {
+      "name": "Hawaii Outfit"
+    }
+  },
+  "357": {
+    "saeko_fudangi_y": {
+      "name": "Yokohama Outfit"
+    }
+  },
+  "358": {
+    "saeko_fudangi_h": {
+      "name": "Hawaii Outfit"
+    }
+  },
+  "359": {
+    "kasuga_T_victory": {
+      "name": "Special Outfit: Go for Victory Shirt"
+    }
+  },
+  "360": {
+    "kasuga_T_oryu": {
+      "name": "Special Outfit: Legendary Dragon Shirt"
+    }
+  },
+  "361": {
+    "kasuga_T_ryugyo": {
+      "name": "Special Outfit: Hero of Yokohama Shirt"
+    }
+  },
+  "362": {
+    "kasuga_T_8bit": {
+      "name": "Special Outfit: Pixel Shirt"
+    }
+  },
+  "363": {
+    "kasuga_T_ice": {
+      "name": "Special Outfit: White Matsumoto Shave Ice Shirt"
+    }
+  },
+  "364": {
+    "kasuga_T_8_kasuga": {
+      "name": "Special Outfit: Team Kasuga Pixel Shirt"
+    }
+  },
+  "365": {
+    "kasuga_T_8_kiryu": {
+      "name": "Special Outfit: Team Kiryu Pixel Shirt"
+    }
+  },
+  "366": {
+    "kasuga_T_gaiden": {
+      "name": "Special Outfit: Gaiden TGS Shirt"
+    }
+  },
+  "367": {
+    "kasuga_T_ryu8": {
+      "name": "Special Outfit: Infinite Wealth TGS Shirt"
+    }
+  },
+  "368": {
+    "kasuga_T_88tees": {
+      "name": "Special Outfit: 88Tees Shirt"
+    }
+  },
+  "369": {
+    "kasuga_T_lawson": {
+      "name": "Special Outfit: Lawson Exclusive Shirt"
+    }
+  },
+  "370": {
+    "nanba_T_victory": {
+      "name": "Special Outfit: Go for Victory Shirt"
+    }
+  },
+  "371": {
+    "nanba_T_oryu": {
+      "name": "Special Outfit: Legendary Dragon Shirt"
+    }
+  },
+  "372": {
+    "nanba_T_ryugyo": {
+      "name": "Special Outfit: Hero of Yokohama Shirt"
+    }
+  },
+  "373": {
+    "nanba_T_8bit": {
+      "name": "Special Outfit: Pixel Shirt"
+    }
+  },
+  "374": {
+    "nanba_T_ice": {
+      "name": "Special Outfit: White Matsumoto Shave Ice Shirt"
+    }
+  },
+  "375": {
+    "nanba_T_8_kasuga": {
+      "name": "Special Outfit: Team Kasuga Pixel Shirt"
+    }
+  },
+  "376": {
+    "nanba_T_8_kiryu": {
+      "name": "Special Outfit: Team Kiryu Pixel Shirt"
+    }
+  },
+  "377": {
+    "nanba_T_gaiden": {
+      "name": "Special Outfit: Gaiden TGS Shirt"
+    }
+  },
+  "378": {
+    "nanba_T_ryu8": {
+      "name": "Special Outfit: Infinite Wealth TGS Shirt"
+    }
+  },
+  "379": {
+    "nanba_T_88tees": {
+      "name": "Special Outfit: 88Tees Shirt"
+    }
+  },
+  "380": {
+    "nanba_T_lawson": {
+      "name": "Special Outfit: Lawson Exclusive Shirt"
+    }
+  },
+  "381": {
+    "adachi_T_victory": {
+      "name": "Special Outfit: Go for Victory Shirt"
+    }
+  },
+  "382": {
+    "adachi_T_oryu": {
+      "name": "Special Outfit: Legendary Dragon Shirt"
+    }
+  },
+  "383": {
+    "adachi_T_ryugyo": {
+      "name": "Special Outfit: Hero of Yokohama Shirt"
+    }
+  },
+  "384": {
+    "adachi_T_8bit": {
+      "name": "Special Outfit: Pixel Shirt"
+    }
+  },
+  "385": {
+    "adachi_T_ice": {
+      "name": "Special Outfit: White Matsumoto Shave Ice Shirt"
+    }
+  },
+  "386": {
+    "adachi_T_8_kasuga": {
+      "name": "Special Outfit: Team Kasuga Pixel Shirt"
+    }
+  },
+  "387": {
+    "adachi_T_8_kiryu": {
+      "name": "Special Outfit: Team Kiryu Pixel Shirt"
+    }
+  },
+  "388": {
+    "adachi_T_gaiden": {
+      "name": "Special Outfit: Gaiden TGS Shirt"
+    }
+  },
+  "389": {
+    "adachi_T_ryu8": {
+      "name": "Special Outfit: Infinite Wealth TGS Shirt"
+    }
+  },
+  "390": {
+    "adachi_T_88tees": {
+      "name": "Special Outfit: 88Tees Shirt"
+    }
+  },
+  "391": {
+    "adachi_T_lawson": {
+      "name": "Special Outfit: Lawson Exclusive Shirt"
+    }
+  },
+  "392": {
+    "tomizawa_T_victory": {
+      "name": "Special Outfit: Go for Victory Shirt"
+    }
+  },
+  "393": {
+    "tomizawa_T_oryu": {
+      "name": "Special Outfit: Legendary Dragon Shirt"
+    }
+  },
+  "394": {
+    "tomizawa_T_ryugyo": {
+      "name": "Special Outfit: Hero of Yokohama Shirt"
+    }
+  },
+  "395": {
+    "tomizawa_T_8bit": {
+      "name": "Special Outfit: Pixel Shirt"
+    }
+  },
+  "396": {
+    "tomizawa_T_ice": {
+      "name": "Special Outfit: White Matsumoto Shave Ice Shirt"
+    }
+  },
+  "397": {
+    "tomizawa_T_8_kasuga": {
+      "name": "Special Outfit: Team Kasuga Pixel Shirt"
+    }
+  },
+  "398": {
+    "tomizawa_T_8_kiryu": {
+      "name": "Special Outfit: Team Kiryu Pixel Shirt"
+    }
+  },
+  "399": {
+    "tomizawa_T_gaiden": {
+      "name": "Special Outfit: Gaiden TGS Shirt"
+    }
+  },
+  "400": {
+    "tomizawa_T_ryu8": {
+      "name": "Special Outfit: Infinite Wealth TGS Shirt"
+    }
+  },
+  "401": {
+    "tomizawa_T_88tees": {
+      "name": "Special Outfit: 88Tees Shirt"
+    }
+  },
+  "402": {
+    "tomizawa_T_lawson": {
+      "name": "Special Outfit: Lawson Exclusive Shirt"
+    }
+  },
+  "403": {
+    "han_T_victory": {
+      "name": "Special Outfit: Go for Victory Shirt"
+    }
+  },
+  "404": {
+    "han_T_oryu": {
+      "name": "Special Outfit: Legendary Dragon Shirt"
+    }
+  },
+  "405": {
+    "han_T_ryugyo": {
+      "name": "Special Outfit: Hero of Yokohama Shirt"
+    }
+  },
+  "406": {
+    "han_T_8bit": {
+      "name": "Special Outfit: Pixel Shirt"
+    }
+  },
+  "407": {
+    "han_T_ice": {
+      "name": "Special Outfit: White Matsumoto Shave Ice Shirt"
+    }
+  },
+  "408": {
+    "han_T_8_kasuga": {
+      "name": "Special Outfit: Team Kasuga Pixel Shirt"
+    }
+  },
+  "409": {
+    "han_T_8_kiryu": {
+      "name": "Special Outfit: Team Kiryu Pixel Shirt"
+    }
+  },
+  "410": {
+    "han_T_gaiden": {
+      "name": "Special Outfit: Gaiden TGS Shirt"
+    }
+  },
+  "411": {
+    "han_T_ryu8": {
+      "name": "Special Outfit: Infinite Wealth TGS Shirt"
+    }
+  },
+  "412": {
+    "han_T_88tees": {
+      "name": "Special Outfit: 88Tees Shirt"
+    }
+  },
+  "413": {
+    "han_T_lawson": {
+      "name": "Special Outfit: Lawson Exclusive Shirt"
+    }
+  },
+  "414": {
+    "chou_T_victory": {
+      "name": "Special Outfit: Go for Victory Shirt"
+    }
+  },
+  "415": {
+    "chou_T_oryu": {
+      "name": "Special Outfit: Legendary Dragon Shirt"
+    }
+  },
+  "416": {
+    "chou_T_ryugyo": {
+      "name": "Special Outfit: Hero of Yokohama Shirt"
+    }
+  },
+  "417": {
+    "chou_T_8bit": {
+      "name": "Special Outfit: Pixel Shirt"
+    }
+  },
+  "418": {
+    "chou_T_ice": {
+      "name": "Special Outfit: White Matsumoto Shave Ice Shirt"
+    }
+  },
+  "419": {
+    "chou_T_8_kasuga": {
+      "name": "Special Outfit: Team Kasuga Pixel Shirt"
+    }
+  },
+  "420": {
+    "chou_T_8_kiryu": {
+      "name": "Special Outfit: Team Kiryu Pixel Shirt"
+    }
+  },
+  "421": {
+    "chou_T_gaiden": {
+      "name": "Special Outfit: Gaiden TGS Shirt"
+    }
+  },
+  "422": {
+    "chou_T_ryu8": {
+      "name": "Special Outfit: Infinite Wealth TGS Shirt"
+    }
+  },
+  "423": {
+    "chou_T_88tees": {
+      "name": "Special Outfit: 88Tees Shirt"
+    }
+  },
+  "424": {
+    "chou_T_lawson": {
+      "name": "Special Outfit: Lawson Exclusive Shirt"
+    }
+  },
+  "425": {
+    "kiryu_T_victory": {
+      "name": "Special Outfit: Go for Victory Shirt"
+    }
+  },
+  "426": {
+    "kiryu_T_oryu": {
+      "name": "Special Outfit: Legendary Dragon Shirt"
+    }
+  },
+  "427": {
+    "kiryu_T_ryugyo": {
+      "name": "Special Outfit: Hero of Yokohama Shirt"
+    }
+  },
+  "428": {
+    "kiryu_T_8bit": {
+      "name": "Special Outfit: Pixel Shirt"
+    }
+  },
+  "429": {
+    "kiryu_T_ice": {
+      "name": "Special Outfit: White Matsumoto Shave Ice Shirt"
+    }
+  },
+  "430": {
+    "kiryu_T_8_kasuga": {
+      "name": "Special Outfit: Team Kasuga Pixel Shirt"
+    }
+  },
+  "431": {
+    "kiryu_T_8_kiryu": {
+      "name": "Special Outfit: Team Kiryu Pixel Shirt"
+    }
+  },
+  "432": {
+    "kiryu_T_gaiden": {
+      "name": "Special Outfit: Gaiden TGS Shirt"
+    }
+  },
+  "433": {
+    "kiryu_T_ryu8": {
+      "name": "Special Outfit: Infinite Wealth TGS Shirt"
+    }
+  },
+  "434": {
+    "kiryu_T_88tees": {
+      "name": "Special Outfit: 88Tees Shirt"
+    }
+  },
+  "435": {
+    "kiryu_T_lawson": {
+      "name": "Special Outfit: Lawson Exclusive Shirt"
+    }
+  },
+  "436": {
+    "chitose_T_victory": {
+      "name": "Special Outfit: Go for Victory Shirt"
+    }
+  },
+  "437": {
+    "chitose_T_oryu": {
+      "name": "Special Outfit: Legendary Dragon Shirt"
+    }
+  },
+  "438": {
+    "chitose_T_ryugyo": {
+      "name": "Special Outfit: Hero of Yokohama Shirt"
+    }
+  },
+  "439": {
+    "chitose_T_8bit": {
+      "name": "Special Outfit: Pixel Shirt"
+    }
+  },
+  "440": {
+    "chitose_T_ice": {
+      "name": "Special Outfit: White Matsumoto Shave Ice Shirt"
+    }
+  },
+  "441": {
+    "chitose_T_8_kasuga": {
+      "name": "Special Outfit: Team Kasuga Pixel Shirt"
+    }
+  },
+  "442": {
+    "chitose_T_8_kiryu": {
+      "name": "Special Outfit: Team Kiryu Pixel Shirt"
+    }
+  },
+  "443": {
+    "chitose_T_gaiden": {
+      "name": "Special Outfit: Gaiden TGS Shirt"
+    }
+  },
+  "444": {
+    "chitose_T_ryu8": {
+      "name": "Special Outfit: Infinite Wealth TGS Shirt"
+    }
+  },
+  "445": {
+    "chitose_T_88tees": {
+      "name": "Special Outfit: 88Tees Shirt"
+    }
+  },
+  "446": {
+    "chitose_T_lawson": {
+      "name": "Special Outfit: Lawson Exclusive Shirt"
+    }
+  },
+  "447": {
+    "chitose_T_victory_short": {
+      "name": "Special Outfit: Go for Victory Shirt (Short Hair)"
+    }
+  },
+  "448": {
+    "chitose_T_oryu_short": {
+      "name": "Special Outfit: Legendary Dragon Shirt (Short Hair)"
+    }
+  },
+  "449": {
+    "chitose_T_ryugyo_short": {
+      "name": "Special Outfit: Hero of Yokohama Shirt (Short Hair)"
+    }
+  },
+  "450": {
+    "chitose_T_8bit_short": {
+      "name": "Special Outfit: Pixel Shirt (Short Hair)"
+    }
+  },
+  "451": {
+    "chitose_T_ice_short": {
+      "name": "Special Outfit: White Matsumoto Shave Ice Shirt (Short Hair)"
+    }
+  },
+  "452": {
+    "chitose_T_8_kasuga_short": {
+      "name": "Special Outfit: Team Kasuga Pixel Shirt (Short Hair)"
+    }
+  },
+  "453": {
+    "chitose_T_8_kiryu_short": {
+      "name": "Special Outfit: Team Kiryu Pixel Shirt (Short Hair)"
+    }
+  },
+  "454": {
+    "chitose_T_gaiden_short": {
+      "name": "Special Outfit: Gaiden TGS Shirt (Short Hair)"
+    }
+  },
+  "455": {
+    "chitose_T_ryu8_short": {
+      "name": "Special Outfit: Infinite Wealth TGS Shirt (Short Hair)"
+    }
+  },
+  "456": {
+    "chitose_T_88tees_short": {
+      "name": "Special Outfit: 88Tees Shirt (Short Hair)"
+    }
+  },
+  "457": {
+    "chitose_T_lawson_short": {
+      "name": "Special Outfit: Lawson Exclusive Shirt (Short Hair)"
+    }
+  },
+  "458": {
+    "saeko_T_victory": {
+      "name": "Special Outfit: Go for Victory Shirt"
+    }
+  },
+  "459": {
+    "saeko_T_oryu": {
+      "name": "Special Outfit: Legendary Dragon Shirt"
+    }
+  },
+  "460": {
+    "saeko_T_ryugyo": {
+      "name": "Special Outfit: Hero of Yokohama Shirt"
+    }
+  },
+  "461": {
+    "saeko_T_8bit": {
+      "name": "Special Outfit: Pixel Shirt"
+    }
+  },
+  "462": {
+    "saeko_T_ice": {
+      "name": "Special Outfit: White Matsumoto Shave Ice Shirt"
+    }
+  },
+  "463": {
+    "saeko_T_8_kasuga": {
+      "name": "Special Outfit: Team Kasuga Pixel Shirt"
+    }
+  },
+  "464": {
+    "saeko_T_8_kiryu": {
+      "name": "Special Outfit: Team Kiryu Pixel Shirt"
+    }
+  },
+  "465": {
+    "saeko_T_gaiden": {
+      "name": "Special Outfit: Gaiden TGS Shirt"
+    }
+  },
+  "466": {
+    "saeko_T_ryu8": {
+      "name": "Special Outfit: Infinite Wealth TGS Shirt"
+    }
+  },
+  "467": {
+    "saeko_T_88tees": {
+      "name": "Special Outfit: 88Tees Shirt"
+    }
+  },
+  "468": {
+    "saeko_T_lawson": {
+      "name": "Special Outfit: Lawson Exclusive Shirt"
+    }
+  },
+  "469": {
+    "sonhi_T_victory": {
+      "name": "Special Outfit: Go for Victory Shirt"
+    }
+  },
+  "470": {
+    "sonhi_T_oryu": {
+      "name": "Special Outfit: Legendary Dragon Shirt"
+    }
+  },
+  "471": {
+    "sonhi_T_ryugyo": {
+      "name": "Special Outfit: Hero of Yokohama Shirt"
+    }
+  },
+  "472": {
+    "sonhi_T_8bit": {
+      "name": "Special Outfit: Pixel Shirt"
+    }
+  },
+  "473": {
+    "sonhi_T_ice": {
+      "name": "Special Outfit: White Matsumoto Shave Ice Shirt"
+    }
+  },
+  "474": {
+    "sonhi_T_8_kasuga": {
+      "name": "Special Outfit: Team Kasuga Pixel Shirt"
+    }
+  },
+  "475": {
+    "sonhi_T_8_kiryu": {
+      "name": "Special Outfit: Team Kiryu Pixel Shirt"
+    }
+  },
+  "476": {
+    "sonhi_T_gaiden": {
+      "name": "Special Outfit: Gaiden TGS Shirt"
+    }
+  },
+  "477": {
+    "sonhi_T_ryu8": {
+      "name": "Special Outfit: Infinite Wealth TGS Shirt"
+    }
+  },
+  "478": {
+    "sonhi_T_88tees": {
+      "name": "Special Outfit: 88Tees Shirt"
+    }
+  },
+  "479": {
+    "sonhi_T_lawson": {
+      "name": "Special Outfit: Lawson Exclusive Shirt"
+    }
+  }
+}
