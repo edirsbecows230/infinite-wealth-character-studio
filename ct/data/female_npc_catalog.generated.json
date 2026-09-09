@@ -7,7 +7,7 @@
     "model_sha256": "358FB5A6D4A889D1B4B3A90AD91B647745523D43F8D7291FDDAAB119291EA616",
     "selection": "valid sex=2 groups h_w_*, hw_w_*, k_f_student, y_f_student"
   },
-  "count": 410,
+  "count": 404,
   "entries": [
     {
       "id": "female_lab_22741",
@@ -6620,102 +6620,6 @@
       ],
       "confirmed_identity": false,
       "label": "y_f_student[6] | c_cw_t_blazerA | c_cw_f_0_20_01 / c_cw_h_hairA | key 15911 row 10631"
-    },
-    {
-      "id": "private_dondoko_saya",
-      "character_key": 6254,
-      "character_row": 10387,
-      "adv_model_id": 23174,
-      "model_row": 7345,
-      "face_model": "c_cw_f_RI_saya",
-      "hair_model": "",
-      "tops_model": "c_cw_x_RI_saya",
-      "voicer": 1160,
-      "groups": [
-        "w_mg_RI_saya"
-      ],
-      "confirmed_identity": true,
-      "label": "[Dondoko Island / 太鼓岛]Saya / 沙耶",
-      "curated": true
-    },
-    {
-      "id": "private_dondoko_yui",
-      "character_key": 6255,
-      "character_row": 10389,
-      "adv_model_id": 23175,
-      "model_row": 7347,
-      "face_model": "c_cw_f_RI_yui",
-      "hair_model": "",
-      "tops_model": "c_cw_x_RI_yui",
-      "voicer": 1159,
-      "groups": [
-        "w_mg_RI_yui"
-      ],
-      "confirmed_identity": true,
-      "label": "[Dondoko Island / 太鼓岛]Yui / 结衣",
-      "curated": true
-    },
-    {
-      "id": "private_tatara_hisoka",
-      "character_key": 26730,
-      "character_row": 9988,
-      "adv_model_id": 21304,
-      "model_row": 8274,
-      "face_model": "",
-      "hair_model": "",
-      "tops_model": "c_aw_tatara",
-      "voicer": 0,
-      "voice_override": 281,
-      "groups": [],
-      "confirmed_identity": true,
-      "label": "[Tatara Channel / 多多良频道]Tatara Hisoka / 多多良秘花",
-      "curated": true
-    },
-    {
-      "id": "private_sayama_kaoru",
-      "character_key": 9432,
-      "character_row": 10479,
-      "adv_model_id": 6519,
-      "model_row": 8383,
-      "face_model": "",
-      "hair_model": "",
-      "tops_model": "c_aw_sayama",
-      "voicer": 1091,
-      "groups": [],
-      "confirmed_identity": true,
-      "label": "[Kiryu Memories / 桐生回忆]Kaoru Sayama / 狭山薰",
-      "curated": true
-    },
-    {
-      "id": "private_maeda_laura",
-      "character_key": 26911,
-      "character_row": 10166,
-      "adv_model_id": 21484,
-      "model_row": 9755,
-      "face_model": "c_cw_f_hinata",
-      "hair_model": "",
-      "tops_model": "c_cw_x_qualificationHW",
-      "voicer": 1074,
-      "groups": [],
-      "confirmed_identity": true,
-      "label": "[Substory 47 / 支线47]Laura Maeda / 前田萝拉",
-      "curated": true
-    },
-    {
-      "id": "private_shizuko",
-      "character_key": 16186,
-      "character_row": 9128,
-      "adv_model_id": 24962,
-      "model_row": 251,
-      "face_model": "c_cw_f_E05_shizuko",
-      "hair_model": "",
-      "tops_model": "c_cw_t_blazerA",
-      "voicer": 0,
-      "voice_override": 1091,
-      "groups": [],
-      "confirmed_identity": true,
-      "label": "[Kiryu Memories / 桐生回忆]Shizuko / 静子",
-      "curated": true
     }
   ]
 }

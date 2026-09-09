@@ -1,34 +1,31 @@
 # Infinite Wealth Character Studio
 
-Runtime character and costume selector for Like a Dragon: Infinite Wealth on Windows.
+Standalone **v0.7.0** for Like a Dragon: Infinite Wealth on Windows. Includes a separate **v1.3.0-rc1 Cheat Engine table**.
 
-- Standalone application: **v0.4.0-alpha5** (Python / PySide6).
-- Cheat Engine table: **v1.2.1-rc1** (Lua).
+## Features
 
-Select separate character models and costume variants for Ichiban and Kiryu. The tool validates the runtime tables, backs up affected values, reads back writes and attempts rollback on failure. A complete dual-source transaction covers 101 identity mappings and 128 costume rows (357 values).
+- Ten independently selectable source slots: Ichiban, Kiryu, Nanba, Adachi, Zhao, Joongi, Tomizawa, Saeko, Chitose and Seonhee.
+- Searchable bilingual UI, grouped named characters, fixed model variants and restore controls.
+- 47 curated targets, including Jo Amon, Jiro Amon, Kazuya Amon and Sango Amon; 404 female and 4,742 male NPC candidates.
+- Validated memory writes, readback, rollback attempts and restoration of saved state.
 
-## Source layout
+Party members use Character identity mappings. Ichiban and Kiryu additionally use Costume table mappings; party support does not imply identical costume behavior for every character. The complete source plan covers 574 identity mappings and 128 costume rows (830 identity/costume values). Optional voice overrides have separate backup handling.
 
-- `app/`: desktop application, build script and offline tests.
-- `ct/`: Cheat Engine Lua source, table builder and Lua syntax validator.
-- `data/`: required character catalogs, transaction plans and minimal costume labels.
-- `tools/`: optional data preparation and transaction verification scripts.
-- `artifacts/`: reference CT and its SHA-256 checksum.
+The CT remains a two-protagonist selector. Use the standalone application for ten-slot replacement.
 
-See [BUILDING.md](BUILDING.md) for setup, tests and builds, and [DATA.md](DATA.md) for data provenance.
+## Run
 
-## Usage and limitations
+Download the standalone executable from a release package and launch it after loading a game save. Choose a source slot, select a target, enable the desired slots, and apply. Models may need a menu refresh, map transition or save reload to update.
 
-Start the game and load a save, then start the application. Select models and costumes for the active protagonist slots and apply. Reopening menus, changing maps or reloading a save may be needed to refresh models. Use Restore First Backup before closing. Force Vanilla Reset overwrites affected modded values and should be used only for recovery.
+Restore Original Models writes built-in original values. Restore Launch Backup restores the snapshot captured at first Apply and preserves pre-existing changes present in that snapshot. Game updates or conflicting mods may invalidate the expected memory layout.
 
-The application targets `likeadragon8.exe` through Windows process memory APIs. Game updates can invalidate table assumptions. Offline tests do not establish compatibility with every game version or validate every NPC appearance.
+## Source and build
 
-## Release correspondence
+- `app/`: standalone source, build script and tests.
+- `data/`: standalone runtime catalogs and minimal costume labels.
+- `ct/`: CT Lua source, builder and CT-specific catalogs.
+- `artifacts/`: reference CT and checksum.
 
-Reference CT SHA-256: `03FEC6764C589ACFF4B0B01BB05D8D327AD5B6B0393540FBCFB070F64BB52A7C`.
+See [BUILDING.md](BUILDING.md), [DATA.md](DATA.md) and [THIRD_PARTY.md](THIRD_PARTY.md).
 
-Previously recorded EXE SHA-256: `2D653A8DEAAED665EDDB7C9ED3A013D63530AE77F0FF48B8DB097B89D463DE2E`. The EXE is not included. This source distribution reorganizes paths and reduces unused data fields; a new executable build will have a different hash. The historical EXE-to-source correspondence has not been independently established by this reorganization.
-
-## Licensing
-
-No project-wide reuse license has been selected. Public source availability alone is not a grant of permission to redistribute or relicense it. Third-party dependencies retain their own licenses; game-derived identifiers and labels are not claimed as original project assets. See [THIRD_PARTY.md](THIRD_PARTY.md).
+No extracted binary game databases, models, textures, audio or saves are distributed. No project-wide reuse license has been selected; third-party components and game-derived data retain their respective rights.

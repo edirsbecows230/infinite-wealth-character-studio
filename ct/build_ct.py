@@ -14,11 +14,11 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 from y8mod.ce_lua import compile_ce_lua  # noqa: E402
 SOURCE = HERE / "y8_dual_source_selector.lua"
-PLAN = HERE.parent / "data" / "dual_source_selector.generated.json"
-CATALOG = HERE.parent / "data" / "female_npc_catalog.generated.json"
-MALE_CATALOG = HERE.parent / "data" / "male_npc_catalog.generated.json"
+PLAN = HERE / "data" / "dual_source_selector.generated.json"
+CATALOG = HERE / "data" / "female_npc_catalog.generated.json"
+MALE_CATALOG = HERE / "data" / "male_npc_catalog.generated.json"
 COSTUME_METADATA = HERE.parent / "data" / "costume_vanilla_rpg_costume.json"
-OUTPUT = HERE.parent / "artifacts" / "LikeADragon8_InfiniteWealth_Character_Studio_v1.2.1-rc1.CT"
+OUTPUT = HERE.parent / "artifacts" / "LikeADragon8_InfiniteWealth_Character_Studio_v1.3.0-rc1.CT"
 
 
 def lua_string(value: str) -> str:
@@ -108,6 +108,8 @@ def plan_lua(document: dict, catalog: dict, male_catalog: dict,
             )
         lines.extend(("      },", "    },"))
     lines.extend(("  },", "  labTargetOrder = {"))
+    # Amon clan targets are real Character Identity rows, not lab catalog
+    # placeholders, so they go into the curated targetOrder below.
     for entry in catalog["entries"]:
         lines.append(f"    {lua_string(entry['id'])},")
     lines.extend(("  },", "  labTargets = {"))
@@ -177,8 +179,8 @@ def validate_plan(document: dict) -> None:
         raise ValueError("unexpected dual-source plan schema")
     if document.get("source_order") != ["ichiban", "kiryu"]:
         raise ValueError("dual-source order must be Ichiban, Kiryu")
-    if len(document.get("targets", [])) != 59:
-        raise ValueError("curated selector requires 59 targets including Queen and both runners")
+    if len(document.get("targets", [])) != 63:
+        raise ValueError("curated selector requires 63 targets including Queen, both runners, and Amon clan")
     expected = {"ichiban": (7, 67), "kiryu": (94, 61)}
     positions: set[int] = set()
     for source_id, (entry_count, row_count) in expected.items():

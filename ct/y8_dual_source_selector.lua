@@ -2,7 +2,7 @@
 -- Ichiban / Kiryu / Both sources with one transaction owner.
 -- No debugger APIs and no live World Actor refresh.
 
-local SCRIPT_VERSION = "1.2.1-rc1"
+local SCRIPT_VERSION = "1.3.0-rc1"
 local GAME_PROCESS = "likeadragon8.exe"
 local STATUS_RECORD_ID = 1900
 local LOG_PATH = (os.getenv("TEMP") or os.getenv("TMP") or ".") ..
@@ -1766,8 +1766,8 @@ end
 
 -- v1.2 release UI: one editor with two persistent, independently applied slots.
 local UI_TEXT = {
-  title = { en="Like a Dragon: Infinite Wealth — Character Studio v1.2.1-rc1",
-            zh="如龙8 无尽财富 · 角色模型工坊 v1.2.1-rc1" },
+  title = { en="Like a Dragon: Infinite Wealth — Character Studio v1.3.0-rc1",
+            zh="如龙8 无尽财富 · 角色模型工坊 v1.3.0-rc1" },
   editSlot = { en="Edit protagonist", zh="编辑主角槽位" },
   ichiban = { en="Ichiban", zh="春日" },
   kiryu = { en="Kiryu", zh="桐生" },

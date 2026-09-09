@@ -1,1 +1,1 @@
-"""Cheat Engine build support."""
+"""CT build support."""

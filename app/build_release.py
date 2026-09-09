@@ -13,11 +13,12 @@ HERE = Path(__file__).resolve().parent
 SRC = HERE / "src"
 ENTRY = SRC / "y8trainer" / "app.py"
 SHARED = HERE.parent / "data"
+PLAN = SHARED / "multi_source_selector.generated.json"
 COSTUME_METADATA = HERE.parent / "data" / "costume_vanilla_rpg_costume.json"
 BUILD = HERE / "build"
 RELEASE = HERE / "release"
 ICON = BUILD / "infinite_wealth_fluent.ico"
-NAME = "InfiniteWealthCharacterStudio_v0.4.0-alpha5"
+NAME = "InfiniteWealthCharacterStudio_v0.7.0"
 
 
 def make_icon() -> None:
@@ -47,7 +48,7 @@ def make_icon() -> None:
 
 def main() -> int:
     required = [
-        SHARED / "dual_source_selector.generated.json",
+        PLAN,
         SHARED / "female_npc_catalog.generated.json",
         SHARED / "male_npc_catalog.generated.json",
         COSTUME_METADATA,
@@ -63,8 +64,8 @@ def main() -> int:
     # Keep generated build metadata isolated from older builds. On Windows an
     # Explorer/AV scan can retain a handle to a previous .spec or analysis
     # artifact and make an otherwise clean rebuild fail with PermissionError.
-    work = BUILD / "pyinstaller_v040a5_special_identity"
-    spec = BUILD / "spec_v040a5_special_identity"
+    work = BUILD / f"pyinstaller_{NAME}"
+    spec = BUILD / f"spec_{NAME}"
     work.mkdir(parents=True, exist_ok=True)
     spec.mkdir(parents=True, exist_ok=True)
 

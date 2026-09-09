@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-PLAN_FILE = "dual_source_selector.generated.json"
+PLAN_FILE = "multi_source_selector.generated.json"
 FEMALE_FILE = "female_npc_catalog.generated.json"
 MALE_FILE = "male_npc_catalog.generated.json"
 COSTUME_FILE = "costume_vanilla_rpg_costume.json"
@@ -82,11 +82,15 @@ class DataRepository:
             self.targets[target["id"]] = target
             self.curated_ids.append(target["id"])
         for raw in female["entries"]:
-            target = self._normalize_catalog(raw, "female")
+            kind = "curated" if raw.get("curated") else "female"
+            target = self._normalize_catalog(raw, kind)
             if target["id"] in self.targets:
                 raise ValueError(f"duplicate target id {target['id']}")
             self.targets[target["id"]] = target
-            self.female_ids.append(target["id"])
+            if kind == "curated":
+                self.curated_ids.append(target["id"])
+            else:
+                self.female_ids.append(target["id"])
         for raw in male["entries"]:
             target = self._normalize_catalog(raw, "male")
             if target["id"] in self.targets:
@@ -108,11 +112,17 @@ class DataRepository:
         male: dict[str, Any],
         costumes: dict[str, Any],
     ) -> None:
-        if document.get("schema") != "y8.runtime_dual_source_selector.v2":
-            raise ValueError("unsupported dual-source selector plan")
-        if document.get("source_order") != ["ichiban", "kiryu"]:
-            raise ValueError("the generated plan must contain Ichiban and Kiryu in order")
-        if len(document.get("targets", [])) != 59:
+        if document.get("schema") != "y8.runtime_multi_source_selector.v3":
+            raise ValueError("unsupported multi-source selector plan")
+        source_order = document.get("source_order", [])
+        if source_order[:2] != ["ichiban", "kiryu"] or len(source_order) < 2:
+            raise ValueError("the generated plan must contain Ichiban and Kiryu first")
+        if len(source_order) != len(set(source_order)) or set(source_order) != set(document.get("sources", {})):
+            raise ValueError("source order does not match the source table")
+        expected_curated = 41
+        if document.get("curated_target_count") != expected_curated:
+            raise ValueError("unexpected curated target declaration")
+        if len(document.get("targets", [])) != expected_curated:
             raise ValueError("curated target count mismatch")
         if female.get("schema") != "y8.female_npc_catalog.v1" or female.get("count") != len(female.get("entries", [])):
             raise ValueError("female NPC catalog is missing or stale")
@@ -121,8 +131,18 @@ class DataRepository:
         if costumes.get("TABLE_ID") != 3536 or costumes.get("ROW_COUNT") != 480:
             raise ValueError("RPG Costume metadata is missing or stale")
         tx = document.get("transaction_sizes", {})
-        if tx.get("ichiban") != 141 or tx.get("kiryu") != 216 or tx.get("both") != 357:
-            raise ValueError("transaction size mismatch")
+        declared_identity = sum(
+            len(document["sources"][key]["context_entries"]) for key in source_order
+        )
+        declared_costume = sum(
+            len(document["sources"][key]["source_records"]) for key in source_order
+        )
+        if tx.get("total_writes") != declared_identity + declared_costume * 2:
+            raise ValueError(
+                "transaction size mismatch "
+                f"declared={tx.get('total_writes')} "
+                f"computed={declared_identity + declared_costume * 2}"
+            )
 
     @staticmethod
     def _normalize_costumes(raw: dict[str, Any]) -> dict[int, dict[str, str]]:
@@ -153,7 +173,7 @@ class DataRepository:
         return {
             "id": raw["id"],
             "label": raw["label"],
-            "player": int(raw["player"]),
+            "player": None if raw["player"] is None else int(raw["player"]),
             "row_count": int(raw["row_count"]),
             "context_entries": [
                 {
@@ -222,8 +242,38 @@ class DataRepository:
         key = int(raw["character_key"])
         row = int(raw["character_row"])
         region = raw.get("region") or ""
-        prefix = "[Female NPC / 女性 NPC]" if kind == "female" else "[Male NPC / 男性 NPC]"
-        label = f"{prefix} {raw['label']}"
+        if kind == "curated":
+            prefix = "[Named Character / 具名角色]"
+        elif kind == "female":
+            prefix = "[Female NPC / 女性 NPC]"
+        else:
+            prefix = "[Male NPC / 男性 NPC]"
+        label = str(raw["label"]) if kind == "curated" else f"{prefix} {raw['label']}"
+        variants = [{
+            "id": f"catalog_{key}",
+            "label": f"Catalog key {key} / 目录模型 — {raw.get('tops_model') or 'unknown'}",
+            "character": key,
+            "hawaii": key,
+            "variant_key": key,
+            "character_row": row,
+            "model": raw.get("tops_model") or "",
+        }]
+        for extra in raw.get("extra_variants", ()):
+            extra_key = int(extra["character_key"])
+            extra_row = int(extra["character_row"])
+            extra_model = str(extra.get("tops_model") or "")
+            variants.append({
+                "id": f"catalog_{extra_key}",
+                "label": str(
+                    extra.get("label")
+                    or f"Catalog key {extra_key} / 目录模型 — {extra_model}"
+                ),
+                "character": extra_key,
+                "hawaii": extra_key,
+                "variant_key": extra_key,
+                "character_row": extra_row,
+                "model": extra_model,
+            })
         target = {
             "id": raw["id"],
             "label": label,
@@ -240,15 +290,8 @@ class DataRepository:
             "catalog_group": "; ".join(raw.get("groups", [])),
             "region": region,
             "confirmed_identity": bool(raw.get("confirmed_identity")),
-            "variants": [{
-                "id": f"catalog_{key}",
-                "label": f"Catalog key {key} / 目录模型 — {raw.get('tops_model') or 'unknown'}",
-                "character": key,
-                "hawaii": key,
-                "variant_key": key,
-                "character_row": row,
-                "model": raw.get("tops_model") or "",
-            }],
+            "voice_override": raw.get("voice_override"),
+            "variants": variants,
         }
         target["search_text"] = " ".join(
             str(value) for value in (
@@ -278,10 +321,19 @@ class DataRepository:
         costume_rows: set[int] = set()
         identity_count = 0
         costume_count = 0
+        players_seen: set[int] = set()
         for source_id in self.source_order:
             source = self.sources[source_id]
             if len(source["records"]) != source["row_count"]:
                 raise ValueError(f"source record count mismatch: {source_id}")
+            player = source["player"]
+            if player is None:
+                if source["records"]:
+                    raise ValueError(f"identity-only source has Costume rows: {source_id}")
+            else:
+                if not isinstance(player, int) or player in players_seen or not 0 < player <= 0xFFFF:
+                    raise ValueError(f"invalid/duplicate Costume player slot: {source_id}")
+                players_seen.add(player)
             for entry in source["context_entries"]:
                 if not 0 <= entry["position"] < 10646 or not 0 <= entry["original_row"] < 10646:
                     raise ValueError(f"Character entry out of range: {source_id}")
@@ -297,7 +349,10 @@ class DataRepository:
                 for field in ("original_character", "original_hawaii"):
                     if not 0 <= record[field] <= 0xFFFF:
                         raise ValueError(f"Costume {field} out of u16 range")
-        if identity_count != 101 or costume_count != 128:
+
+        # The proven protagonist Costume rows are retained; party sources are
+        # identity-only by design.
+        if identity_count != 574 or costume_count != 128:
             raise ValueError(
                 f"computed transaction count mismatch identity={identity_count} costume={costume_count}"
             )
@@ -305,6 +360,9 @@ class DataRepository:
         for target_id, target in self.targets.items():
             if not 0 <= target["target_row"] < 10646:
                 raise ValueError(f"target row out of range: {target_id}")
+            voice_override = target.get("voice_override")
+            if voice_override is not None and not 0 < voice_override <= 0xFFFF:
+                raise ValueError(f"target voice_override out of u16 range: {target_id}")
             for field in ("standard_character", "standard_hawaii"):
                 if not 0 < target[field] <= 0xFFFF:
                     raise ValueError(f"target {field} out of u16 range: {target_id}")
@@ -318,6 +376,8 @@ class DataRepository:
                 for source_id in self.source_order:
                     plan = target["source_plans"].get(source_id)
                     expected_rows = set(self.sources[source_id]["records"])
+                    if not expected_rows:
+                        continue
                     if plan is None or set(plan) != expected_rows:
                         raise ValueError(f"incomplete source plan target={target_id} source={source_id}")
                     if any(not 0 <= value <= 0xFFFF for pair in plan.values() for value in pair):

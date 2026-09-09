@@ -2,7 +2,7 @@
   "schema": "y8.runtime_dual_source_selector.v2",
   "source": {
     "base_plan": "npc_runtime_selector.generated.json",
-    "base_plan_sha256": "7CDFB4A8A3C54830EE05175FAC725C817CDB79BD6A5794615385062021298D6F",
+    "base_plan_sha256": "9DD47895B958FEFB78C76895C5E5F11401A3E22527AE6B6077DCD6E46A7E70FC",
     "rule_engine": "y8_character_replacer.py::build_costume_overrides",
     "character_sha256": "4FCB22E8E03FFFF05DF5A2A3BE1FBBB357C4AA704E600EE8376018C786CE3CA3",
     "costume_sha256": "D9879695F97AF3D24F448BF0581D7A4125A9E05150E466DA7631083CFAF06883"
@@ -1312,8 +1312,9 @@
     "playable": 10,
     "story_npc": 19,
     "street_npc": 11,
-    "total": 59,
-    "female_npc_expansion": 19
+    "total": 63,
+    "female_npc_expansion": 19,
+    "amon_clan": 4
   },
   "targets": [
     {
@@ -32292,6 +32293,28 @@
           "model": "c_cw_x_yuki_dress_now",
           "variant_key": 6193,
           "character_row": 10636
+        },
+        {
+          "id": "pair_14169_14169",
+          "label": "2006 Dress / 2006年裙装 — c_cw_x_yuki_dress_2006 (14169/14169)",
+          "source_costume": null,
+          "category": "dress_2006",
+          "character": 14169,
+          "character_hawaii": 14169,
+          "model": "c_cw_x_yuki_dress_2006",
+          "variant_key": 14169,
+          "character_row": 10637
+        },
+        {
+          "id": "pair_6462_6462",
+          "label": "Sushi Work Uniform / 寿司店工作服 — c_cw_x_yuki_sushi (6462/6462)",
+          "source_costume": null,
+          "category": "sushi",
+          "character": 6462,
+          "character_hawaii": 6462,
+          "model": "c_cw_x_yuki_sushi",
+          "variant_key": 6462,
+          "character_row": 10638
         }
       ],
       "validation": "original Character DB row metadata",
@@ -62755,6 +62778,3810 @@
       "standard_character_hawaii": 22748,
       "regional_base_character": 22748,
       "regional_base_character_hawaii": 22748,
+      "kiryu_target_slot": null
+    },
+    {
+      "id": "amon_jou",
+      "label": "[Amon Clan / 亚门一族] Jo Amon / 亚门丈",
+      "category": "female_npc_expansion",
+      "character_row": 2932,
+      "character": 10514,
+      "adv_model_id": 25415,
+      "model": "c_ca_t_coatB",
+      "face_target": "",
+      "voicer": 1212,
+      "voice_status": "known Character DB voicer",
+      "player_slot": null,
+      "base_character": 10514,
+      "base_character_hawaii": 10514,
+      "category_counts": {
+        "npc_fixed_identity": 67
+      },
+      "fixed_variants": [
+        {
+          "id": "pair_10514_10514",
+          "label": "Default / 默认模型 — c_ca_t_coatB (10514/10514)",
+          "source_costume": null,
+          "category": "default",
+          "character": 10514,
+          "character_hawaii": 10514,
+          "variant_key": 10514,
+          "character_row": 2932,
+          "model": "c_ca_t_coatB"
+        }
+      ],
+      "validation": "curated original Character DB row/model/voicer assertion",
+      "source_plans": {
+        "ichiban": {
+          "records": [
+            {
+              "row": 228,
+              "costume": 81,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 229,
+              "costume": 151,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 230,
+              "costume": 209,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 231,
+              "costume": 91,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 232,
+              "costume": 92,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 233,
+              "costume": 93,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 234,
+              "costume": 100,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 235,
+              "costume": 101,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 236,
+              "costume": 102,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 237,
+              "costume": 106,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 238,
+              "costume": 107,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 239,
+              "costume": 108,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 240,
+              "costume": 173,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 241,
+              "costume": 185,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 242,
+              "costume": 186,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 243,
+              "costume": 175,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 244,
+              "costume": 189,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 245,
+              "costume": 190,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 246,
+              "costume": 176,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 247,
+              "costume": 191,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 248,
+              "costume": 192,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 249,
+              "costume": 177,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 250,
+              "costume": 193,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 251,
+              "costume": 194,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 252,
+              "costume": 178,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 253,
+              "costume": 195,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 254,
+              "costume": 196,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 255,
+              "costume": 179,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 256,
+              "costume": 197,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 257,
+              "costume": 198,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 258,
+              "costume": 229,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 259,
+              "costume": 230,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 260,
+              "costume": 231,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 261,
+              "costume": 328,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 262,
+              "costume": 235,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 263,
+              "costume": 236,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 264,
+              "costume": 237,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 265,
+              "costume": 242,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 266,
+              "costume": 252,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 267,
+              "costume": 263,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 268,
+              "costume": 145,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 269,
+              "costume": 146,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 270,
+              "costume": 264,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 271,
+              "costume": 148,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 272,
+              "costume": 147,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 273,
+              "costume": 150,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 274,
+              "costume": 149,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 275,
+              "costume": 265,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 276,
+              "costume": 266,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 277,
+              "costume": 267,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 278,
+              "costume": 130,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 279,
+              "costume": 279,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 280,
+              "costume": 289,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 281,
+              "costume": 290,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 282,
+              "costume": 338,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 283,
+              "costume": 339,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 284,
+              "costume": 359,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 285,
+              "costume": 360,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 286,
+              "costume": 361,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 287,
+              "costume": 362,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 288,
+              "costume": 363,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 289,
+              "costume": 364,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 290,
+              "costume": 365,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 291,
+              "costume": 366,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 292,
+              "costume": 367,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 293,
+              "costume": 368,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 294,
+              "costume": 369,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            }
+          ],
+          "category_counts": {
+            "npc_fixed_identity": 67
+          },
+          "fallback_policy": "fixed NPC identity in both region columns"
+        },
+        "kiryu": {
+          "records": [
+            {
+              "row": 295,
+              "costume": 206,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 296,
+              "costume": 91,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 297,
+              "costume": 92,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 298,
+              "costume": 93,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 299,
+              "costume": 100,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 300,
+              "costume": 101,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 301,
+              "costume": 102,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 302,
+              "costume": 106,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 303,
+              "costume": 107,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 304,
+              "costume": 108,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 305,
+              "costume": 173,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 306,
+              "costume": 185,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 307,
+              "costume": 186,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 308,
+              "costume": 177,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 309,
+              "costume": 193,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 310,
+              "costume": 194,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 311,
+              "costume": 178,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 312,
+              "costume": 195,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 313,
+              "costume": 196,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 314,
+              "costume": 176,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 315,
+              "costume": 191,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 316,
+              "costume": 192,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 317,
+              "costume": 179,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 318,
+              "costume": 197,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 319,
+              "costume": 198,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 320,
+              "costume": 175,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 321,
+              "costume": 189,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 322,
+              "costume": 190,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 323,
+              "costume": 229,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 324,
+              "costume": 230,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 325,
+              "costume": 231,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 326,
+              "costume": 297,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 327,
+              "costume": 239,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 328,
+              "costume": 246,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 329,
+              "costume": 257,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 330,
+              "costume": 268,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 331,
+              "costume": 269,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 332,
+              "costume": 270,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 333,
+              "costume": 271,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 334,
+              "costume": 272,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 335,
+              "costume": 273,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 336,
+              "costume": 274,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 337,
+              "costume": 275,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 338,
+              "costume": 276,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 339,
+              "costume": 277,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 340,
+              "costume": 278,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 341,
+              "costume": 325,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 342,
+              "costume": 285,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 343,
+              "costume": 293,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 344,
+              "costume": 340,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 345,
+              "costume": 425,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 346,
+              "costume": 426,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 347,
+              "costume": 427,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 348,
+              "costume": 428,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 349,
+              "costume": 429,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 350,
+              "costume": 430,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 351,
+              "costume": 431,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 352,
+              "costume": 432,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 353,
+              "costume": 433,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 354,
+              "costume": 434,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            },
+            {
+              "row": 355,
+              "costume": 435,
+              "category": "npc_fixed_identity",
+              "target_character": 10514,
+              "target_character_hawaii": 10514
+            }
+          ],
+          "category_counts": {
+            "npc_fixed_identity": 61
+          },
+          "fallback_policy": "fixed NPC identity in both region columns"
+        }
+      },
+      "standard_character": 10514,
+      "standard_character_hawaii": 10514,
+      "regional_base_character": 10514,
+      "regional_base_character_hawaii": 10514,
+      "kiryu_target_slot": null
+    },
+    {
+      "id": "amon_jiro",
+      "label": "[Amon Clan / 亚门一族] Jiro Amon / 亚门次郎",
+      "category": "female_npc_expansion",
+      "character_row": 2933,
+      "character": 7086,
+      "adv_model_id": 26462,
+      "model": "c_ca_t_coatB",
+      "face_target": "",
+      "voicer": 1210,
+      "voice_status": "known Character DB voicer",
+      "player_slot": null,
+      "base_character": 7086,
+      "base_character_hawaii": 7086,
+      "category_counts": {
+        "npc_fixed_identity": 67
+      },
+      "fixed_variants": [
+        {
+          "id": "pair_7086_7086",
+          "label": "Default / 默认模型 — c_ca_t_coatB (7086/7086)",
+          "source_costume": null,
+          "category": "default",
+          "character": 7086,
+          "character_hawaii": 7086,
+          "variant_key": 7086,
+          "character_row": 2933,
+          "model": "c_ca_t_coatB"
+        }
+      ],
+      "validation": "curated original Character DB row/model/voicer assertion",
+      "source_plans": {
+        "ichiban": {
+          "records": [
+            {
+              "row": 228,
+              "costume": 81,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 229,
+              "costume": 151,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 230,
+              "costume": 209,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 231,
+              "costume": 91,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 232,
+              "costume": 92,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 233,
+              "costume": 93,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 234,
+              "costume": 100,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 235,
+              "costume": 101,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 236,
+              "costume": 102,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 237,
+              "costume": 106,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 238,
+              "costume": 107,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 239,
+              "costume": 108,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 240,
+              "costume": 173,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 241,
+              "costume": 185,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 242,
+              "costume": 186,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 243,
+              "costume": 175,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 244,
+              "costume": 189,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 245,
+              "costume": 190,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 246,
+              "costume": 176,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 247,
+              "costume": 191,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 248,
+              "costume": 192,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 249,
+              "costume": 177,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 250,
+              "costume": 193,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 251,
+              "costume": 194,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 252,
+              "costume": 178,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 253,
+              "costume": 195,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 254,
+              "costume": 196,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 255,
+              "costume": 179,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 256,
+              "costume": 197,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 257,
+              "costume": 198,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 258,
+              "costume": 229,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 259,
+              "costume": 230,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 260,
+              "costume": 231,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 261,
+              "costume": 328,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 262,
+              "costume": 235,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 263,
+              "costume": 236,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 264,
+              "costume": 237,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 265,
+              "costume": 242,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 266,
+              "costume": 252,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 267,
+              "costume": 263,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 268,
+              "costume": 145,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 269,
+              "costume": 146,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 270,
+              "costume": 264,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 271,
+              "costume": 148,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 272,
+              "costume": 147,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 273,
+              "costume": 150,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 274,
+              "costume": 149,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 275,
+              "costume": 265,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 276,
+              "costume": 266,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 277,
+              "costume": 267,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 278,
+              "costume": 130,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 279,
+              "costume": 279,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 280,
+              "costume": 289,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 281,
+              "costume": 290,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 282,
+              "costume": 338,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 283,
+              "costume": 339,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 284,
+              "costume": 359,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 285,
+              "costume": 360,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 286,
+              "costume": 361,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 287,
+              "costume": 362,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 288,
+              "costume": 363,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 289,
+              "costume": 364,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 290,
+              "costume": 365,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 291,
+              "costume": 366,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 292,
+              "costume": 367,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 293,
+              "costume": 368,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 294,
+              "costume": 369,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            }
+          ],
+          "category_counts": {
+            "npc_fixed_identity": 67
+          },
+          "fallback_policy": "fixed NPC identity in both region columns"
+        },
+        "kiryu": {
+          "records": [
+            {
+              "row": 295,
+              "costume": 206,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 296,
+              "costume": 91,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 297,
+              "costume": 92,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 298,
+              "costume": 93,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 299,
+              "costume": 100,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 300,
+              "costume": 101,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 301,
+              "costume": 102,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 302,
+              "costume": 106,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 303,
+              "costume": 107,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 304,
+              "costume": 108,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 305,
+              "costume": 173,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 306,
+              "costume": 185,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 307,
+              "costume": 186,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 308,
+              "costume": 177,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 309,
+              "costume": 193,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 310,
+              "costume": 194,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 311,
+              "costume": 178,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 312,
+              "costume": 195,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 313,
+              "costume": 196,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 314,
+              "costume": 176,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 315,
+              "costume": 191,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 316,
+              "costume": 192,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 317,
+              "costume": 179,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 318,
+              "costume": 197,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 319,
+              "costume": 198,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 320,
+              "costume": 175,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 321,
+              "costume": 189,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 322,
+              "costume": 190,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 323,
+              "costume": 229,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 324,
+              "costume": 230,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 325,
+              "costume": 231,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 326,
+              "costume": 297,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 327,
+              "costume": 239,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 328,
+              "costume": 246,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 329,
+              "costume": 257,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 330,
+              "costume": 268,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 331,
+              "costume": 269,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 332,
+              "costume": 270,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 333,
+              "costume": 271,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 334,
+              "costume": 272,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 335,
+              "costume": 273,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 336,
+              "costume": 274,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 337,
+              "costume": 275,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 338,
+              "costume": 276,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 339,
+              "costume": 277,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 340,
+              "costume": 278,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 341,
+              "costume": 325,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 342,
+              "costume": 285,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 343,
+              "costume": 293,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 344,
+              "costume": 340,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 345,
+              "costume": 425,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 346,
+              "costume": 426,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 347,
+              "costume": 427,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 348,
+              "costume": 428,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 349,
+              "costume": 429,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 350,
+              "costume": 430,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 351,
+              "costume": 431,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 352,
+              "costume": 432,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 353,
+              "costume": 433,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 354,
+              "costume": 434,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            },
+            {
+              "row": 355,
+              "costume": 435,
+              "category": "npc_fixed_identity",
+              "target_character": 7086,
+              "target_character_hawaii": 7086
+            }
+          ],
+          "category_counts": {
+            "npc_fixed_identity": 61
+          },
+          "fallback_policy": "fixed NPC identity in both region columns"
+        }
+      },
+      "standard_character": 7086,
+      "standard_character_hawaii": 7086,
+      "regional_base_character": 7086,
+      "regional_base_character_hawaii": 7086,
+      "kiryu_target_slot": null
+    },
+    {
+      "id": "amon_kazuya",
+      "label": "[Amon Clan / 亚门一族] Kazuya Amon / 亚门一也",
+      "category": "female_npc_expansion",
+      "character_row": 2934,
+      "character": 7087,
+      "adv_model_id": 26463,
+      "model": "c_ca_t_coatB",
+      "face_target": "",
+      "voicer": 1211,
+      "voice_status": "known Character DB voicer",
+      "player_slot": null,
+      "base_character": 7087,
+      "base_character_hawaii": 7087,
+      "category_counts": {
+        "npc_fixed_identity": 67
+      },
+      "fixed_variants": [
+        {
+          "id": "pair_7087_7087",
+          "label": "Default / 默认模型 — c_ca_t_coatB (7087/7087)",
+          "source_costume": null,
+          "category": "default",
+          "character": 7087,
+          "character_hawaii": 7087,
+          "variant_key": 7087,
+          "character_row": 2934,
+          "model": "c_ca_t_coatB"
+        }
+      ],
+      "validation": "curated original Character DB row/model/voicer assertion",
+      "source_plans": {
+        "ichiban": {
+          "records": [
+            {
+              "row": 228,
+              "costume": 81,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 229,
+              "costume": 151,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 230,
+              "costume": 209,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 231,
+              "costume": 91,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 232,
+              "costume": 92,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 233,
+              "costume": 93,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 234,
+              "costume": 100,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 235,
+              "costume": 101,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 236,
+              "costume": 102,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 237,
+              "costume": 106,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 238,
+              "costume": 107,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 239,
+              "costume": 108,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 240,
+              "costume": 173,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 241,
+              "costume": 185,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 242,
+              "costume": 186,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 243,
+              "costume": 175,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 244,
+              "costume": 189,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 245,
+              "costume": 190,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 246,
+              "costume": 176,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 247,
+              "costume": 191,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 248,
+              "costume": 192,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 249,
+              "costume": 177,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 250,
+              "costume": 193,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 251,
+              "costume": 194,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 252,
+              "costume": 178,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 253,
+              "costume": 195,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 254,
+              "costume": 196,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 255,
+              "costume": 179,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 256,
+              "costume": 197,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 257,
+              "costume": 198,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 258,
+              "costume": 229,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 259,
+              "costume": 230,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 260,
+              "costume": 231,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 261,
+              "costume": 328,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 262,
+              "costume": 235,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 263,
+              "costume": 236,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 264,
+              "costume": 237,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 265,
+              "costume": 242,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 266,
+              "costume": 252,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 267,
+              "costume": 263,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 268,
+              "costume": 145,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 269,
+              "costume": 146,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 270,
+              "costume": 264,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 271,
+              "costume": 148,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 272,
+              "costume": 147,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 273,
+              "costume": 150,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 274,
+              "costume": 149,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 275,
+              "costume": 265,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 276,
+              "costume": 266,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 277,
+              "costume": 267,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 278,
+              "costume": 130,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 279,
+              "costume": 279,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 280,
+              "costume": 289,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 281,
+              "costume": 290,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 282,
+              "costume": 338,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 283,
+              "costume": 339,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 284,
+              "costume": 359,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 285,
+              "costume": 360,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 286,
+              "costume": 361,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 287,
+              "costume": 362,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 288,
+              "costume": 363,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 289,
+              "costume": 364,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 290,
+              "costume": 365,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 291,
+              "costume": 366,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 292,
+              "costume": 367,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 293,
+              "costume": 368,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 294,
+              "costume": 369,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            }
+          ],
+          "category_counts": {
+            "npc_fixed_identity": 67
+          },
+          "fallback_policy": "fixed NPC identity in both region columns"
+        },
+        "kiryu": {
+          "records": [
+            {
+              "row": 295,
+              "costume": 206,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 296,
+              "costume": 91,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 297,
+              "costume": 92,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 298,
+              "costume": 93,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 299,
+              "costume": 100,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 300,
+              "costume": 101,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 301,
+              "costume": 102,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 302,
+              "costume": 106,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 303,
+              "costume": 107,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 304,
+              "costume": 108,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 305,
+              "costume": 173,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 306,
+              "costume": 185,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 307,
+              "costume": 186,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 308,
+              "costume": 177,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 309,
+              "costume": 193,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 310,
+              "costume": 194,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 311,
+              "costume": 178,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 312,
+              "costume": 195,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 313,
+              "costume": 196,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 314,
+              "costume": 176,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 315,
+              "costume": 191,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 316,
+              "costume": 192,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 317,
+              "costume": 179,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 318,
+              "costume": 197,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 319,
+              "costume": 198,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 320,
+              "costume": 175,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 321,
+              "costume": 189,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 322,
+              "costume": 190,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 323,
+              "costume": 229,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 324,
+              "costume": 230,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 325,
+              "costume": 231,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 326,
+              "costume": 297,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 327,
+              "costume": 239,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 328,
+              "costume": 246,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 329,
+              "costume": 257,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 330,
+              "costume": 268,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 331,
+              "costume": 269,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 332,
+              "costume": 270,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 333,
+              "costume": 271,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 334,
+              "costume": 272,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 335,
+              "costume": 273,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 336,
+              "costume": 274,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 337,
+              "costume": 275,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 338,
+              "costume": 276,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 339,
+              "costume": 277,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 340,
+              "costume": 278,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 341,
+              "costume": 325,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 342,
+              "costume": 285,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 343,
+              "costume": 293,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 344,
+              "costume": 340,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 345,
+              "costume": 425,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 346,
+              "costume": 426,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 347,
+              "costume": 427,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 348,
+              "costume": 428,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 349,
+              "costume": 429,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 350,
+              "costume": 430,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 351,
+              "costume": 431,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 352,
+              "costume": 432,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 353,
+              "costume": 433,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 354,
+              "costume": 434,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            },
+            {
+              "row": 355,
+              "costume": 435,
+              "category": "npc_fixed_identity",
+              "target_character": 7087,
+              "target_character_hawaii": 7087
+            }
+          ],
+          "category_counts": {
+            "npc_fixed_identity": 61
+          },
+          "fallback_policy": "fixed NPC identity in both region columns"
+        }
+      },
+      "standard_character": 7087,
+      "standard_character_hawaii": 7087,
+      "regional_base_character": 7087,
+      "regional_base_character_hawaii": 7087,
+      "kiryu_target_slot": null
+    },
+    {
+      "id": "amon_sango",
+      "label": "[Amon Clan / 亚门一族] Sango Amon / 亚门三吾",
+      "category": "female_npc_expansion",
+      "character_row": 2935,
+      "character": 7088,
+      "adv_model_id": 26464,
+      "model": "c_ca_t_coatB",
+      "face_target": "",
+      "voicer": 1209,
+      "voice_status": "known Character DB voicer",
+      "player_slot": null,
+      "base_character": 7088,
+      "base_character_hawaii": 7088,
+      "category_counts": {
+        "npc_fixed_identity": 67
+      },
+      "fixed_variants": [
+        {
+          "id": "pair_7088_7088",
+          "label": "Default / 默认模型 — c_ca_t_coatB (7088/7088)",
+          "source_costume": null,
+          "category": "default",
+          "character": 7088,
+          "character_hawaii": 7088,
+          "variant_key": 7088,
+          "character_row": 2935,
+          "model": "c_ca_t_coatB"
+        }
+      ],
+      "validation": "curated original Character DB row/model/voicer assertion",
+      "source_plans": {
+        "ichiban": {
+          "records": [
+            {
+              "row": 228,
+              "costume": 81,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 229,
+              "costume": 151,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 230,
+              "costume": 209,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 231,
+              "costume": 91,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 232,
+              "costume": 92,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 233,
+              "costume": 93,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 234,
+              "costume": 100,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 235,
+              "costume": 101,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 236,
+              "costume": 102,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 237,
+              "costume": 106,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 238,
+              "costume": 107,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 239,
+              "costume": 108,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 240,
+              "costume": 173,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 241,
+              "costume": 185,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 242,
+              "costume": 186,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 243,
+              "costume": 175,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 244,
+              "costume": 189,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 245,
+              "costume": 190,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 246,
+              "costume": 176,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 247,
+              "costume": 191,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 248,
+              "costume": 192,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 249,
+              "costume": 177,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 250,
+              "costume": 193,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 251,
+              "costume": 194,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 252,
+              "costume": 178,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 253,
+              "costume": 195,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 254,
+              "costume": 196,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 255,
+              "costume": 179,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 256,
+              "costume": 197,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 257,
+              "costume": 198,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 258,
+              "costume": 229,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 259,
+              "costume": 230,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 260,
+              "costume": 231,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 261,
+              "costume": 328,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 262,
+              "costume": 235,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 263,
+              "costume": 236,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 264,
+              "costume": 237,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 265,
+              "costume": 242,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 266,
+              "costume": 252,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 267,
+              "costume": 263,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 268,
+              "costume": 145,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 269,
+              "costume": 146,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 270,
+              "costume": 264,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 271,
+              "costume": 148,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 272,
+              "costume": 147,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 273,
+              "costume": 150,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 274,
+              "costume": 149,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 275,
+              "costume": 265,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 276,
+              "costume": 266,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 277,
+              "costume": 267,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 278,
+              "costume": 130,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 279,
+              "costume": 279,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 280,
+              "costume": 289,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 281,
+              "costume": 290,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 282,
+              "costume": 338,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 283,
+              "costume": 339,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 284,
+              "costume": 359,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 285,
+              "costume": 360,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 286,
+              "costume": 361,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 287,
+              "costume": 362,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 288,
+              "costume": 363,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 289,
+              "costume": 364,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 290,
+              "costume": 365,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 291,
+              "costume": 366,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 292,
+              "costume": 367,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 293,
+              "costume": 368,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 294,
+              "costume": 369,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            }
+          ],
+          "category_counts": {
+            "npc_fixed_identity": 67
+          },
+          "fallback_policy": "fixed NPC identity in both region columns"
+        },
+        "kiryu": {
+          "records": [
+            {
+              "row": 295,
+              "costume": 206,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 296,
+              "costume": 91,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 297,
+              "costume": 92,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 298,
+              "costume": 93,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 299,
+              "costume": 100,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 300,
+              "costume": 101,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 301,
+              "costume": 102,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 302,
+              "costume": 106,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 303,
+              "costume": 107,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 304,
+              "costume": 108,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 305,
+              "costume": 173,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 306,
+              "costume": 185,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 307,
+              "costume": 186,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 308,
+              "costume": 177,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 309,
+              "costume": 193,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 310,
+              "costume": 194,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 311,
+              "costume": 178,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 312,
+              "costume": 195,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 313,
+              "costume": 196,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 314,
+              "costume": 176,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 315,
+              "costume": 191,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 316,
+              "costume": 192,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 317,
+              "costume": 179,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 318,
+              "costume": 197,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 319,
+              "costume": 198,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 320,
+              "costume": 175,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 321,
+              "costume": 189,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 322,
+              "costume": 190,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 323,
+              "costume": 229,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 324,
+              "costume": 230,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 325,
+              "costume": 231,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 326,
+              "costume": 297,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 327,
+              "costume": 239,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 328,
+              "costume": 246,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 329,
+              "costume": 257,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 330,
+              "costume": 268,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 331,
+              "costume": 269,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 332,
+              "costume": 270,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 333,
+              "costume": 271,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 334,
+              "costume": 272,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 335,
+              "costume": 273,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 336,
+              "costume": 274,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 337,
+              "costume": 275,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 338,
+              "costume": 276,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 339,
+              "costume": 277,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 340,
+              "costume": 278,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 341,
+              "costume": 325,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 342,
+              "costume": 285,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 343,
+              "costume": 293,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 344,
+              "costume": 340,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 345,
+              "costume": 425,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 346,
+              "costume": 426,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 347,
+              "costume": 427,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 348,
+              "costume": 428,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 349,
+              "costume": 429,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 350,
+              "costume": 430,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 351,
+              "costume": 431,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 352,
+              "costume": 432,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 353,
+              "costume": 433,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 354,
+              "costume": 434,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            },
+            {
+              "row": 355,
+              "costume": 435,
+              "category": "npc_fixed_identity",
+              "target_character": 7088,
+              "target_character_hawaii": 7088
+            }
+          ],
+          "category_counts": {
+            "npc_fixed_identity": 61
+          },
+          "fallback_policy": "fixed NPC identity in both region columns"
+        }
+      },
+      "standard_character": 7088,
+      "standard_character_hawaii": 7088,
+      "regional_base_character": 7088,
+      "regional_base_character_hawaii": 7088,
       "kiryu_target_slot": null
     }
   ],

@@ -33,6 +33,7 @@ class CharacterLayout:
     inner: int
     key_array: int
     mapping: int
+    voicer: int | None = None
 
 
 @dataclass
@@ -64,7 +65,7 @@ class SlotSelection:
 
 @dataclass(frozen=True)
 class MultiSelection:
-    """Independent configuration for either or both protagonist source slots."""
+    """Independent configuration for any subset of character source slots."""
 
     slots: dict[str, SlotSelection]
 
@@ -89,12 +90,20 @@ class CostumeBackup:
 
 
 @dataclass
+class VoiceBackup:
+    row: int
+    address: int
+    value: int
+
+
+@dataclass
 class Snapshot:
     pid: int
     character_base: int
     costume_base: int
     identity: list[IdentityBackup]
     costume: list[CostumeBackup]
+    voice: list[VoiceBackup] = field(default_factory=list)
 
 
 @dataclass(frozen=True)
@@ -118,9 +127,8 @@ def _make_logger() -> logging.Logger:
 class TrainerEngine:
     """Port of the RC1 transaction core using only Win32 process APIs.
 
-    Unlike the CT, a selection is a map keyed by source id. This allows
-    Ichiban and Kiryu to receive different targets, outfits, and variants in
-    the same verified 357-cell transaction.
+    A selection is a map keyed by source id. Protagonist sources also write
+    their costume rows; party sources are identity-only.
     """
 
     def __init__(self, repository: DataRepository, memory: Any | None = None) -> None:
@@ -234,7 +242,50 @@ class TrainerEngine:
             inner=base + inner_offset,
             key_array=base + key_offset,
             mapping=base + mapping_offset,
+            voicer=self._resolve_voicer_column(base, inner_offset),
         )
+
+    def _resolve_voicer_column(self, base: int, inner_offset: int) -> int | None:
+        """Locate the Character DB 'voicer' u16 column inside the runtime ARMP.
+
+        The column table lives in the standard ARMP v2 inner header. When the
+        runtime layout cannot be parsed or the voicer column is missing, voice
+        overrides are disabled instead of blocking the main transaction.
+        """
+        try:
+            inner = base + inner_offset
+            types_off = self.memory.read_u32(inner + 0x18)
+            offset_table_off = self.memory.read_u32(inner + 0x1C)
+            col_name_ptrs_off = self.memory.read_u32(inner + 0x28)
+            if not (types_off and offset_table_off and col_name_ptrs_off):
+                raise TrainerError("missing Character column-table offsets")
+            voicer_offset = None
+            voicer_type = None
+            for index in range(CHARACTER_COLUMNS):
+                name_pointer = self.memory.read_u32(base + col_name_ptrs_off + index * 4)
+                name = self._read_column_name(base + name_pointer)
+                column_type = self.memory.read(base + types_off + index, 1)[0]
+                column_offset = self.memory.read_u32(base + offset_table_off + index * 4)
+                if name == "voicer":
+                    voicer_offset = column_offset
+                    voicer_type = column_type
+            if voicer_offset is None or voicer_type != 1:  # ARMP type 1 = u16
+                raise TrainerError("Character voicer column is missing or not u16")
+            if not 0 < voicer_offset < 0x2000000:
+                raise TrainerError("Character voicer column offset out of range")
+            return base + voicer_offset
+        except TrainerError as exc:
+            self.log.warning("VOICE_OVERRIDE_DISABLED reason=%s", exc)
+            return None
+
+    def _read_column_name(self, address: int) -> str:
+        characters: list[str] = []
+        for _ in range(64):
+            value = self.memory.read(address + len(characters), 1)[0]
+            if value == 0:
+                break
+            characters.append(chr(value))
+        return "".join(characters)
 
     @staticmethod
     def _fixed_variant_pair(variant: dict[str, Any] | None) -> tuple[int, int] | None:
@@ -315,6 +366,7 @@ class TrainerEngine:
         player_to_source = {
             self.repository.sources[source_id]["player"]: source_id
             for source_id in self.repository.source_order
+            if self.repository.sources[source_id]["player"] is not None
         }
         states = {source_id: SourceCostumeState() for source_id in self.repository.source_order}
         seen_rows = {source_id: set() for source_id in self.repository.source_order}
@@ -347,6 +399,10 @@ class TrainerEngine:
         for source_id in self.repository.source_order:
             source = self.repository.sources[source_id]
             state = states[source_id]
+            if not source["sorted_rows"]:
+                state.state = "original"
+                state.transaction_safe = True
+                continue
             total_source_rows += state.source_rows
             if state.source_rows != source["row_count"]:
                 raise TrainerError(
@@ -570,7 +626,7 @@ class TrainerEngine:
 
     def _normalize_selection(self, slots: dict[str, SlotSelection]) -> MultiSelection:
         if not slots:
-            raise TrainerError("at least one protagonist slot must be configured")
+            raise TrainerError("at least one character slot must be configured")
         normalized: dict[str, SlotSelection] = {}
         for source_id, slot in slots.items():
             if source_id not in self.repository.source_order:
@@ -605,7 +661,7 @@ class TrainerEngine:
             normalized[source_id] = SlotSelection(slot.target_id, mode, variant_index)
         return MultiSelection(normalized)
 
-    def _capture_snapshot(self) -> Snapshot:
+    def _capture_snapshot(self, voice_rows: set[int] | None = None) -> Snapshot:
         if not self.pid or not self.character or not self.costume:
             raise TrainerError("databases are not connected")
         identity: list[IdentityBackup] = []
@@ -629,16 +685,35 @@ class TrainerEngine:
                     character=self.memory.read_u16(row_address + 0x04),
                     hawaii=self.memory.read_u16(row_address + 0x06),
                 ))
-        if len(identity) != 101 or len(costume_items) != 128:
+        expected_identity = sum(
+            len(self.repository.sources[source_id]["context_entries"])
+            for source_id in self.repository.source_order
+        )
+        expected_costume = sum(
+            len(self.repository.sources[source_id]["records"])
+            for source_id in self.repository.source_order
+        )
+        if len(identity) != expected_identity or len(costume_items) != expected_costume:
             raise TrainerError(
-                f"dual snapshot count mismatch identity={len(identity)} costume={len(costume_items)}"
+                f"snapshot count mismatch identity={len(identity)}/{expected_identity} "
+                f"costume={len(costume_items)}/{expected_costume}"
             )
+        voice: list[VoiceBackup] = []
+        if voice_rows and self.character.voicer is not None:
+            for row in sorted(voice_rows):
+                address = self.character.voicer + row * 2
+                voice.append(VoiceBackup(
+                    row=row,
+                    address=address,
+                    value=self.memory.read_u16(address),
+                ))
         return Snapshot(
             pid=self.pid,
             character_base=self.character.base,
             costume_base=self.costume.base,
             identity=identity,
             costume=costume_items,
+            voice=voice,
         )
 
     @staticmethod
@@ -717,6 +792,26 @@ class TrainerEngine:
             raise TrainerError(f"missing context-matched pair target={slot.target_id} source={source_id} row={row}")
         return pair
 
+    def _expected_voice_writes(self, selection: MultiSelection) -> list[tuple[int, int]]:
+        """Rows and override voicers for active slots, deduplicated by row."""
+        if self.character is None or self.character.voicer is None:
+            return []
+        writes: dict[int, int] = {}
+        for source_id in self.repository.source_order:
+            slot = selection.slots.get(source_id)
+            if slot is None:
+                continue
+            target = self.repository.targets[slot.target_id]
+            override = target.get("voice_override")
+            if not override:
+                continue
+            if slot.mode == "fixed_variant" and slot.variant_index is not None:
+                row = int(target["variants"][slot.variant_index]["character_row"])
+            else:
+                row = int(target["target_row"])
+            writes[row] = int(override)
+        return sorted(writes.items())
+
     def _verify_selection(self, selection: MultiSelection, backup: Snapshot) -> None:
         assert self.character and self.costume
         for source_id in self.repository.source_order:
@@ -741,6 +836,12 @@ class TrainerEngine:
                         f"Costume verification failed source={source_id} row={row} "
                         f"expected={expected[0]},{expected[1]} actual={actual[0]},{actual[1]}"
                     )
+        for row, voicer in self._expected_voice_writes(selection):
+            actual = self.memory.read_u16(self.character.voicer + row * 2)
+            if actual != voicer:
+                raise TrainerError(
+                    f"voice verification failed row={row} expected={voicer} actual={actual}"
+                )
 
     def _write_selection(self, selection: MultiSelection, backup: Snapshot) -> None:
         assert self.character and self.costume
@@ -757,6 +858,8 @@ class TrainerEngine:
             for entry in source["context_entries"]:
                 expected = self._expected_identity(selection, source_id, entry, backup)
                 self.memory.write_u32(self.character.mapping + entry["position"] * 4, expected)
+        for row, voicer in self._expected_voice_writes(selection):
+            self.memory.write_u16(self.character.voicer + row * 2, voicer)
         self._verify_selection(selection, backup)
 
     def _validate_backup_bases(self, snapshot: Snapshot) -> None:
@@ -772,6 +875,7 @@ class TrainerEngine:
             (item.source_id, item.row): (item.character_address, item.hawaii_address)
             for item in snapshot.costume
         }
+        voice_addresses = {item.row: item.address for item in snapshot.voice}
         for source_id in self.repository.source_order:
             source = self.repository.sources[source_id]
             for entry in source["context_entries"]:
@@ -782,6 +886,10 @@ class TrainerEngine:
                 row_address = costume.base + costume.row_offsets[row]
                 if costume_addresses.get((source_id, row)) != (row_address + 0x04, row_address + 0x06):
                     raise TrainerError("validated Costume row layout changed")
+        for row, address in voice_addresses.items():
+            expected = character.voicer + row * 2 if character.voicer is not None else None
+            if expected is None or address != expected:
+                raise TrainerError("validated Character voicer layout changed")
         self.pid = snapshot.pid
         self.character = character
         self.costume = costume
@@ -793,6 +901,8 @@ class TrainerEngine:
             self.memory.write_u16(item.hawaii_address, item.hawaii)
         for item in snapshot.identity:
             self.memory.write_u32(item.address, item.value)
+        for item in snapshot.voice:
+            self.memory.write_u16(item.address, item.value)
         for item in snapshot.costume:
             actual = (
                 self.memory.read_u16(item.character_address),
@@ -803,6 +913,9 @@ class TrainerEngine:
         for item in snapshot.identity:
             if self.memory.read_u32(item.address) != item.value:
                 raise TrainerError(f"restore verification failed identity key={item.key}")
+        for item in snapshot.voice:
+            if self.memory.read_u16(item.address) != item.value:
+                raise TrainerError(f"restore verification failed voice row={item.row}")
 
     def apply(self, slots: dict[str, SlotSelection]) -> OperationResult:
         with self.lock:
@@ -829,10 +942,11 @@ class TrainerEngine:
                             for source_id in self.repository.source_order
                         )
                         raise TrainerError(f"refusing first write: Costume states are {states}")
-                    original = self._capture_snapshot()
+                    voice_rows = {row for row, _ in self._expected_voice_writes(selection)}
+                    original = self._capture_snapshot(voice_rows)
                     rollback = original
                     self.log.info(
-                        "BACKUP pid=%d identity=%d costume_rows=%d dual_source=true",
+                        "BACKUP pid=%d identity=%d costume_rows=%d multi_source=true",
                         original.pid, len(original.identity), len(original.costume),
                     )
                 else:
@@ -840,7 +954,8 @@ class TrainerEngine:
                     self._validate_backup_bases(self.backup)
                     self._verify_selection(self.active_selection, self.backup)
                     original = self.backup
-                    rollback = self._capture_snapshot()
+                    voice_rows = {row for row, _ in self._expected_voice_writes(selection)}
+                    rollback = self._capture_snapshot(voice_rows)
 
                 try:
                     self._write_selection(selection, original)
@@ -873,8 +988,16 @@ class TrainerEngine:
                 message = "APPLIED & VERIFIED | " + " | ".join(summary)
                 self._set_message(message)
                 self.log.info(
-                    "APPLY slots=%s identity=101 costume_rows=128 verified=true",
+                    "APPLY slots=%s identity_writes=%d costume_row_writes=%d verified=true",
                     {key: vars(value) for key, value in selection.slots.items()},
+                    sum(
+                        len(self.repository.sources[source_id]["context_entries"])
+                        for source_id in self.repository.source_order
+                    ),
+                    sum(
+                        len(self.repository.sources[source_id]["records"])
+                        for source_id in self.repository.source_order
+                    ),
                 )
                 return OperationResult(True, message)
             except Exception as exc:
@@ -905,7 +1028,7 @@ class TrainerEngine:
                 self.backup = None
                 self.active_selection = None
                 self.recovery_required = False
-                message = "RESTORED & VERIFIED | both protagonist sources returned to the first backup"
+                message = "RESTORED & VERIFIED | all configured sources returned to the first backup"
                 self._set_message(message)
                 return OperationResult(True, message)
             except Exception as exc:
@@ -929,6 +1052,12 @@ class TrainerEngine:
                 self.memory.write_u32(
                     self.character.mapping + entry["position"] * 4, entry["original_row"]
                 )
+        if self.character.voicer is not None:
+            for target in self.repository.targets.values():
+                if not target.get("voice_override"):
+                    continue
+                row = int(target["target_row"])
+                self.memory.write_u16(self.character.voicer + row * 2, 0)
         for source_id in self.repository.source_order:
             source = self.repository.sources[source_id]
             for row in source["sorted_rows"]:
@@ -945,6 +1074,14 @@ class TrainerEngine:
                 actual = self.memory.read_u32(self.character.mapping + entry["position"] * 4)
                 if actual != entry["original_row"]:
                     raise TrainerError(f"vanilla identity verification failed key={entry['key']}")
+        if self.character.voicer is not None:
+            for target in self.repository.targets.values():
+                if not target.get("voice_override"):
+                    continue
+                row = int(target["target_row"])
+                actual = self.memory.read_u16(self.character.voicer + row * 2)
+                if actual != 0:
+                    raise TrainerError(f"vanilla voice verification failed row={row}")
 
     def force_vanilla_reset(self, reason: str = "user") -> OperationResult:
         with self.lock:
@@ -966,7 +1103,12 @@ class TrainerEngine:
                 self.backup = None
                 self.active_selection = None
                 self.recovery_required = False
-                message = "VANILLA RESET COMPLETE | 101 identity mappings + 128 Costume rows verified"
+                identity_count = sum(len(source["context_entries"]) for source in self.repository.sources.values())
+                costume_count = sum(len(source["records"]) for source in self.repository.sources.values())
+                message = (
+                    f"VANILLA RESET COMPLETE | {identity_count} identity mappings + "
+                    f"{costume_count} Costume rows verified"
+                )
                 self._set_message(message)
                 self.log.info("VANILLA_RESET reason=%s verified=true", reason)
                 return OperationResult(True, message)

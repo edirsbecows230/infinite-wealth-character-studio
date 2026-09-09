@@ -24,7 +24,7 @@ class FakeMemory:
         self.pid = 4242
         self.handle = True
         self.segments = {
-            CHAR_BASE: bytearray(0x22000),
+            CHAR_BASE: bytearray(0x48000),
             COSTUME_BASE: bytearray(0x8000),
         }
         self.write_count = 0
@@ -59,15 +59,39 @@ class FakeMemory:
         self._u32(base, 0x24, 3)
 
     def _build_character(self) -> None:
-        inner = 0x18000
-        key_offset = 0x1000
-        mapping_offset = 0xC000
+        inner = 0x43000
+        key_offset = 0x20000
+        mapping_offset = 0x31000
+        column_count = 22
         self._header(CHAR_BASE, inner, CHARACTER_ROWS)
         self._u32(CHAR_BASE, inner, CHARACTER_ROWS)
-        self._u32(CHAR_BASE, inner + 0x04, 22)
+        self._u32(CHAR_BASE, inner + 0x04, column_count)
         self._u32(CHAR_BASE, inner + 0x20, 0x800004A6)
         self._u32(CHAR_BASE, inner - 0x10, key_offset)
         self._u32(CHAR_BASE, inner - 0x08, mapping_offset)
+        types_off = 0x3F000
+        offset_table_off = 0x3F200
+        col_name_ptrs_off = 0x3F400
+        names_base = 0x3F600
+        voicer_off = 0x40000
+        self._u32(CHAR_BASE, inner + 0x18, types_off)
+        self._u32(CHAR_BASE, inner + 0x1C, offset_table_off)
+        self._u32(CHAR_BASE, inner + 0x28, col_name_ptrs_off)
+        column_names = [
+            "", "*character", "adv_model_id", "auth_model_id", "auto_wrinkle_scale",
+            "chara_physics_off", "character_physics", "cloth_physics",
+            "default_behavior_set_id", "face_target", "face_target_custom",
+            "face_target_ek", "face_target_ekkaiwa", "face_target_ta", "height",
+            "is_boss", "is_disable_jobchange", "is_enum", "is_not_exist_face_target",
+            "main_chara", "test_motion", "voicer",
+        ]
+        cursor = names_base
+        for index, name in enumerate(column_names):
+            self._u32(CHAR_BASE, col_name_ptrs_off + index * 4, cursor)
+            self._put(CHAR_BASE, cursor, name.encode("ascii") + b"\x00")
+            cursor += len(name) + 1
+            self._put(CHAR_BASE, types_off + index, bytes([1]))  # ARMP u16
+            self._u32(CHAR_BASE, offset_table_off + index * 4, voicer_off + index * 0x100)
         for source_id in self.repository.source_order:
             source = self.repository.sources[source_id]
             for entry in source["context_entries"]:
@@ -153,11 +177,17 @@ class EngineTests(unittest.TestCase):
         self.engine = TrainerEngine(self.repository, self.memory)
 
     def test_catalog_and_transaction_counts(self) -> None:
-        self.assertEqual(self.repository.summary.curated, 59)
+        self.assertEqual(self.repository.summary.curated, 47)
         self.assertEqual(self.repository.summary.female, 404)
         self.assertEqual(self.repository.summary.male, 4742)
         self.assertEqual(
-            sum(len(source["context_entries"]) for source in self.repository.sources.values()), 101
+            self.repository.summary.total,
+            self.repository.summary.curated
+            + self.repository.summary.female
+            + self.repository.summary.male,
+        )
+        self.assertEqual(
+            sum(len(source["context_entries"]) for source in self.repository.sources.values()), 574
         )
 
     def test_ichiban_scene_specific_contexts_are_covered(self) -> None:
@@ -177,7 +207,59 @@ class EngineTests(unittest.TestCase):
         result = self.engine.validate_all()
         self.assertTrue(result.ok, result.message)
         status = self.engine.status_snapshot()
-        self.assertEqual(status["states"], {"ichiban": "original", "kiryu": "original"})
+        expected_states = {
+            source_id: "original" for source_id in self.repository.source_order
+        }
+        self.assertEqual(status["states"], expected_states)
+
+    def test_party_member_identity_only_apply_writes_no_costume_rows(self) -> None:
+        self.assertTrue(self.engine.validate_all().ok)
+        target_id = self.repository.curated_ids[0]
+        result = self.engine.apply({
+            "nanba": SlotSelection(target_id, "default_only"),
+        })
+        self.assertTrue(result.ok, result.message)
+
+        nanba = self.repository.sources["nanba"]
+        for entry in nanba["context_entries"]:
+            address = self.engine.character.mapping + entry["position"] * 4
+            self.assertEqual(self.memory.read_u32(address), int(target_id and (
+                self.repository.targets[target_id]["target_row"]
+            )))
+
+        costume_layout = self.engine.validate_costume_db(COSTUME_BASE)
+        for source_id in self.repository.source_order:
+            self.assertEqual(costume_layout.sources[source_id].state, "original")
+
+    def test_party_sources_have_identity_context_but_no_costume_rows(self) -> None:
+        party_ids = set(self.repository.source_order[2:])
+        self.assertEqual(party_ids, {
+            "nanba", "adachi", "chou", "jyungi", "tomizawa", "saeko", "chitose", "sonhi"
+        })
+        for source_id in party_ids:
+            source = self.repository.sources[source_id]
+            self.assertIsNone(source["player"])
+            self.assertGreater(len(source["context_entries"]), 0)
+            self.assertEqual(source["records"], {})
+
+    def test_runtime_character_voicer_column_is_resolved(self) -> None:
+        self.assertTrue(self.engine.validate_all().ok)
+        self.assertIsNotNone(self.engine.character)
+        self.assertEqual(self.engine.character.voicer, CHAR_BASE + 0x41500)
+
+    def test_voice_override_write_verify_and_restore(self) -> None:
+        self.assertTrue(self.engine.validate_all().ok)
+        target = self.repository.targets["judie"]
+        target["voice_override"] = 963
+        row = target["target_row"]
+        address = self.engine.character.voicer + row * 2
+        self.assertEqual(self.memory.read_u16(address), 0)
+        result = self.engine.apply({"ichiban": SlotSelection("judie", "default_only")})
+        self.assertTrue(result.ok, result.message)
+        self.assertEqual(self.memory.read_u16(address), 963)
+        restored = self.engine.restore("voice test")
+        self.assertTrue(restored.ok, restored.message)
+        self.assertEqual(self.memory.read_u16(address), 0)
 
     def test_first_apply_revalidates_cached_bases_without_second_full_scan(self) -> None:
         self.assertTrue(self.engine.validate_all().ok)

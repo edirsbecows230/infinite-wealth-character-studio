@@ -1,6 +1,6 @@
-# Building
+# Building v0.7.0
 
-Use Windows x64 and Python 3.12 (the historical build documentation specifies 3.12.3). Run commands from the repository root in PowerShell.
+Windows x64, Python 3.12. Commands below run from the repository root in PowerShell. The validation build used Python 3.12.3, PySide6 6.9.2, PySide6-Fluent-Widgets 1.11.2, PyInstaller 6.21.0 and Pillow 12.0.0.
 
 ```powershell
 py -3.12 -m venv .venv
@@ -9,27 +9,27 @@ $env:PYTHONPATH = "$PWD\app\src"
 .\.venv\Scripts\python.exe -m y8trainer.app
 ```
 
-Offline tests (no running game required):
+Offline tests:
 
 ```powershell
 $env:PYTHONPATH = "$PWD\app\src"
 .\.venv\Scripts\python.exe -m unittest discover -s app\tests -v
 ```
 
-Build the standalone executable:
+Build executable:
 
 ```powershell
 .\.venv\Scripts\python.exe app\build_release.py
 ```
 
-Output: `app/release/InfiniteWealthCharacterStudio_v0.4.0-alpha5.exe` and checksum. PyInstaller output is not promised to be byte-reproducible. Direct dependency versions are listed in `app/requirements-build.txt`; Pillow has a minimum version and transitive dependencies are not locked.
+Output: `app/release/InfiniteWealthCharacterStudio_v0.7.0.exe` and SHA-256. All required data is embedded. Builds do not require game files. PyInstaller output is not guaranteed to have identical bytes between builds. Direct dependency constraints are listed in `app/requirements-build.txt`; transitive packages are not fully locked.
 
-Build the CT:
+Build the separate CT:
 
 ```powershell
 .\.venv\Scripts\python.exe ct\build_ct.py
 ```
 
-Output is written under `artifacts/`. A local Cheat Engine Lua DLL is optional for normal builds; missing validation is reported as skipped. Set `CE_LUA_DLL` to a compatible DLL path when needed. `ct/build_ct.py --check` requires the DLL and checks the existing artifact without rewriting it.
+Output is under `artifacts/`. Optional CE Lua syntax validation uses an installed compatible `lua53-64.dll`; set `CE_LUA_DLL` if it is not found automatically. `--check` requires Lua validation and compares the existing artifact without rewriting it.
 
-Both builds use committed data and require no extracted game files. Optional data regeneration has separate prerequisites in [DATA.md](DATA.md).
+A non-connecting UI preview is available with `python -m y8trainer.app --preview`; `--screenshot preview.png` renders a preview and exits without connecting to the game.
