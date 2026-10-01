@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import os
 import time
+import tempfile
+from unittest.mock import patch
 import unittest
 from pathlib import Path
 
@@ -21,10 +23,13 @@ from qfluentwidgets import (
 )
 
 from y8trainer.data import DataRepository
+from y8trainer.finder_state import FinderUserState
 from y8trainer.engine import OperationResult, TrainerEngine
 from y8trainer.ui import (
     MainWindow,
     TargetPickerDialog,
+    AliasDialog,
+    tx,
     apply_application_style,
     costume_variant_label,
 )
@@ -200,6 +205,194 @@ class UiTaskLifecycleTests(unittest.TestCase):
         source = Path(__file__).resolve().parents[1] / "src" / "y8trainer" / "ui.py"
         text = source.read_text(encoding="utf-8")
         self.assertIn(".setObjectName(", text)
+
+
+class CharacterFinderUiTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.app = QApplication.instance() or QApplication([])
+        apply_application_style(cls.app)
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.config = Path(self.temp.name) / "finder.json"
+        self.repository = DataRepository(FinderUserState(self.config))
+        self.engine = TrainerEngine(self.repository)
+        self.window = MainWindow(self.repository, self.engine, preview=True)
+        self.window.show()
+        self.app.processEvents()
+        self.dialog = TargetPickerDialog(self.repository, "zh", "chitose", self.window)
+        self.dialog.show()
+        self.app.processEvents()
+
+    def tearDown(self):
+        self.dialog.close()
+        self.window.close()
+        self.app.processEvents()
+
+    def ids(self):
+        from PySide6.QtCore import Qt
+        return [self.dialog.list.item(i).data(Qt.ItemDataRole.UserRole) for i in range(self.dialog.list.count())]
+
+    def select_id(self, target_id):
+        self.dialog.list.setCurrentRow(self.ids().index(target_id))
+        self.app.processEvents()
+
+    def test_ui_hex_key_and_multi_token_search(self):
+        target = self.repository.targets["chitose"]
+        self.dialog.search.setText(f"0x{target['standard_character']:X} chitose")
+        self.dialog._populate()
+        self.assertEqual(self.ids(), ["chitose"])
+        self.assertIn("0x", self.dialog.lbl_row_key.text())
+        self.dialog.search.setText("chitose not_a_real_token")
+        self.dialog._populate()
+        self.assertEqual(self.ids(), [])
+        self.assertFalse(self.dialog.choose.isEnabled())
+        self.assertFalse(self.dialog.next_button.isEnabled())
+        self.assertFalse(self.dialog.favorite_button.isEnabled())
+
+    def test_same_face_searches_entire_catalog_and_can_be_refined(self):
+        target_id = next(x for x in self.repository.female_ids
+                         if len(self.repository.related_targets(x, "face_model")) > 1)
+        self.dialog.segmented.items["female"].click()
+        self.select_id(target_id)
+        face = self.repository.targets[target_id]["face_model"]
+        self.dialog.same_face_button.click()
+        self.assertEqual(self.dialog.current_kind, "all")
+        self.assertEqual(set(self.ids()), set(self.repository.related_targets(target_id, "face_model")))
+        self.assertTrue(all(self.repository.targets[x]["face_model"] == face for x in self.ids()))
+        self.assertEqual(self.dialog.search.text(), "")
+        self.dialog.search.setText(str(self.repository.targets[target_id]["standard_character"]))
+        self.dialog._populate()
+        self.assertIn(target_id, self.ids())
+        self.dialog.clear_filter_button.click()
+        self.assertIsNone(self.dialog.related_filter)
+        self.assertEqual(self.dialog.list.count(), 5193)
+
+    def test_same_hair_and_same_model_use_exact_indexes(self):
+        self.dialog.segmented.items["female"].click()
+        target_id = next(x for x in self.repository.female_ids if self.repository.targets[x]["hair_model"])
+        self.select_id(target_id)
+        self.dialog.same_hair_button.click()
+        self.assertEqual(set(self.ids()), set(self.repository.related_targets(target_id, "hair_model")))
+        self.select_id(target_id)
+        self.dialog.same_model_button.click()
+        self.assertEqual(set(self.ids()), set(self.repository.related_targets(target_id, "model")))
+
+    def test_empty_face_hair_buttons_are_disabled(self):
+        self.select_id("chitose")
+        self.assertFalse(self.dialog.same_face_button.isEnabled())
+        self.assertFalse(self.dialog.same_hair_button.isEnabled())
+        self.assertTrue(self.dialog.same_model_button.isEnabled())
+
+    def test_favorite_category_updates_and_persists(self):
+        self.select_id("chitose")
+        self.dialog.favorite_button.click()
+        self.assertTrue(FinderUserState(self.config).is_favorite("chitose"))
+        self.dialog.segmented.items["favorites"].click()
+        self.assertEqual(self.ids(), ["chitose"])
+        self.dialog.favorite_button.click()
+        self.assertEqual(self.ids(), [])
+        self.assertFalse(FinderUserState(self.config).is_favorite("chitose"))
+
+    def test_alias_editor_save_delete_search_and_original_fields(self):
+        self.select_id("chitose")
+        alias_dialog = AliasDialog("", "zh", self.dialog)
+        alias_dialog.editor.setText("Karen UFO")
+        self.dialog.save_alias("chitose", alias_dialog.editor.text())
+        self.assertEqual(FinderUserState(self.config).alias("chitose"), "Karen UFO")
+        self.assertIn("Karen UFO", self.dialog.alias_label.text())
+        self.assertEqual(self.dialog.spec_labels["id"].text(), "chitose")
+        self.assertEqual(self.dialog.lbl_main_model.text(), self.repository.targets["chitose"]["model"])
+        self.dialog.search.setText("karen chitose")
+        self.dialog._populate()
+        self.assertEqual(self.ids(), ["chitose"])
+        alias_dialog.delete_button.click()
+        self.assertEqual(alias_dialog.editor.text(), "")
+        self.dialog.save_alias("chitose", alias_dialog.editor.text())
+        self.assertEqual(FinderUserState(self.config).alias("chitose"), "")
+        self.assertEqual(self.ids(), [])
+        alias_dialog.close()
+
+    def test_anonymous_rows_expose_model_face_hair_and_key(self):
+        self.dialog.segmented.items["male"].click()
+        target_id = self.ids()[0]
+        target = self.repository.targets[target_id]
+        text = self.dialog.list.item(0).text()
+        self.assertIn(str(target["standard_character"]), text)
+        self.assertIn(target["model"], text)
+        self.assertIn(target["face_model"] or "—", text)
+        self.assertIn(target["hair_model"] or "—", text)
+        self.assertEqual(self.dialog.spec_labels["id"].text(), target_id)
+
+    def test_alias_button_runs_fluent_editor_and_cancel_does_not_save(self):
+        from PySide6.QtCore import QTimer
+        self.select_id("chitose")
+
+        def accept_editor():
+            editor = next(x for x in reversed(self.dialog.findChildren(AliasDialog)) if x.isVisible())
+            editor.editor.setText("Karen UFO")
+            editor.yesButton.click()
+
+        QTimer.singleShot(0, accept_editor)
+        self.dialog.alias_button.click()
+        self.assertEqual(self.repository.user_state.alias("chitose"), "Karen UFO")
+
+        def cancel_editor():
+            editor = next(x for x in reversed(self.dialog.findChildren(AliasDialog)) if x.isVisible())
+            editor.editor.setText("Unsaved")
+            editor.cancelButton.click()
+
+        QTimer.singleShot(0, cancel_editor)
+        self.dialog.alias_button.click()
+        self.assertEqual(FinderUserState(self.config).alias("chitose"), "Karen UFO")
+
+    def test_previous_next_and_selection_never_call_engine(self):
+        with patch.object(self.engine, "apply") as apply, patch.object(self.engine.memory, "write") as write:
+            self.dialog.list.setCurrentRow(0)
+            self.dialog.next_button.click()
+            self.assertEqual(self.dialog.list.currentRow(), 1)
+            self.assertEqual(self.dialog.candidate_position.text(), tx("candidate_position", "zh").format(current=2, total=47))
+            self.dialog.previous_button.click()
+            self.assertEqual(self.dialog.list.currentRow(), 0)
+            self.assertFalse(self.dialog.previous_button.isEnabled())
+            self.dialog._accept()
+            self.assertEqual(self.dialog.selected_id, self.ids()[0])
+            apply.assert_not_called()
+            write.assert_not_called()
+
+    def test_search_debounce_and_all_results_fit_in_supported_window_sizes(self):
+        self.dialog.close()
+        for language in ("en", "zh"):
+            for size in ((960, 720), (1160, 850), (1280, 720)):
+                with self.subTest(language=language, size=size):
+                    self.window.resize(*size)
+                    self.app.processEvents()
+                    dialog = TargetPickerDialog(self.repository, language, "chitose", self.window)
+                    dialog.show()
+                    dialog.segmented.items["all"].click()
+                    self.app.processEvents()
+                    self.assertLessEqual(dialog.widget.height(), self.window.height() - 48)
+                    self.assertLessEqual(dialog.widget.width(), self.window.width() - 48)
+                    self.assertLessEqual(dialog.inspector_scroll.horizontalScrollBar().maximum(), 0)
+                    self.assertEqual(dialog.list.count(), 5193)
+                    dialog.search.setText("0x5b6c chitose")
+                    self.assertTrue(dialog.filter_timer.isActive())
+                    deadline = time.monotonic() + 1.0
+                    while dialog.filter_timer.isActive() and time.monotonic() < deadline:
+                        self.app.processEvents()
+                    self.assertEqual(dialog.list.count(), 1)
+                    dialog.close()
+
+    def test_save_failure_is_visible_and_does_not_lose_state(self):
+        self.select_id("chitose")
+        self.dialog.favorite_button.click()
+        with patch("y8trainer.finder_state.os.replace", side_effect=PermissionError("locked")):
+            self.dialog.favorite_button.click()
+        self.assertTrue(self.repository.user_state.is_favorite("chitose"))
+        self.assertFalse(self.dialog.state_feedback.isHidden())
+        self.assertIn("locked", self.dialog.state_feedback.text())
 
 
 if __name__ == "__main__":

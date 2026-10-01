@@ -6,6 +6,7 @@ Standalone **v0.7.0** for Like a Dragon: Infinite Wealth on Windows. Includes a 
 
 - Ten independently selectable source slots: Ichiban, Kiryu, Nanba, Adachi, Zhao, Joongi, Tomizawa, Saeko, Chitose and Seonhee.
 - Searchable bilingual UI, grouped named characters, fixed model variants and restore controls.
+- Standalone Character Finder: multi-keyword AND search, exact face/hair/model matching, local favorites and aliases, and Previous/Next browsing. See [Character Finder](app/CHARACTER_FINDER.md).
 - 47 curated targets, including Jo Amon, Jiro Amon, Kazuya Amon and Sango Amon; 404 female and 4,742 male NPC candidates.
 - Validated memory writes, readback, rollback attempts and restoration of saved state.
 
