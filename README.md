@@ -1,18 +1,25 @@
 # Infinite Wealth Character Studio
 
-Standalone **v0.7.0** for Like a Dragon: Infinite Wealth on Windows. Includes a separate **v1.3.0-rc1 Cheat Engine table**.
+Standalone application for Like a Dragon: Infinite Wealth on Windows. Includes a separate **v1.3.0-rc1 Cheat Engine table**.
 
-## Features
+**Latest released version: v0.7.0**
+
+## Released features (v0.7.0)
 
 - Ten independently selectable source slots: Ichiban, Kiryu, Nanba, Adachi, Zhao, Joongi, Tomizawa, Saeko, Chitose and Seonhee.
 - Searchable bilingual UI, grouped named characters, fixed model variants and restore controls.
-- Standalone Character Finder: multi-keyword AND search, exact face/hair/model matching, local favorites and aliases, and Previous/Next browsing. See [Character Finder](app/CHARACTER_FINDER.md).
 - 47 curated targets, including Jo Amon, Jiro Amon, Kazuya Amon and Sango Amon; 404 female and 4,742 male NPC candidates.
 - Validated memory writes, readback, rollback attempts and restoration of saved state.
 
 Party members use Character identity mappings. Ichiban and Kiryu additionally use Costume table mappings; party support does not imply identical costume behavior for every character. The complete source plan covers 574 identity mappings and 128 costume rows (830 identity/costume values). Optional voice overrides have separate backup handling.
 
 The CT remains a two-protagonist selector. Use the standalone application for ten-slot replacement.
+
+## Unreleased changes on main
+
+- Standalone Character Finder: multi-keyword AND search, exact face/hair/model matching, local favorites and aliases, and Previous/Next browsing. See [Character Finder](app/CHARACTER_FINDER.md).
+
+Character Finder is an unreleased source change for the main branch. The existing **v0.7.0 Release binary does not include Character Finder**; build from the updated source to use it.
 
 ## Run
 
