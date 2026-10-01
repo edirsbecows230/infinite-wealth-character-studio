@@ -13,6 +13,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--preview", action="store_true", help="show the UI without connecting to the game")
     parser.add_argument("--screenshot", type=Path, help="render a UI preview to a PNG and exit")
+    parser.add_argument("--finder", action="store_true", help="open Character Finder in non-connecting preview mode")
     return parser
 
 
@@ -26,7 +27,8 @@ def main() -> int:
 
     from y8trainer.data import DataRepository
     from y8trainer.engine import TrainerEngine
-    from y8trainer.ui import MainWindow, apply_application_style, make_app_icon
+    from y8trainer.finder_state import FinderUserState, default_state_path
+    from y8trainer.ui import MainWindow, TargetPickerDialog, apply_application_style, make_app_icon
 
     app = QApplication(sys.argv[:1])
     app.setApplicationName("Infinite Wealth Character Studio")
@@ -35,10 +37,13 @@ def main() -> int:
     apply_application_style(app)
 
     try:
-        repository = DataRepository()
+        repository = DataRepository(FinderUserState(default_state_path()))
         engine = TrainerEngine(repository)
-        window = MainWindow(repository, engine, preview=args.preview or bool(args.screenshot))
+        window = MainWindow(repository, engine, preview=args.preview or bool(args.screenshot) or args.finder)
         window.show()
+        if args.finder:
+            window.finder_preview = TargetPickerDialog(repository, window.language, "chitose", window)
+            window.finder_preview.show()
         if args.screenshot:
             output = args.screenshot.resolve()
             output.parent.mkdir(parents=True, exist_ok=True)

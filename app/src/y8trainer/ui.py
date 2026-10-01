@@ -6,7 +6,7 @@ import traceback
 from collections.abc import Callable
 from typing import Any
 
-from PySide6.QtCore import Qt, QTimer, Signal
+from PySide6.QtCore import Qt, QTimer, Signal, QSize
 from PySide6.QtGui import QColor, QCloseEvent, QFont, QFontDatabase, QIcon, QPainter, QPixmap
 from PySide6.QtWidgets import (
     QApplication,
@@ -123,8 +123,40 @@ TEXT = {
         "Reopen in-game menus to refresh UI. Reload a save or change maps for free-roam models.",
         "游戏内菜单需重新打开刷新；自由探索角色模型需读档或切换地图刷新。",
     ),
-    "picker_title": ("Choose Target Character", "选择目标角色"),
-    "picker_search": ("Search name, model code (c_cw_...), key, row, voice...", "搜索角色名、模型代码 (c_cw_...)、Key、行、语音..."),
+    "picker_title": ("Character Finder", "角色查找器"),
+    "picker_search": ("AND search: name, alias, model, face, hair, key, 0x key, row...", "多关键词 AND 搜索：名字、别名、模型、脸、发型、Key、0x Key、行..."),
+    "favorites": ("Favorites", "收藏"),
+    "same_face": ("Same Face", "相同脸型"),
+    "same_hair": ("Same Hair", "相同发型"),
+    "same_model": ("Same Model", "相同模型"),
+    "clear_filter": ("Clear Filter", "清除筛选"),
+    "alias": ("Alias", "用户别名"),
+    "edit_alias": ("Add/Edit Alias", "添加 / 编辑别名"),
+    "alias_hint": ("Local label only; original IDs and model codes stay visible.", "仅保存为本地别名；原始 ID 与模型代码仍然保留。"),
+    "alias_placeholder": ("e.g. Karen UFO / Blue dress girl", "例如 Karen UFO / 蓝裙女孩"),
+    "delete_alias": ("Delete Alias", "删除别名"),
+    "save_alias": ("Save Alias", "保存别名"),
+    "favorite_add": ("☆ Add Favorite", "☆ 加入收藏"),
+    "favorite_remove": ("★ Remove Favorite", "★ 取消收藏"),
+    "previous": ("Previous", "上一个"),
+    "next": ("Next", "下一个"),
+    "candidate_position": ("Candidate {current} / {total}", "候选 {current} / {total}"),
+    "result_count": ("{matched} / {total} matches", "匹配 {matched} / {total}"),
+    "similar_filter": ("{field}: {value}", "{field}：{value}"),
+    "finder_browse_hint": ("Browsing only selects a candidate. Use the slot Apply button to change the game.", "浏览只选择候选；需回到槽位点击应用，才会修改游戏。"),
+    "anonymous_female": ("Female NPC #{key}", "女性 NPC #{key}"),
+    "anonymous_male": ("Male NPC #{key}", "男性 NPC #{key}"),
+    "field_model": ("MODEL", "模型"),
+    "field_face": ("FACE", "脸型"),
+    "field_hair": ("HAIR", "发型"),
+    "field_row_key": ("ROW / KEY", "行 / KEY"),
+    "field_voice": ("VOICE / ADV", "语音 / ADV"),
+    "field_id": ("TARGET ID", "目标 ID"),
+    "field_region": ("REGION", "地区"),
+    "field_group": ("CATALOG GROUP", "目录分组"),
+    "default_variant": ("Default appearance", "默认外观"),
+    "finder_save_error": ("Could not save local Finder preferences: {error}", "无法保存本地查找器配置：{error}"),
+    "finder_load_error": ("Local Finder configuration could not be read; started with empty preferences.", "本地查找器配置无法读取，已使用空配置启动。"),
     "curated": ("Curated Characters", "精选角色"),
     "female": ("Female NPCs", "女性 NPC"),
     "male": ("Male NPCs", "男性 NPC"),
@@ -360,262 +392,363 @@ class StudioCard(SimpleCardWidget):
 # Target Picker Dialog (Overhauled with Segmented Nav & Rich Inspector)
 # =========================================================================
 
+class AliasDialog(MessageBoxBase):
+    def __init__(self, alias: str, language: str, parent: QWidget) -> None:
+        super().__init__(parent)
+        self.title = SubtitleLabel(tx("edit_alias", language))
+        self.help = BodyLabel(tx("alias_hint", language))
+        self.help.setWordWrap(True)
+        self.editor = LineEdit()
+        self.editor.setMaxLength(256)
+        self.editor.setPlaceholderText(tx("alias_placeholder", language))
+        self.editor.setText(alias)
+        self.delete_button = PushButton(tx("delete_alias", language))
+        self.delete_button.clicked.connect(self._delete)
+        self.viewLayout.addWidget(self.title)
+        self.viewLayout.addWidget(self.help)
+        self.viewLayout.addWidget(self.editor)
+        self.viewLayout.addWidget(self.delete_button)
+        self.yesButton.setText(tx("save_alias", language))
+        self.cancelButton.setText(tx("cancel", language))
+        self.widget.setMinimumWidth(360)
+
+    def _delete(self) -> None:
+        self.editor.clear()
+        self.accept()
+
+
 class TargetPickerDialog(MessageBoxBase):
-    def __init__(
-        self,
-        repository: DataRepository,
-        language: str,
-        current_id: str | None,
-        parent: QWidget | None = None,
-    ) -> None:
+    """Character Finder: browsing and user overlays only; no game writes."""
+    def __init__(self, repository: DataRepository, language: str,
+                 current_id: str | None, parent: QWidget | None = None) -> None:
         super().__init__(parent)
         self.repository = repository
         self.language = language
-        self.selected_id: str | None = current_id
-
+        self.selected_id = current_id
+        self.related_filter: tuple[str, str] | None = None
+        self._row_text: dict[str, str] = {}
         host_width = parent.width() if parent is not None else 1280
-        host_height = parent.height() if parent is not None else 800
-        dialog_width = max(860, min(1180, host_width - 48))
-        dialog_height = max(560, min(760, host_height - 48))
-        self.widget.setFixedSize(dialog_width, dialog_height)
+        host_height = parent.height() if parent is not None else 850
+        self.widget.setFixedSize(max(680, min(1180, host_width - 48)),
+                                 max(480, min(820, host_height - 48)))
         self.setMaskColor(QColor(0, 0, 0, 160))
         self.widget.setStyleSheet("""
-            QFrame#widget {
-                background-color: #1A1A1E;
-                border: 1px solid rgba(255, 255, 255, 0.12);
-                border-radius: 10px;
-            }
-            QFrame#buttonGroup {
-                background-color: #222228;
-                border-top: 1px solid rgba(255, 255, 255, 0.08);
-                border-bottom-left-radius: 10px;
-                border-bottom-right-radius: 10px;
-            }
+            QFrame#widget { background-color: #1A1A1E;
+                border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; }
+            QFrame#buttonGroup { background-color: #222228;
+                border-top: 1px solid rgba(255,255,255,0.08); }
         """)
-
-        self.yesButton.setText(tx("select", language))
-        self.cancelButton.setText(tx("cancel", language))
         self.choose = self.yesButton
-
-        # Title Row
+        self.choose.setText(tx("select", language))
+        self.cancelButton.setText(tx("cancel", language))
         title_row = QHBoxLayout()
         self.title_label = TitleLabel(tx("picker_title", language))
-        self.title_label.setStyleSheet("font-size: 20px; font-weight: bold; color: #FFFFFF;")
         self.count_badge = CaptionLabel()
-        self.count_badge.setStyleSheet("color: #00B4D8; font-weight: bold; font-size: 13px;")
         title_row.addWidget(self.title_label)
-        title_row.addSpacing(10)
         title_row.addWidget(self.count_badge)
         title_row.addStretch(1)
+        self.clear_filter_button = PushButton(tx("clear_filter", language))
+        title_row.addWidget(self.clear_filter_button)
         self.viewLayout.addLayout(title_row)
 
-        # Top Segmented Category Bar
         self.segmented = SegmentedWidget()
-        kind_counts = {
-            "curated": len(repository.curated_ids),
-            "female": len(repository.female_ids),
-            "male": len(repository.male_ids),
-            "all": len(repository.targets),
-        }
-        for key in ("curated", "female", "male", "all"):
-            label = f"{tx(key, language)} · {kind_counts[key]:,}"
-            self.segmented.addItem(routeKey=key, text=label, onClick=lambda _, k=key: self._on_kind_changed(k))
+        for key in ("curated", "female", "male", "all", "favorites"):
+            self.segmented.addItem(routeKey=key, text=tx(key, language),
+                onClick=lambda _, k=key: self._on_kind_changed(k))
         self.current_kind = "curated"
         self.segmented.setCurrentItem("curated")
         self.viewLayout.addWidget(self.segmented)
-
-        # Search Bar
         search_row = QHBoxLayout()
         self.search = SearchLineEdit()
         self.search.setPlaceholderText(tx("picker_search", language))
         self.search.setClearButtonEnabled(True)
         self.search.setFixedHeight(36)
         self.result_stat = CaptionLabel()
-        self.result_stat.setStyleSheet("color: #8E8E93; font-size: 12px;")
         search_row.addWidget(self.search, 1)
         search_row.addWidget(self.result_stat)
         self.viewLayout.addLayout(search_row)
+        self.filter_label = CaptionLabel()
+        self.filter_label.setWordWrap(True)
+        self.filter_label.hide()
+        self.viewLayout.addWidget(self.filter_label)
 
-        # Split Body (List + Rich Inspector)
         body = QHBoxLayout()
-        body.setSpacing(14)
-
-        # Left List Widget
+        body.setSpacing(12)
+        list_column = QVBoxLayout()
         self.list = ListWidget()
         self.list.setUniformItemSizes(True)
-        self.list.setMinimumWidth(480)
-        body.addWidget(self.list, 3)
+        self.list.setMinimumWidth(290)
+        list_column.addWidget(self.list, 1)
+        navigation = QHBoxLayout()
+        self.previous_button = PushButton(tx("previous", language))
+        self.next_button = PushButton(tx("next", language))
+        self.candidate_position = CaptionLabel()
+        navigation.addWidget(self.previous_button)
+        navigation.addWidget(self.candidate_position, 1, Qt.AlignmentFlag.AlignCenter)
+        navigation.addWidget(self.next_button)
+        list_column.addLayout(navigation)
+        body.addLayout(list_column, 3)
 
-        # Right Inspector Card (StudioCard - No White Edges)
-        self.inspector_card = StudioCard(bg_color=QColor("#202025"), border_color=QColor(255, 255, 255, 20), radius=8)
-        detail_layout = QVBoxLayout(self.inspector_card)
-        detail_layout.setContentsMargins(18, 16, 18, 16)
-        detail_layout.setSpacing(10)
-
-        # Inspector Header
+        self.inspector_scroll = SmoothScrollArea()
+        self.inspector_scroll.setWidgetResizable(True)
+        self.inspector_scroll.setMinimumWidth(330)
+        self.inspector_scroll.setStyleSheet("QScrollArea {background: transparent; border: none;}")
+        self.inspector_card = StudioCard(bg_color=QColor("#202025"),
+            border_color=QColor(255, 255, 255, 20), radius=8)
+        detail = QVBoxLayout(self.inspector_card)
+        detail.setContentsMargins(14, 12, 14, 12)
+        detail.setSpacing(8)
         self.detail_cat_tag = CaptionLabel()
-        self.detail_cat_tag.setStyleSheet("""
-            background-color: rgba(0, 180, 216, 0.15);
-            color: #38BDF8;
-            border: 1px solid rgba(0, 180, 216, 0.3);
-            border-radius: 4px;
-            padding: 2px 8px;
-            font-weight: bold;
-            font-size: 11px;
-        """)
         self.detail_name = SubtitleLabel()
         self.detail_name.setWordWrap(True)
-        self.detail_name.setStyleSheet("font-size: 17px; font-weight: bold; color: #FFFFFF;")
-
-        name_box = QVBoxLayout()
-        name_box.setSpacing(4)
-        name_box.addWidget(self.detail_cat_tag)
-        name_box.addWidget(self.detail_name)
-        detail_layout.addLayout(name_box)
-
-        detail_layout.addWidget(HorizontalSeparator())
-
-        # Model Specs Section
-        specs_header = StrongBodyLabel(tx("model_inspector", language))
-        specs_header.setStyleSheet("color: #A1A1AA; font-size: 12px; font-weight: bold;")
-        detail_layout.addWidget(specs_header)
-
+        self.detail_name.setSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Preferred)
+        detail.addWidget(self.detail_cat_tag)
+        detail.addWidget(self.detail_name)
+        self.favorite_button = PushButton()
+        self.alias_button = PushButton(tx("edit_alias", language))
+        overlay_row = QHBoxLayout()
+        overlay_row.addWidget(self.favorite_button)
+        overlay_row.addWidget(self.alias_button)
+        detail.addLayout(overlay_row)
+        self.alias_label = CaptionLabel()
+        self.alias_label.setWordWrap(True)
+        self.alias_label.setTextFormat(Qt.TextFormat.PlainText)
+        self.alias_label.setSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Preferred)
+        detail.addWidget(self.alias_label)
+        detail.addWidget(HorizontalSeparator())
+        similarity_row = QGridLayout()
+        self.same_face_button = PushButton(tx("same_face", language))
+        self.same_hair_button = PushButton(tx("same_hair", language))
+        self.same_model_button = PushButton(tx("same_model", language))
+        similarity_row.addWidget(self.same_face_button, 0, 0)
+        similarity_row.addWidget(self.same_hair_button, 0, 1)
+        similarity_row.addWidget(self.same_model_button, 1, 0, 1, 2)
+        detail.addLayout(similarity_row)
+        detail.addWidget(StrongBodyLabel(tx("model_inspector", language)))
         self.specs_grid = QGridLayout()
-        self.specs_grid.setHorizontalSpacing(10)
-        self.specs_grid.setVerticalSpacing(4)
-
-        self.lbl_main_model = CaptionLabel()
-        self.lbl_face_model = CaptionLabel()
-        self.lbl_row_key = CaptionLabel()
-        self.lbl_voice = CaptionLabel()
-        for lbl in (self.lbl_main_model, self.lbl_face_model, self.lbl_row_key, self.lbl_voice):
-            lbl.setStyleSheet("color: #E2E2E8; font-size: 12px; font-family: 'Consolas', 'Segoe UI', monospace;")
-
-        self.specs_grid.addWidget(CaptionLabel("MODEL:"), 0, 0)
-        self.specs_grid.addWidget(self.lbl_main_model, 0, 1)
-        self.specs_grid.addWidget(CaptionLabel("FACE/HAIR:"), 1, 0)
-        self.specs_grid.addWidget(self.lbl_face_model, 1, 1)
-        self.specs_grid.addWidget(CaptionLabel("ROW / KEY:"), 2, 0)
-        self.specs_grid.addWidget(self.lbl_row_key, 2, 1)
-        self.specs_grid.addWidget(CaptionLabel("VOICE:"), 3, 0)
-        self.specs_grid.addWidget(self.lbl_voice, 3, 1)
-        detail_layout.addLayout(self.specs_grid)
-
-        detail_layout.addWidget(HorizontalSeparator())
-
-        # Variants List Section
+        self.spec_labels = {}
+        for row, field in enumerate(("model", "face", "hair", "row_key", "voice", "id", "region", "group")):
+            value = CaptionLabel()
+            value.setWordWrap(True)
+            value.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
+            value.setSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Preferred)
+            value.setStyleSheet("color: #E2E2E8; font-size: 12px; font-family: 'Consolas', 'Segoe UI', monospace;")
+            self.spec_labels[field] = value
+            self.specs_grid.addWidget(CaptionLabel(tx("field_" + field, language)), row, 0)
+            self.specs_grid.addWidget(value, row, 1)
+        self.specs_grid.setColumnStretch(1, 1)
+        detail.addLayout(self.specs_grid)
+        self.lbl_main_model = self.spec_labels["model"]
+        self.lbl_face_model = self.spec_labels["face"]
+        self.lbl_hair_model = self.spec_labels["hair"]
+        self.lbl_row_key = self.spec_labels["row_key"]
+        self.lbl_voice = self.spec_labels["voice"]
         self.variants_header = StrongBodyLabel(tx("variants_title", language))
-        self.variants_header.setStyleSheet("color: #A1A1AA; font-size: 12px; font-weight: bold;")
-        detail_layout.addWidget(self.variants_header)
-
+        detail.addWidget(self.variants_header)
         self.variants_list = ListWidget()
-        detail_layout.addWidget(self.variants_list, 1)
-
-        body.addWidget(self.inspector_card, 2)
+        self.variants_list.setMinimumHeight(100)
+        self.variants_list.setMaximumHeight(150)
+        detail.addWidget(self.variants_list)
+        detail.addStretch(1)
+        self.inspector_scroll.setWidget(self.inspector_card)
+        body.addWidget(self.inspector_scroll, 2)
         self.viewLayout.addLayout(body, 1)
+        self.browse_hint = CaptionLabel(tx("finder_browse_hint", language))
+        self.browse_hint.setWordWrap(True)
+        self.viewLayout.addWidget(self.browse_hint)
+        self.state_feedback = CaptionLabel()
+        self.state_feedback.setWordWrap(True)
+        self.state_feedback.setTextFormat(Qt.TextFormat.PlainText)
+        if repository.user_state.load_error:
+            self.state_feedback.setText(tx("finder_load_error", language))
+        else:
+            self.state_feedback.hide()
+        self.viewLayout.addWidget(self.state_feedback)
 
-        # Filter Debounce Timer
         self.filter_timer = QTimer(self)
         self.filter_timer.setSingleShot(True)
         self.filter_timer.setInterval(120)
         self.filter_timer.timeout.connect(self._populate)
-
         self.search.textChanged.connect(lambda: self.filter_timer.start())
         self.list.currentItemChanged.connect(self._show_details)
         self.list.itemDoubleClicked.connect(lambda _: self._accept())
         self.choose.clicked.connect(self._accept)
         self.cancelButton.clicked.connect(self.reject)
-
+        self.previous_button.clicked.connect(lambda: self._move_candidate(-1))
+        self.next_button.clicked.connect(lambda: self._move_candidate(1))
+        self.clear_filter_button.clicked.connect(self._clear_filter)
+        self.favorite_button.clicked.connect(self._toggle_favorite)
+        self.alias_button.clicked.connect(self._edit_alias)
+        for button, field in ((self.same_face_button, "face_model"),
+                              (self.same_hair_button, "hair_model"),
+                              (self.same_model_button, "model")):
+            button.clicked.connect(lambda _, field=field: self._find_similar(field))
         self._populate()
 
     def _on_kind_changed(self, kind: str) -> None:
         self.current_kind = kind
         self._populate()
 
-    def _populate(self) -> None:
-        kind = self.current_kind or "curated"
-        query = self.search.text().strip().lower()
-        current = self.selected_id
-        self.list.clear()
-        selected_item: QListWidgetItem | None = None
-        target_ids = self.repository.ids_for_kind(kind)
-        total_in_kind = len(target_ids)
-        matched_count = 0
+    def _current_id(self) -> str | None:
+        item = self.list.currentItem()
+        return item.data(Qt.ItemDataRole.UserRole) if item is not None else None
 
-        for target_id in target_ids:
+    def _name(self, target: dict[str, Any]) -> tuple[str, str]:
+        cat, name = parse_label_category_and_name(target["label"], self.language)
+        if target["kind"] in ("female", "male") and not target.get("confirmed_identity"):
+            name = tx("anonymous_" + target["kind"], self.language).format(key=target["standard_character"])
+        return cat, name
+
+    def _item_text(self, target_id: str) -> str:
+        if target_id not in self._row_text:
             target = self.repository.targets[target_id]
-            if query and query not in target["search_text"]:
-                continue
-            matched_count += 1
-            cat, name = parse_label_category_and_name(target["label"], self.language)
-            display_text = f"[{cat}] {name}" if cat else name
-            model_hint = target.get("model") or ""
-            if model_hint:
-                item_text = f"{display_text}  ·  {model_hint}"
-            else:
-                item_text = display_text
+            cat, name = self._name(target)
+            self._row_text[target_id] = (
+                name + "\n" + tx("field_model", self.language) + ": " + (target.get("model") or "—")
+                + "\n" + tx("field_face", self.language) + ": " + (target.get("face_model") or "—")
+                + "  ·  " + tx("field_hair", self.language) + ": " + (target.get("hair_model") or "—")
+                + "\n" + tx("field_row_key", self.language) + f": {target['target_row']} / {target['standard_character']} (0x{target['standard_character']:X})"
+            )
+        text = self._row_text[target_id]
+        alias = self.repository.user_state.alias(target_id)
+        if alias:
+            text = alias + "  ·  " + text
+        if self.repository.user_state.is_favorite(target_id):
+            text = "★ " + text
+        return text
 
-            item = QListWidgetItem(item_text)
-            item.setData(Qt.ItemDataRole.UserRole, target_id)
-            item.setToolTip(f"{target['label']}\nModel: {target.get('model') or '—'}\nRow: {target['target_row']} / Key: {target['standard_character']}")
-            self.list.addItem(item)
-            if target_id == current:
-                selected_item = item
-
-        if query:
-            self.result_stat.setText(f"{matched_count:,} / {total_in_kind:,}")
-        else:
-            self.result_stat.setText(f"{total_in_kind:,}")
-
-        if selected_item:
-            self.list.setCurrentItem(selected_item)
-            self.list.scrollToItem(selected_item)
-        elif self.list.count():
-            self.list.setCurrentRow(0)
-        else:
-            self.detail_cat_tag.hide()
-            self.detail_name.setText(tx("no_results", self.language))
-            self.lbl_main_model.setText("—")
-            self.lbl_face_model.setText("—")
-            self.lbl_row_key.setText("—")
-            self.lbl_voice.setText("—")
-            self.variants_list.clear()
-
-        self.choose.setEnabled(self.list.count() > 0)
+    def _populate(self) -> None:
+        self.filter_timer.stop()
+        current_id = self._current_id() or self.selected_id
+        matched = self.repository.find_targets(self.search.text(), self.current_kind, self.related_filter)
+        total = len(self.repository.ids_for_kind(self.current_kind))
+        self.list.blockSignals(True)
+        self.list.setUpdatesEnabled(False)
+        try:
+            self.list.clear()
+            self.list.addItems([self._item_text(target_id) for target_id in matched])
+            current_row = 0
+            for row, target_id in enumerate(matched):
+                item = self.list.item(row)
+                item.setData(Qt.ItemDataRole.UserRole, target_id)
+                item.setSizeHint(QSize(0, 84))
+                item.setToolTip(item.text() + "\n" + tx("field_id", self.language) + ": " + target_id)
+                if target_id == current_id:
+                    current_row = row
+            if matched:
+                self.list.setCurrentRow(current_row)
+                self.list.scrollToItem(self.list.currentItem())
+        finally:
+            self.list.setUpdatesEnabled(True)
+            self.list.blockSignals(False)
+        self.result_stat.setText(tx("result_count", self.language).format(matched=f"{len(matched):,}", total=f"{total:,}"))
+        for kind in ("curated", "female", "male", "all", "favorites"):
+            self.segmented.setItemText(kind, f"{tx(kind, self.language)} · {len(self.repository.ids_for_kind(kind)):,}")
+        self.choose.setEnabled(bool(matched))
+        self._show_details(self.list.currentItem(), None)
 
     def _show_details(self, current: QListWidgetItem | None, _previous: QListWidgetItem | None) -> None:
-        if not current:
-            return
-        target_id = current.data(Qt.ItemDataRole.UserRole)
-        target = self.repository.targets[target_id]
-        cat, name = parse_label_category_and_name(target["label"], self.language)
-
-        if cat:
-            self.detail_cat_tag.setText(cat)
-            self.detail_cat_tag.show()
-        else:
+        target = self.repository.targets[current.data(Qt.ItemDataRole.UserRole)] if current else None
+        if target is None:
             self.detail_cat_tag.hide()
+            self.detail_name.setText(tx("no_results", self.language))
+            for label in self.spec_labels.values():
+                label.setText("—")
+            self.alias_label.clear()
+            self.variants_list.clear()
+        else:
+            cat, name = self._name(target)
+            self.detail_cat_tag.setText(cat)
+            self.detail_cat_tag.setVisible(bool(cat))
+            self.detail_name.setText(name)
+            alias = self.repository.user_state.alias(target["id"])
+            self.alias_label.setText(tx("alias", self.language) + ": " + (alias or "—"))
+            values = {
+                "model": target.get("model"), "face": target.get("face_model"),
+                "hair": target.get("hair_model"), "id": target["id"],
+                "row_key": f"{target['target_row']} / {target['standard_character']} (0x{target['standard_character']:X})",
+                "voice": f"{target.get('voicer') if target.get('voicer') is not None else '—'} / {target.get('adv_model_id') or '—'}",
+                "region": target.get("region"), "group": target.get("catalog_group"),
+            }
+            for field, label in self.spec_labels.items():
+                label.setText(str(values[field] or "—"))
+            self.variants_list.clear()
+            self.variants_list.addItems([costume_variant_label(v, self.language) for v in target.get("variants", [])]
+                or [tx("default_variant", self.language)])
+        favorite = bool(target and self.repository.user_state.is_favorite(target["id"]))
+        self.favorite_button.setText(tx("favorite_remove" if favorite else "favorite_add", self.language))
+        self.favorite_button.setEnabled(target is not None)
+        self.alias_button.setEnabled(target is not None)
+        for button, field in ((self.same_face_button, "face_model"), (self.same_hair_button, "hair_model"), (self.same_model_button, "model")):
+            button.setEnabled(bool(target and target.get(field)))
+        row = self.list.currentRow()
+        count = self.list.count()
+        self.candidate_position.setText(tx("candidate_position", self.language).format(current=row + 1 if count else 0, total=count))
+        self.previous_button.setEnabled(row > 0)
+        self.next_button.setEnabled(0 <= row < count - 1)
 
-        self.detail_name.setText(name)
-        self.lbl_main_model.setText(target.get("model") or "—")
-        face_hair = " / ".join(filter(None, [target.get("face_model"), target.get("hair_model")])) or "—"
-        self.lbl_face_model.setText(face_hair)
-        self.lbl_row_key.setText(f"{target['target_row']} / {target['standard_character']} (0x{target['standard_character']:X})")
-        voice_str = str(target.get("voicer")) if target.get("voicer") is not None else "—"
-        self.lbl_voice.setText(f"{voice_str}  ·  ADV {target.get('adv_model_id') or '—'}")
+    def _move_candidate(self, step: int) -> None:
+        row = self.list.currentRow() + step
+        if 0 <= row < self.list.count():
+            self.list.setCurrentRow(row)
+            self.list.scrollToItem(self.list.currentItem())
 
-        self.variants_list.clear()
-        for variant in target.get("variants", []):
-            label = costume_variant_label(variant, self.language)
-            self.variants_list.addItem(label)
+    def _find_similar(self, field: str) -> None:
+        target_id = self._current_id()
+        if target_id is None:
+            return
+        value = self.repository.targets[target_id].get(field)
+        if not value:
+            return
+        self.related_filter = (field, str(value))
+        self.search.blockSignals(True)
+        self.search.clear()
+        self.search.blockSignals(False)
+        self.current_kind = "all"
+        self.segmented.setCurrentItem("all")
+        label = {"face_model": "same_face", "hair_model": "same_hair", "model": "same_model"}[field]
+        self.filter_label.setText(tx("similar_filter", self.language).format(field=tx(label, self.language), value=value))
+        self.filter_label.show()
+        self._populate()
 
-        if not target.get("variants"):
-            self.variants_list.addItem("（默认外观 / Default Only）" if self.language == "zh" else "(Default Only)")
+    def _clear_filter(self) -> None:
+        self.related_filter = None
+        self.filter_label.hide()
+        self.search.clear()
+        self._populate()
+
+    def _save_feedback(self, success: bool) -> None:
+        if not success:
+            self.state_feedback.setText(tx("finder_save_error", self.language).format(error=self.repository.user_state.last_error))
+            self.state_feedback.show()
+        else:
+            self.state_feedback.clear()
+            self.state_feedback.hide()
+
+    def _toggle_favorite(self) -> None:
+        target_id = self._current_id()
+        if target_id is not None:
+            self._save_feedback(self.repository.user_state.set_favorite(target_id,
+                not self.repository.user_state.is_favorite(target_id)))
+            self._populate()
+
+    def _edit_alias(self) -> None:
+        target_id = self._current_id()
+        if target_id is None:
+            return
+        dialog = AliasDialog(self.repository.user_state.alias(target_id), self.language, self)
+        if dialog.exec() == AliasDialog.DialogCode.Accepted:
+            self.save_alias(target_id, dialog.editor.text())
+
+    def save_alias(self, target_id: str, alias: str) -> None:
+        if target_id in self.repository.targets:
+            self._save_feedback(self.repository.user_state.set_alias(target_id, alias))
+            self._populate()
 
     def _accept(self) -> None:
-        item = self.list.currentItem()
-        if item:
-            self.selected_id = item.data(Qt.ItemDataRole.UserRole)
+        target_id = self._current_id()
+        if target_id is not None:
+            self.selected_id = target_id
             self.accept()
 
 

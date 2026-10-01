@@ -33,3 +33,12 @@ Build the separate CT:
 Output is under `artifacts/`. Optional CE Lua syntax validation uses an installed compatible `lua53-64.dll`; set `CE_LUA_DLL` if it is not found automatically. `--check` requires Lua validation and compares the existing artifact without rewriting it.
 
 A non-connecting UI preview is available with `python -m y8trainer.app --preview`; `--screenshot preview.png` renders a preview and exits without connecting to the game.
+
+Add `--finder` to open the standalone Character Finder in non-connecting preview mode:
+
+```powershell
+$env:PYTHONPATH = "$PWD\app\src"
+.\.venv\Scripts\python.exe -m y8trainer.app --preview --finder --screenshot finder.png
+```
+
+Favorites and aliases live in the user's Qt AppDataLocation, outside bundled catalogs; see [Character Finder](app/CHARACTER_FINDER.md).

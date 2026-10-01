@@ -7,6 +7,9 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
 
+from .finder_state import FinderUserState
+from .search import CharacterSearchIndex
+
 
 PLAN_FILE = "multi_source_selector.generated.json"
 FEMALE_FILE = "female_npc_catalog.generated.json"
@@ -54,7 +57,8 @@ class CatalogSummary:
 class DataRepository:
     """Loads and normalizes the generated CT plan into runtime-friendly maps."""
 
-    def __init__(self) -> None:
+    def __init__(self, user_state: FinderUserState | None = None) -> None:
+        self.user_state = user_state if user_state is not None else FinderUserState()
         document = _load_json(PLAN_FILE)
         female = _load_json(FEMALE_FILE)
         male = _load_json(MALE_FILE)
@@ -104,6 +108,7 @@ class DataRepository:
             male=len(self.male_ids),
         )
         self._validate_runtime_invariants()
+        self.search_index = CharacterSearchIndex(self.targets.values())
 
     @staticmethod
     def _validate(
@@ -310,8 +315,24 @@ class DataRepository:
         if kind == "male":
             return self.male_ids
         if kind == "all":
-            return self.curated_ids + self.female_ids + self.male_ids
+            return self.curated_ids + self.female_ids + self.male_ids + sorted(self.custom_ids)
+        if kind == "favorites":
+            return [target_id for target_id in self.ids_for_kind("all")
+                    if self.user_state.is_favorite(target_id)]
         return []
+
+    def find_targets(
+        self, query: str = "", kind: str = "all",
+        related: tuple[str, str] | None = None,
+    ) -> list[str]:
+        return self.search_index.matching_ids(
+            self.ids_for_kind(kind), query, self.user_state.alias, related)
+
+    def related_targets(self, target_id: str, field: str) -> list[str]:
+        target = self.targets.get(target_id)
+        if target is None or not target.get(field):
+            return []
+        return self.find_targets(related=(field, str(target[field])))
 
     def get_target(self, target_id: str) -> dict[str, Any] | None:
         return self.targets.get(target_id)
@@ -412,6 +433,7 @@ class DataRepository:
         }
         self.targets[target_id] = target
         self.custom_ids.add(target_id)
+        self.search_index.add(target)
         return target
 
     def invalidate_custom_targets(self) -> None:
