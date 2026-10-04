@@ -1,0 +1,2187 @@
+{
+  "schema": "y8.named_side_characters.v1",
+  "provenance": {
+    "database": "db.elvis.en.par",
+    "tables": {
+      "character_character_data.bin": "4fcb22e8e03ffff05df5a2a3be1fbbb357c4aa704e600ee8376018c786ce3ca3",
+      "character_model_model_data.bin": "358fb5a6d4a889d1b4b3a90ad91b647745523d43f8d7291fddaab119291ea616",
+      "sound_voicer.bin": "855c488ea8db874e3d0a2424766f4f396947ead697a585e41ced85267b1f1742",
+      "talk_talker.bin": "91dde1cee9b08d398c669023bc10cabfaea5c84fa2dfaa78ed4bd448b19e448c"
+    },
+    "note": "Reviewed static identity mappings. Appearance keys preserve model flags and texture selections; gameplay compatibility still requires testing."
+  },
+  "entries": [
+    {
+      "character_key": 23397,
+      "character_row": 9771,
+      "adv_model_id": 17971,
+      "model_row": 10220,
+      "character_symbol": "w_SH12_karen",
+      "model_symbol": "c_ew_SH12_karen",
+      "tops_model": "c_cw_x_SH12_karen",
+      "face_model": "c_cw_f_SH12_karen",
+      "hair_model": "",
+      "btms_model": "",
+      "voicer": 387,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 6,
+        "tex_hair2": 0,
+        "tex_tops1": 32,
+        "tex_tops2": 27,
+        "tex_tops3": 32,
+        "tex_tops4": 0,
+        "tex_btms1": 0,
+        "tex_btms2": 2,
+        "tex_btms3": 0,
+        "face_flags": 6144,
+        "hair_flags": 2,
+        "tops_flags": 940572672,
+        "btms_flags": 163208757248,
+        "skin_color": 3,
+        "eye_color": 5,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "talk_talker.bin:row=1088;sound_voicer.bin:row=387,token=karen;character_character_data.bin:key=23397",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_karen",
+      "label": "[Named Side Characters / 具名支线角色] Karen / 卡伦",
+      "confirmed_identity": true,
+      "aliases": [
+        "Karen",
+        "カレン",
+        "UFO",
+        "Substory 30",
+        "Close Encounters of the Bird Kind?",
+        "卡伦"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": []
+    },
+    {
+      "character_key": 22833,
+      "character_row": 2527,
+      "adv_model_id": 17401,
+      "model_row": 9984,
+      "character_symbol": "a_SH15_gondawara",
+      "model_symbol": "c_ea_SH15_gondawara",
+      "tops_model": "c_ca_t_suitW_mus",
+      "face_model": "c_ca_f_SH15_gondawara",
+      "hair_model": "",
+      "btms_model": "c_ca_b_slacksA_mus",
+      "voicer": 393,
+      "variant_label": "[Appearance / 外观] Suit / 西装",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 0,
+        "tex_hair2": 0,
+        "tex_tops1": 0,
+        "tex_tops2": 0,
+        "tex_tops3": 6,
+        "tex_tops4": 0,
+        "tex_btms1": 0,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 137216,
+        "hair_flags": 0,
+        "tops_flags": 70254592,
+        "btms_flags": 25769803776,
+        "skin_color": 1,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "talk_talker.bin:row=1097;sound_voicer.bin:row=393,token=gondawara;character_character_data.bin:key=22833",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_gondawara",
+      "label": "[Named Side Characters / 具名支线角色] Gondawara / 权田原组长",
+      "confirmed_identity": true,
+      "aliases": [
+        "Susumu Gondawara",
+        "Patriarch Gondawara",
+        "Gondawara",
+        "権田原",
+        "权田原",
+        "权田原进",
+        "权田原组长",
+        "Let It Snow",
+        "Substory 24"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": [
+        {
+          "character_key": 22834,
+          "character_row": 2528,
+          "adv_model_id": 17402,
+          "model_row": 9985,
+          "character_symbol": "a_SH15_gondawara_baby",
+          "model_symbol": "c_ea_SH15_gondawara_baby",
+          "tops_model": "c_ca_x_SH15_gondawara",
+          "face_model": "c_ca_f_SH15_gondawara",
+          "hair_model": "",
+          "btms_model": "",
+          "voicer": 393,
+          "variant_label": "[Appearance / 外观] Baby outfit / 婴儿装",
+          "model_metadata": {
+            "tex_skin": 0,
+            "tex_face1": 0,
+            "tex_face2": 0,
+            "tex_face3": 0,
+            "tex_face4": 0,
+            "tex_hair1": 0,
+            "tex_hair2": 0,
+            "tex_tops1": 0,
+            "tex_tops2": 0,
+            "tex_tops3": 0,
+            "tex_tops4": 0,
+            "tex_btms1": 0,
+            "tex_btms2": 0,
+            "tex_btms3": 0,
+            "face_flags": 6144,
+            "hair_flags": 0,
+            "tops_flags": 0,
+            "btms_flags": 0,
+            "skin_color": 1,
+            "eye_color": 0,
+            "tex_hair3": 0,
+            "skin_texture": 1
+          },
+          "evidence": [
+            {
+              "reference": "minigame_resort_island_residents_info.bin:row=157,field=character,record=guest_dlc04_08",
+              "rule": "C: explicit display name -> Character key -> Model"
+            },
+            {
+              "reference": "talk_talker.bin:row=1097;sound_voicer.bin:row=393,token=gondawara;character_character_data.bin:key=22834",
+              "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "character_key": 23107,
+      "character_row": 2509,
+      "adv_model_id": 17675,
+      "model_row": 9966,
+      "character_symbol": "a_SH12_okita",
+      "model_symbol": "c_ea_SH12_okita",
+      "tops_model": "c_ca_t_drugC",
+      "face_model": "c_ca_f_SH12_okita",
+      "hair_model": "",
+      "btms_model": "c_ca_b_slacksA",
+      "voicer": 388,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 0,
+        "tex_hair2": 0,
+        "tex_tops1": 0,
+        "tex_tops2": 0,
+        "tex_tops3": 1,
+        "tex_tops4": 0,
+        "tex_btms1": 1,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 268288,
+        "hair_flags": 4,
+        "tops_flags": 208666624,
+        "btms_flags": 25769803776,
+        "skin_color": 1,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "minigame_resort_island_residents_info.bin:row=108,field=character,record=guest_sub_06",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "talk_talker.bin:row=376;sound_voicer.bin:row=388,token=okita;character_character_data.bin:key=23107",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_okita",
+      "label": "[Named Side Characters / 具名支线角色] Professor Okita / 冲田博士",
+      "confirmed_identity": true,
+      "aliases": [
+        "Professor Okita",
+        "Okita",
+        "沖田博士",
+        "冲田博士"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": [
+        {
+          "character_key": 7051,
+          "character_row": 2505,
+          "adv_model_id": 26427,
+          "model_row": 9962,
+          "character_symbol": "a_SH11_okita_kurokoge",
+          "model_symbol": "c_ea_SH11_okita_kurokoge",
+          "tops_model": "c_ca_t_drugC",
+          "face_model": "c_ca_f_SH12_okita",
+          "hair_model": "",
+          "btms_model": "c_ca_b_slacksA",
+          "voicer": 388,
+          "variant_label": "[Appearance / 外观] kurokoge variant / kurokoge 变体",
+          "model_metadata": {
+            "tex_skin": 0,
+            "tex_face1": 90,
+            "tex_face2": 0,
+            "tex_face3": 0,
+            "tex_face4": 0,
+            "tex_hair1": 0,
+            "tex_hair2": 0,
+            "tex_tops1": 0,
+            "tex_tops2": 90,
+            "tex_tops3": 1,
+            "tex_tops4": 0,
+            "tex_btms1": 1,
+            "tex_btms2": 0,
+            "tex_btms3": 0,
+            "face_flags": 268288,
+            "hair_flags": 4,
+            "tops_flags": 208666624,
+            "btms_flags": 25769803776,
+            "skin_color": 1,
+            "eye_color": 0,
+            "tex_hair3": 0,
+            "skin_texture": 1
+          },
+          "evidence": [
+            {
+              "reference": "talk_talker.bin:row=376;sound_voicer.bin:row=388,token=okita;character_character_data.bin:key=7051",
+              "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+            }
+          ]
+        },
+        {
+          "character_key": 27054,
+          "character_row": 2510,
+          "adv_model_id": 21627,
+          "model_row": 9967,
+          "character_symbol": "a_SH12_okita_black",
+          "model_symbol": "c_ea_SH12_okita_black",
+          "tops_model": "c_ca_x_SH12_blackbody",
+          "face_model": "",
+          "hair_model": "",
+          "btms_model": "",
+          "voicer": 388,
+          "variant_label": "[Appearance / 外观] black variant / black 变体",
+          "model_metadata": {
+            "tex_skin": 0,
+            "tex_face1": 0,
+            "tex_face2": 0,
+            "tex_face3": 0,
+            "tex_face4": 0,
+            "tex_hair1": 0,
+            "tex_hair2": 0,
+            "tex_tops1": 0,
+            "tex_tops2": 0,
+            "tex_tops3": 1,
+            "tex_tops4": 0,
+            "tex_btms1": 1,
+            "tex_btms2": 0,
+            "tex_btms3": 0,
+            "face_flags": 268288,
+            "hair_flags": 4,
+            "tops_flags": 208666624,
+            "btms_flags": 25769803776,
+            "skin_color": 1,
+            "eye_color": 0,
+            "tex_hair3": 0,
+            "skin_texture": 1
+          },
+          "evidence": [
+            {
+              "reference": "talk_talker.bin:row=376;sound_voicer.bin:row=388,token=okita;character_character_data.bin:key=27054",
+              "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "character_key": 23009,
+      "character_row": 2582,
+      "adv_model_id": 17577,
+      "model_row": 10039,
+      "character_symbol": "a_SH24_charlie",
+      "model_symbol": "c_ea_SH24_charlie",
+      "tops_model": "c_ca_SH24_charlie",
+      "face_model": "",
+      "hair_model": "",
+      "btms_model": "",
+      "voicer": 399,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 7,
+        "tex_hair2": 0,
+        "tex_tops1": 39,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 2,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 6144,
+        "hair_flags": 16,
+        "tops_flags": 3145728,
+        "btms_flags": 25769803776,
+        "skin_color": 3,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "minigame_resort_island_residents_info.bin:row=111,field=character,record=guest_sub_09",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "battle_rpg_enemy.bin:row=362,field=model,record=elvis_delihelp_charlie",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "talk_talker.bin:row=1100;sound_voicer.bin:row=399,token=charlie;character_character_data.bin:key=23009",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_charlie",
+      "label": "[Named Side Characters / 具名支线角色] Charlie / 查理",
+      "confirmed_identity": true,
+      "aliases": [
+        "Charlie",
+        "チャーリー",
+        "Crazy Delivery",
+        "查理"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": [
+        {
+          "character_key": 23010,
+          "character_row": 2583,
+          "adv_model_id": 17578,
+          "model_row": 10040,
+          "character_symbol": "a_SH24_charlie_hat",
+          "model_symbol": "c_ea_SH24_charlie_hat",
+          "tops_model": "c_ca_SH24_charlie",
+          "face_model": "",
+          "hair_model": "",
+          "btms_model": "",
+          "voicer": 399,
+          "variant_label": "[Appearance / 外观] hat variant / hat 变体",
+          "model_metadata": {
+            "tex_skin": 0,
+            "tex_face1": 0,
+            "tex_face2": 0,
+            "tex_face3": 0,
+            "tex_face4": 0,
+            "tex_hair1": 7,
+            "tex_hair2": 0,
+            "tex_tops1": 0,
+            "tex_tops2": 0,
+            "tex_tops3": 0,
+            "tex_tops4": 0,
+            "tex_btms1": 0,
+            "tex_btms2": 0,
+            "tex_btms3": 0,
+            "face_flags": 6144,
+            "hair_flags": 16,
+            "tops_flags": 5242880,
+            "btms_flags": 25769803776,
+            "skin_color": 3,
+            "eye_color": 0,
+            "tex_hair3": 0,
+            "skin_texture": 1
+          },
+          "evidence": [
+            {
+              "reference": "talk_talker.bin:row=1100;sound_voicer.bin:row=399,token=charlie;character_character_data.bin:key=23010",
+              "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "character_key": 25095,
+      "character_row": 2635,
+      "adv_model_id": 19669,
+      "model_row": 10092,
+      "character_symbol": "a_SH37_mameoka",
+      "model_symbol": "c_ea_SH37_mameoka",
+      "tops_model": "c_ca_x_SH37_mameoka",
+      "face_model": "c_ca_f_SH37_mameoka",
+      "hair_model": "",
+      "btms_model": "c_ca_b_jeansA",
+      "voicer": 430,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 0,
+        "tex_hair2": 0,
+        "tex_tops1": 38,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 1,
+        "tex_btms2": 6,
+        "tex_btms3": 0,
+        "face_flags": 6144,
+        "hair_flags": 2,
+        "tops_flags": 3145728,
+        "btms_flags": 1152921513196781568,
+        "skin_color": 1,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "battle_rpg_enemy.bin:row=365,field=model,record=elvis_delihelp_mame",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "talk_talker.bin:row=1174;sound_voicer.bin:row=430,token=mameoka;character_character_data.bin:key=25095",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_mameoka",
+      "label": "[Named Side Characters / 具名支线角色] Mameoka / 豆冈",
+      "confirmed_identity": true,
+      "aliases": [
+        "Mameoka",
+        "豆岡",
+        "豆岡の声",
+        "豆冈"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": [
+        {
+          "character_key": 21896,
+          "character_row": 2636,
+          "adv_model_id": 26615,
+          "model_row": 10093,
+          "character_symbol": "a_SH37_mameoka_sit",
+          "model_symbol": "c_ea_SH37_mameoka_sit",
+          "tops_model": "c_ca_x_SH37_mameoka_sit",
+          "face_model": "c_ca_f_SH37_mameoka",
+          "hair_model": "",
+          "btms_model": "c_ca_b_jeansA",
+          "voicer": 430,
+          "variant_label": "[Appearance / 外观] sit variant / sit 变体",
+          "model_metadata": {
+            "tex_skin": 0,
+            "tex_face1": 0,
+            "tex_face2": 0,
+            "tex_face3": 0,
+            "tex_face4": 0,
+            "tex_hair1": 0,
+            "tex_hair2": 0,
+            "tex_tops1": 38,
+            "tex_tops2": 0,
+            "tex_tops3": 0,
+            "tex_tops4": 0,
+            "tex_btms1": 1,
+            "tex_btms2": 6,
+            "tex_btms3": 0,
+            "face_flags": 6144,
+            "hair_flags": 2,
+            "tops_flags": 70254592,
+            "btms_flags": 1152921513196781568,
+            "skin_color": 1,
+            "eye_color": 0,
+            "tex_hair3": 0,
+            "skin_texture": 1
+          },
+          "evidence": [
+            {
+              "reference": "talk_talker.bin:row=1174;sound_voicer.bin:row=430,token=mameoka;character_character_data.bin:key=21896",
+              "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "character_key": 23492,
+      "character_row": 2656,
+      "adv_model_id": 18066,
+      "model_row": 10113,
+      "character_symbol": "a_SH39_sawai",
+      "model_symbol": "c_ea_SH39_sawai",
+      "tops_model": "c_ca_x_SH39_sawai",
+      "face_model": "c_ca_f_SH39_sawai",
+      "hair_model": "",
+      "btms_model": "",
+      "voicer": 409,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 0,
+        "tex_hair2": 0,
+        "tex_tops1": 16,
+        "tex_tops2": 0,
+        "tex_tops3": 3,
+        "tex_tops4": 0,
+        "tex_btms1": 0,
+        "tex_btms2": 5,
+        "tex_btms3": 0,
+        "face_flags": 6144,
+        "hair_flags": 2,
+        "tops_flags": 71303168,
+        "btms_flags": 0,
+        "skin_color": 1,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "minigame_resort_island_residents_info.bin:row=106,field=character,record=guest_sub_04",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "talk_talker.bin:row=1115;sound_voicer.bin:row=409,token=sawai;character_character_data.bin:key=23492",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_sawai",
+      "label": "[Named Side Characters / 具名支线角色] Sawai / 泽井",
+      "confirmed_identity": true,
+      "aliases": [
+        "Sawai",
+        "澤井",
+        "泽井"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": [
+        {
+          "character_key": 23493,
+          "character_row": 2660,
+          "adv_model_id": 18067,
+          "model_row": 10115,
+          "character_symbol": "a_SH39_sawai_lei",
+          "model_symbol": "c_ea_SH39_sawai_lei",
+          "tops_model": "c_ca_x_SH39_sawai",
+          "face_model": "c_ca_f_SH39_sawai",
+          "hair_model": "",
+          "btms_model": "",
+          "voicer": 409,
+          "variant_label": "[Appearance / 外观] lei variant / lei 变体",
+          "model_metadata": {
+            "tex_skin": 0,
+            "tex_face1": 0,
+            "tex_face2": 0,
+            "tex_face3": 2,
+            "tex_face4": 0,
+            "tex_hair1": 0,
+            "tex_hair2": 0,
+            "tex_tops1": 16,
+            "tex_tops2": 0,
+            "tex_tops3": 3,
+            "tex_tops4": 0,
+            "tex_btms1": 0,
+            "tex_btms2": 5,
+            "tex_btms3": 0,
+            "face_flags": 6144,
+            "hair_flags": 2,
+            "tops_flags": 206569472,
+            "btms_flags": 25769803776,
+            "skin_color": 1,
+            "eye_color": 0,
+            "tex_hair3": 0,
+            "skin_texture": 1
+          },
+          "evidence": [
+            {
+              "reference": "talk_talker.bin:row=1115;sound_voicer.bin:row=409,token=sawai;character_character_data.bin:key=23493",
+              "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+            }
+          ]
+        },
+        {
+          "character_key": 23494,
+          "character_row": 2657,
+          "adv_model_id": 18068,
+          "model_row": 10117,
+          "character_symbol": "a_SH39_sawai_T",
+          "model_symbol": "c_ea_SH39_sawai_T",
+          "tops_model": "c_ca_x_SH39_sawai",
+          "face_model": "c_ca_f_SH39_sawai",
+          "hair_model": "",
+          "btms_model": "",
+          "voicer": 409,
+          "variant_label": "[Appearance / 外观] T variant / T 变体",
+          "model_metadata": {
+            "tex_skin": 0,
+            "tex_face1": 0,
+            "tex_face2": 0,
+            "tex_face3": 0,
+            "tex_face4": 0,
+            "tex_hair1": 0,
+            "tex_hair2": 0,
+            "tex_tops1": 0,
+            "tex_tops2": 0,
+            "tex_tops3": 3,
+            "tex_tops4": 0,
+            "tex_btms1": 0,
+            "tex_btms2": 2,
+            "tex_btms3": 0,
+            "face_flags": 6144,
+            "hair_flags": 2,
+            "tops_flags": 70254592,
+            "btms_flags": 42949672960,
+            "skin_color": 1,
+            "eye_color": 0,
+            "tex_hair3": 0,
+            "skin_texture": 1
+          },
+          "evidence": [
+            {
+              "reference": "talk_talker.bin:row=1115;sound_voicer.bin:row=409,token=sawai;character_character_data.bin:key=23494",
+              "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+            }
+          ]
+        },
+        {
+          "character_key": 23495,
+          "character_row": 2658,
+          "adv_model_id": 18069,
+          "model_row": 10118,
+          "character_symbol": "a_SH39_sawai_T_lei",
+          "model_symbol": "c_ea_SH39_sawai_T_lei",
+          "tops_model": "c_ca_x_SH39_sawai",
+          "face_model": "c_ca_f_SH39_sawai",
+          "hair_model": "",
+          "btms_model": "",
+          "voicer": 409,
+          "variant_label": "[Appearance / 外观] T lei variant / T lei 变体",
+          "model_metadata": {
+            "tex_skin": 0,
+            "tex_face1": 0,
+            "tex_face2": 0,
+            "tex_face3": 0,
+            "tex_face4": 0,
+            "tex_hair1": 0,
+            "tex_hair2": 0,
+            "tex_tops1": 0,
+            "tex_tops2": 0,
+            "tex_tops3": 3,
+            "tex_tops4": 0,
+            "tex_btms1": 0,
+            "tex_btms2": 0,
+            "tex_btms3": 0,
+            "face_flags": 6144,
+            "hair_flags": 2,
+            "tops_flags": 472907776,
+            "btms_flags": 77309411328,
+            "skin_color": 1,
+            "eye_color": 0,
+            "tex_hair3": 0,
+            "skin_texture": 1
+          },
+          "evidence": [
+            {
+              "reference": "talk_talker.bin:row=1115;sound_voicer.bin:row=409,token=sawai;character_character_data.bin:key=23495",
+              "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+            }
+          ]
+        },
+        {
+          "character_key": 21786,
+          "character_row": 2659,
+          "adv_model_id": 26573,
+          "model_row": 10114,
+          "character_symbol": "a_SH39_sawai_bag",
+          "model_symbol": "c_ea_SH39_sawai_bag",
+          "tops_model": "c_ca_x_SH39_sawai",
+          "face_model": "c_ca_f_SH39_sawai",
+          "hair_model": "",
+          "btms_model": "",
+          "voicer": 409,
+          "variant_label": "[Appearance / 外观] bag variant / bag 变体",
+          "model_metadata": {
+            "tex_skin": 0,
+            "tex_face1": 0,
+            "tex_face2": 0,
+            "tex_face3": 0,
+            "tex_face4": 0,
+            "tex_hair1": 0,
+            "tex_hair2": 0,
+            "tex_tops1": 16,
+            "tex_tops2": 0,
+            "tex_tops3": 3,
+            "tex_tops4": 0,
+            "tex_btms1": 0,
+            "tex_btms2": 5,
+            "tex_btms3": 0,
+            "face_flags": 6144,
+            "hair_flags": 2,
+            "tops_flags": 79691776,
+            "btms_flags": 0,
+            "skin_color": 1,
+            "eye_color": 0,
+            "tex_hair3": 0,
+            "skin_texture": 1
+          },
+          "evidence": [
+            {
+              "reference": "talk_talker.bin:row=1115;sound_voicer.bin:row=409,token=sawai;character_character_data.bin:key=21786",
+              "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+            }
+          ]
+        },
+        {
+          "character_key": 21939,
+          "character_row": 2661,
+          "adv_model_id": 26574,
+          "model_row": 10116,
+          "character_symbol": "a_SH39_sawai_lei_bag",
+          "model_symbol": "c_ea_SH39_sawai_lei_bag",
+          "tops_model": "c_ca_x_SH39_sawai",
+          "face_model": "c_ca_f_SH39_sawai",
+          "hair_model": "",
+          "btms_model": "",
+          "voicer": 409,
+          "variant_label": "[Appearance / 外观] lei bag variant / lei bag 变体",
+          "model_metadata": {
+            "tex_skin": 0,
+            "tex_face1": 0,
+            "tex_face2": 0,
+            "tex_face3": 2,
+            "tex_face4": 0,
+            "tex_hair1": 0,
+            "tex_hair2": 0,
+            "tex_tops1": 16,
+            "tex_tops2": 0,
+            "tex_tops3": 3,
+            "tex_tops4": 0,
+            "tex_btms1": 0,
+            "tex_btms2": 5,
+            "tex_btms3": 0,
+            "face_flags": 6144,
+            "hair_flags": 2,
+            "tops_flags": 214958080,
+            "btms_flags": 25769803776,
+            "skin_color": 1,
+            "eye_color": 0,
+            "tex_hair3": 0,
+            "skin_texture": 1
+          },
+          "evidence": [
+            {
+              "reference": "talk_talker.bin:row=1115;sound_voicer.bin:row=409,token=sawai;character_character_data.bin:key=21939",
+              "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "character_key": 25957,
+      "character_row": 7720,
+      "adv_model_id": 20531,
+      "model_row": 7165,
+      "character_symbol": "a_mg_SG_ace",
+      "model_symbol": "c_ea_mg_SG_ace",
+      "tops_model": "c_ca_x_dougi_mus",
+      "face_model": "c_ca_f_SG_ace",
+      "hair_model": "",
+      "btms_model": "",
+      "voicer": 1114,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 0,
+        "tex_hair2": 0,
+        "tex_tops1": 2,
+        "tex_tops2": 1,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 0,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 6144,
+        "hair_flags": 4,
+        "tops_flags": 82837504,
+        "btms_flags": 25769803776,
+        "skin_color": 1,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "minigame_sujimon_battle_sujimon_battle_trainer.bin:row=40,field=chara,record=dojo_leader",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "minigame_sujimon_battle_sujimon_battle_trainer.bin:row=55,field=chara,record=dojo_leader_ex",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "talk_talker.bin:row=1729;sound_voicer.bin:row=1114,token=ace;character_character_data.bin:key=25957",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_ace",
+      "label": "[Named Side Characters / 具名支线角色] Ace / 艾斯",
+      "confirmed_identity": true,
+      "aliases": [
+        "Ace",
+        "艾斯",
+        "True Ace",
+        "エース"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": []
+    },
+    {
+      "character_key": 26192,
+      "character_row": 9747,
+      "adv_model_id": 20766,
+      "model_row": 10196,
+      "character_symbol": "w_SH06_aina",
+      "model_symbol": "c_ew_SH06_aina",
+      "tops_model": "c_cw_x_dressB",
+      "face_model": "c_cw_f_2_20_01",
+      "hair_model": "c_cw_h_hairA_HW",
+      "btms_model": "",
+      "voicer": 700,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 3,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 0,
+        "tex_hair2": 0,
+        "tex_tops1": 90,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 0,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 6144,
+        "hair_flags": 32,
+        "tops_flags": 576460752379969536,
+        "btms_flags": 0,
+        "skin_color": 4,
+        "eye_color": 2,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "minigame_resort_island_residents_info.bin:row=104,field=character,record=guest_sub_02",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "talk_talker.bin:row=1309;sound_voicer.bin:row=700,token=aina;character_character_data.bin:key=26192",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_aina",
+      "label": "[Named Side Characters / 具名支线角色] Aina / 艾娜",
+      "confirmed_identity": true,
+      "aliases": [
+        "Aina",
+        "艾娜",
+        "アイナ"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": [
+        {
+          "character_key": 7052,
+          "character_row": 9753,
+          "adv_model_id": 26428,
+          "model_row": 10198,
+          "character_symbol": "w_SH06_aina_sit",
+          "model_symbol": "c_ew_SH06_aina_sit",
+          "tops_model": "c_cw_x_dressB_sit",
+          "face_model": "c_cw_f_2_20_01",
+          "hair_model": "c_cw_h_hairA_HW",
+          "btms_model": "",
+          "voicer": 700,
+          "variant_label": "[Appearance / 外观] Seated / 坐姿",
+          "model_metadata": {
+            "tex_skin": 0,
+            "tex_face1": 3,
+            "tex_face2": 0,
+            "tex_face3": 0,
+            "tex_face4": 0,
+            "tex_hair1": 0,
+            "tex_hair2": 0,
+            "tex_tops1": 90,
+            "tex_tops2": 0,
+            "tex_tops3": 0,
+            "tex_tops4": 0,
+            "tex_btms1": 0,
+            "tex_btms2": 0,
+            "tex_btms3": 0,
+            "face_flags": 6144,
+            "hair_flags": 32,
+            "tops_flags": 576460752379969536,
+            "btms_flags": 0,
+            "skin_color": 4,
+            "eye_color": 2,
+            "tex_hair3": 0,
+            "skin_texture": 1
+          },
+          "evidence": [
+            {
+              "reference": "talk_talker.bin:row=1309;sound_voicer.bin:row=700,token=aina;character_character_data.bin:key=7052",
+              "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "character_key": 28062,
+      "character_row": 2689,
+      "adv_model_id": 22635,
+      "model_row": 10146,
+      "character_symbol": "a_SH60_alohappy",
+      "model_symbol": "c_ea_SH60_alohappy",
+      "tops_model": "c_ca_x_alohappy",
+      "face_model": "",
+      "hair_model": "",
+      "btms_model": "",
+      "voicer": 878,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 4,
+        "tex_hair2": 0,
+        "tex_tops1": 0,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 0,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 137216,
+        "hair_flags": 1028,
+        "tops_flags": 1048576,
+        "btms_flags": 77309411328,
+        "skin_color": 1,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "minigame_resort_island_residents_info.bin:row=158,field=character,record=guest_dlc04_09",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "minigame_resort_island_online_avatar.bin:row=23,field=character_id,record=avater_22",
+          "rule": "C: explicit display name -> Character key -> Model"
+        }
+      ],
+      "id": "side_alohappy",
+      "label": "[Named Side Characters / 具名支线角色] Alo-Happy / 阿罗哈皮",
+      "confirmed_identity": true,
+      "aliases": [
+        "Alo-Happy",
+        "阿罗哈皮",
+        "アロハッピーちゃん"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": []
+    },
+    {
+      "character_key": 23481,
+      "character_row": 2644,
+      "adv_model_id": 18055,
+      "model_row": 10101,
+      "character_symbol": "a_SH38_bonnie",
+      "model_symbol": "c_ea_SH38_bonnie",
+      "tops_model": "c_ca_t_YshirtsF",
+      "face_model": "c_ca_f_SH38_bonnie",
+      "hair_model": "",
+      "btms_model": "c_ca_b_slacksA",
+      "voicer": 401,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 1,
+        "tex_hair2": 0,
+        "tex_tops1": 0,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 0,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 6144,
+        "hair_flags": 64,
+        "tops_flags": 3145728,
+        "btms_flags": 42949672960,
+        "skin_color": 1,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "battle_rpg_enemy.bin:row=355,field=model,record=elvis_delihelp_kashiwa",
+          "rule": "C: explicit display name -> Character key -> Model"
+        }
+      ],
+      "id": "side_bony_kashiwa",
+      "label": "[Named Side Characters / 具名支线角色] Bony Kashiwa / 邦尼柏",
+      "confirmed_identity": true,
+      "aliases": [
+        "Bony Kashiwa",
+        "邦尼柏",
+        "ボニー柏"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": []
+    },
+    {
+      "character_key": 25224,
+      "character_row": 2729,
+      "adv_model_id": 19798,
+      "model_row": 10332,
+      "character_symbol": "a_VP_HWsecurity02",
+      "model_symbol": "c_ea_VP_HWsecurity02",
+      "tops_model": "c_ca_x_securityHW",
+      "face_model": "c_ca_f_2_30_02",
+      "hair_model": "c_ca_h_policeA",
+      "btms_model": "",
+      "voicer": 949,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 3,
+        "tex_hair2": 0,
+        "tex_tops1": 0,
+        "tex_tops2": 0,
+        "tex_tops3": 4,
+        "tex_tops4": 0,
+        "tex_btms1": 0,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 6144,
+        "hair_flags": 0,
+        "tops_flags": 1492123648,
+        "btms_flags": 77309411328,
+        "skin_color": 3,
+        "eye_color": 1,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "najimi_list.bin:row=62,talker=1403;talk_talker.bin:row=1403",
+          "rule": "C: explicit Character + named speaker FK"
+        }
+      ],
+      "id": "side_danny",
+      "label": "[Named Side Characters / 具名支线角色] Danny / 丹尼",
+      "confirmed_identity": true,
+      "aliases": [
+        "Danny",
+        "丹尼",
+        "ダニー"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": []
+    },
+    {
+      "character_key": 23498,
+      "character_row": 9772,
+      "adv_model_id": 18072,
+      "model_row": 10221,
+      "character_symbol": "w_SH15_elizabeth",
+      "model_symbol": "c_ew_SH15_elizabeth",
+      "tops_model": "c_cw_t_knitA",
+      "face_model": "c_cw_f_1_20_01",
+      "hair_model": "c_cw_h_hairA_HW",
+      "btms_model": "c_cw_b_jeansA",
+      "voicer": 877,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 0,
+        "tex_hair2": 0,
+        "tex_tops1": 2,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 3,
+        "tex_btms2": 2,
+        "tex_btms3": 0,
+        "face_flags": 6144,
+        "hair_flags": 4,
+        "tops_flags": 1048576,
+        "btms_flags": 77309411328,
+        "skin_color": 1,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "talk_talker.bin:row=1586;sound_voicer.bin:row=877,token=elizabeth;character_character_data.bin:key=23498",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_elizabeth",
+      "label": "[Named Side Characters / 具名支线角色] Elizabeth / 伊丽莎白",
+      "confirmed_identity": true,
+      "aliases": [
+        "Elizabeth",
+        "伊丽莎白",
+        "エリザベス"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": [
+        {
+          "character_key": 28063,
+          "character_row": 9824,
+          "adv_model_id": 22636,
+          "model_row": 10273,
+          "character_symbol": "w_SH60_elizabeth",
+          "model_symbol": "c_ew_SH60_elizabeth",
+          "tops_model": "c_cw_t_alohappy",
+          "face_model": "c_cw_f_SH60_elizabeth",
+          "hair_model": "",
+          "btms_model": "c_cw_b_slacksA",
+          "voicer": 877,
+          "variant_label": "[Appearance / 外观] Alo-Happy appearance / 阿罗哈皮场景造型",
+          "model_metadata": {
+            "tex_skin": 0,
+            "tex_face1": 0,
+            "tex_face2": 0,
+            "tex_face3": 0,
+            "tex_face4": 0,
+            "tex_hair1": 4,
+            "tex_hair2": 0,
+            "tex_tops1": 0,
+            "tex_tops2": 0,
+            "tex_tops3": 0,
+            "tex_tops4": 0,
+            "tex_btms1": 0,
+            "tex_btms2": 0,
+            "tex_btms3": 0,
+            "face_flags": 137216,
+            "hair_flags": 1028,
+            "tops_flags": 3145728,
+            "btms_flags": 163208757248,
+            "skin_color": 1,
+            "eye_color": 0,
+            "tex_hair3": 0,
+            "skin_texture": 1
+          },
+          "evidence": [
+            {
+              "reference": "minigame_resort_island_residents_info.bin:row=116,field=character,record=guest_sub_14",
+              "rule": "C: explicit display name -> Character key -> Model"
+            },
+            {
+              "reference": "talk_talker.bin:row=1586;sound_voicer.bin:row=877,token=elizabeth;character_character_data.bin:key=28063",
+              "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "character_key": 6212,
+      "character_row": 2692,
+      "adv_model_id": 23132,
+      "model_row": 10149,
+      "character_symbol": "a_SH61_ikari",
+      "model_symbol": "c_ea_SH61_ikari",
+      "tops_model": "c_ca_x_SH61_ikari_fire",
+      "face_model": "c_ca_f_SH61_ikari",
+      "hair_model": "c_ca_h_SH61_ikari",
+      "btms_model": "",
+      "voicer": 873,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 0,
+        "tex_hair2": 0,
+        "tex_tops1": 0,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 0,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 6144,
+        "hair_flags": 2,
+        "tops_flags": 74448896,
+        "btms_flags": 0,
+        "skin_color": 1,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "talk_talker.bin:row=757;sound_voicer.bin:row=873,token=ikari;character_character_data.bin:key=6212",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_ikari",
+      "label": "[Named Side Characters / 具名支线角色] Ikari / 猪狩",
+      "confirmed_identity": true,
+      "aliases": [
+        "Ikari",
+        "猪狩"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": [
+        {
+          "character_key": 26901,
+          "character_row": 7385,
+          "adv_model_id": 21474,
+          "model_row": 9545,
+          "character_symbol": "a_h_shop_license02",
+          "model_symbol": "c_ea_h_shop_license02",
+          "tops_model": "c_ca_x_SH61_ikari",
+          "face_model": "c_ca_f_SH61_ikari",
+          "hair_model": "c_ca_h_SH61_ikari",
+          "btms_model": "",
+          "voicer": 873,
+          "variant_label": "[Appearance / 外观] License school appearance / 资格学校造型",
+          "model_metadata": {
+            "tex_skin": 0,
+            "tex_face1": 0,
+            "tex_face2": 0,
+            "tex_face3": 0,
+            "tex_face4": 0,
+            "tex_hair1": 4,
+            "tex_hair2": 1,
+            "tex_tops1": 23,
+            "tex_tops2": 0,
+            "tex_tops3": 0,
+            "tex_tops4": 0,
+            "tex_btms1": 0,
+            "tex_btms2": 2,
+            "tex_btms3": 0,
+            "face_flags": 6144,
+            "hair_flags": 1026,
+            "tops_flags": 68157440,
+            "btms_flags": 1152921530376650752,
+            "skin_color": 1,
+            "eye_color": 0,
+            "tex_hair3": 0,
+            "skin_texture": 1
+          },
+          "evidence": [
+            {
+              "reference": "minigame_resort_island_residents_info.bin:row=112,field=character,record=guest_sub_10",
+              "rule": "C: explicit display name -> Character key -> Model"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "character_key": 25961,
+      "character_row": 7724,
+      "adv_model_id": 20535,
+      "model_row": 7169,
+      "character_symbol": "a_mg_SG_jack",
+      "model_symbol": "c_ea_mg_SG_jack",
+      "tops_model": "c_ca_x_jacksuit_L",
+      "face_model": "c_ca_f_SG_jack",
+      "hair_model": "",
+      "btms_model": "",
+      "voicer": 708,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 0,
+        "tex_hair2": 0,
+        "tex_tops1": 0,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 0,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 6144,
+        "hair_flags": 4,
+        "tops_flags": 70254592,
+        "btms_flags": 25769803776,
+        "skin_color": 1,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "minigame_sujimon_battle_sujimon_battle_trainer.bin:row=28,field=chara,record=hotel_leader_st",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "minigame_sujimon_battle_sujimon_battle_trainer.bin:row=52,field=chara,record=hotel_leader_ex",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "talk_talker.bin:row=1314;sound_voicer.bin:row=708,token=jack;character_character_data.bin:key=25961",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_jack",
+      "label": "[Named Side Characters / 具名支线角色] Jack / 杰克",
+      "confirmed_identity": true,
+      "aliases": [
+        "Jack",
+        "杰克",
+        "True Jack",
+        "ジャック"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": []
+    },
+    {
+      "character_key": 25127,
+      "character_row": 2590,
+      "adv_model_id": 19701,
+      "model_row": 10047,
+      "character_symbol": "a_SH26_james",
+      "model_symbol": "c_ea_SH26_james",
+      "tops_model": "c_ca_x_SH26_james",
+      "face_model": "c_ca_f_SH26_james",
+      "hair_model": "",
+      "btms_model": "",
+      "voicer": 438,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 4,
+        "tex_hair2": 0,
+        "tex_tops1": 0,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 6,
+        "tex_btms2": 2,
+        "tex_btms3": 1,
+        "face_flags": 137216,
+        "hair_flags": 1028,
+        "tops_flags": 3145728,
+        "btms_flags": 77309411328,
+        "skin_color": 3,
+        "eye_color": 1,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "talk_talker.bin:row=1202;sound_voicer.bin:row=438,token=james;character_character_data.bin:key=25127",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_james",
+      "label": "[Named Side Characters / 具名支线角色] James / 詹姆斯",
+      "confirmed_identity": true,
+      "aliases": [
+        "James",
+        "詹姆斯",
+        "ジェームズ"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": []
+    },
+    {
+      "character_key": 25965,
+      "character_row": 7728,
+      "adv_model_id": 20539,
+      "model_row": 7173,
+      "character_symbol": "a_mg_SG_joker",
+      "model_symbol": "c_ea_mg_SG_joker",
+      "tops_model": "c_ca_x_joker",
+      "face_model": "c_ca_f_SG_joker",
+      "hair_model": "",
+      "btms_model": "",
+      "voicer": 1115,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 0,
+        "tex_hair2": 0,
+        "tex_tops1": 0,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 0,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 14336,
+        "hair_flags": 4,
+        "tops_flags": 70254592,
+        "btms_flags": 25769803776,
+        "skin_color": 3,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "minigame_sujimon_battle_sujimon_battle_trainer.bin:row=36,field=chara,record=underground_leader_st",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "minigame_sujimon_battle_sujimon_battle_trainer.bin:row=54,field=chara,record=underground_leader_ex",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "talk_talker.bin:row=1723;sound_voicer.bin:row=1115,token=joker;character_character_data.bin:key=25965",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_joker",
+      "label": "[Named Side Characters / 具名支线角色] Joker / 小丑",
+      "confirmed_identity": true,
+      "aliases": [
+        "Joker",
+        "小丑",
+        "True Joker",
+        "ジョーカー"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": []
+    },
+    {
+      "character_key": 25969,
+      "character_row": 7732,
+      "adv_model_id": 20543,
+      "model_row": 7177,
+      "character_symbol": "a_mg_SG_king",
+      "model_symbol": "c_ea_mg_SG_king",
+      "tops_model": "c_ca_x_king",
+      "face_model": "c_ca_f_SG_king",
+      "hair_model": "",
+      "btms_model": "",
+      "voicer": 709,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 0,
+        "tex_hair2": 0,
+        "tex_tops1": 0,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 1,
+        "tex_btms1": 0,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 38912,
+        "hair_flags": 4,
+        "tops_flags": 204472320,
+        "btms_flags": 25769803776,
+        "skin_color": 3,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "minigame_sujimon_battle_sujimon_battle_trainer.bin:row=41,field=chara,record=sujigami_master_st",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "minigame_sujimon_battle_sujimon_battle_trainer.bin:row=56,field=chara,record=sujigami_master_ex",
+          "rule": "C: explicit display name -> Character key -> Model"
+        }
+      ],
+      "id": "side_king",
+      "label": "[Named Side Characters / 具名支线角色] King / 国王",
+      "confirmed_identity": true,
+      "aliases": [
+        "King",
+        "国王",
+        "True King",
+        "キング"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": []
+    },
+    {
+      "character_key": 13943,
+      "character_row": 9827,
+      "adv_model_id": 23583,
+      "model_row": 10276,
+      "character_symbol": "w_SH62_machiko",
+      "model_symbol": "c_ew_SH62_machiko",
+      "tops_model": "c_cw_x_SH62_machiko",
+      "face_model": "c_cw_f_SH62_machiko",
+      "hair_model": "",
+      "btms_model": "",
+      "voicer": 892,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 4,
+        "tex_hair2": 0,
+        "tex_tops1": 0,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 0,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 137216,
+        "hair_flags": 1028,
+        "tops_flags": 3145728,
+        "btms_flags": 77309411328,
+        "skin_color": 3,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "minigame_resort_island_residents_info.bin:row=115,field=character,record=guest_sub_13",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "talk_talker.bin:row=1796;sound_voicer.bin:row=892,token=machiko;character_character_data.bin:key=13943",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_machiko",
+      "label": "[Named Side Characters / 具名支线角色] Machiko-san / 真知子",
+      "confirmed_identity": true,
+      "aliases": [
+        "Machiko-san",
+        "真知子",
+        "Machiko",
+        "マチコさん",
+        "マチコ"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": []
+    },
+    {
+      "character_key": 28040,
+      "character_row": 2561,
+      "adv_model_id": 22613,
+      "model_row": 10018,
+      "character_symbol": "a_SH20_mash",
+      "model_symbol": "c_ea_SH20_mash",
+      "tops_model": "c_ca_x_SH20_mash",
+      "face_model": "c_ca_f_SH20_mash",
+      "hair_model": "",
+      "btms_model": "",
+      "voicer": 772,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 4,
+        "tex_hair2": 0,
+        "tex_tops1": 0,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 0,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 268288,
+        "hair_flags": 1028,
+        "tops_flags": 3145728,
+        "btms_flags": 77309411328,
+        "skin_color": 3,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "minigame_resort_island_residents_info.bin:row=110,field=character,record=guest_sub_08",
+          "rule": "C: explicit display name -> Character key -> Model"
+        }
+      ],
+      "id": "side_matt_tropico",
+      "label": "[Named Side Characters / 具名支线角色] Matt Tropico / 马特·特罗皮科",
+      "confirmed_identity": true,
+      "aliases": [
+        "Matt Tropico",
+        "马特·特罗皮科",
+        "マッシュ・トロピコ"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": []
+    },
+    {
+      "character_key": 25126,
+      "character_row": 2598,
+      "adv_model_id": 19700,
+      "model_row": 10055,
+      "character_symbol": "a_SH26_nathan",
+      "model_symbol": "c_ea_SH26_nathan",
+      "tops_model": "c_ca_x_SH26_nathan",
+      "face_model": "c_ca_f_SH26_nathan",
+      "hair_model": "",
+      "btms_model": "",
+      "voicer": 437,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 9,
+        "tex_hair2": 0,
+        "tex_tops1": 0,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 1,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 137216,
+        "hair_flags": 2,
+        "tops_flags": 1048576,
+        "btms_flags": 42949672960,
+        "skin_color": 3,
+        "eye_color": 1,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "minigame_resort_island_residents_info.bin:row=105,field=character,record=guest_sub_03",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "battle_rpg_enemy.bin:row=316,field=model,record=elvis_delihelp_nathan",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "talk_talker.bin:row=1193;sound_voicer.bin:row=437,token=nathan;character_character_data.bin:key=25126",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_nathan",
+      "label": "[Named Side Characters / 具名支线角色] Nathan / 内森",
+      "confirmed_identity": true,
+      "aliases": [
+        "Nathan",
+        "内森",
+        "ネイサン"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": []
+    },
+    {
+      "character_key": 12616,
+      "character_row": 2558,
+      "adv_model_id": 23575,
+      "model_row": 10015,
+      "character_symbol": "a_SH18_onishi",
+      "model_symbol": "c_ea_SH18_onishi",
+      "tops_model": "c_ca_t_TshirtsA",
+      "face_model": "c_ca_f_0_10_06",
+      "hair_model": "c_ca_h_hairA",
+      "btms_model": "c_ca_b_slacksA",
+      "voicer": 1117,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 32,
+        "tex_face2": 0,
+        "tex_face3": 1,
+        "tex_face4": 0,
+        "tex_hair1": 0,
+        "tex_hair2": 0,
+        "tex_tops1": 88,
+        "tex_tops2": 17,
+        "tex_tops3": 2,
+        "tex_tops4": 0,
+        "tex_btms1": 0,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 6144,
+        "hair_flags": 64,
+        "tops_flags": 19922944,
+        "btms_flags": 25769803776,
+        "skin_color": 1,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "talk_talker.bin:row=1716;sound_voicer.bin:row=1117,token=onishi;character_character_data.bin:key=12616",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_onishi",
+      "label": "[Named Side Characters / 具名支线角色] Onishi / 大西",
+      "confirmed_identity": true,
+      "aliases": [
+        "Onishi",
+        "大西"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": []
+    },
+    {
+      "character_key": 28065,
+      "character_row": 2493,
+      "adv_model_id": 22638,
+      "model_row": 9950,
+      "character_symbol": "a_SH07_raymond",
+      "model_symbol": "c_ea_SH07_raymond",
+      "tops_model": "c_ca_t_TshirtsA",
+      "face_model": "c_ca_f_SH07_raymond",
+      "hair_model": "",
+      "btms_model": "c_ca_b_half_pantsA",
+      "voicer": 879,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 4,
+        "tex_hair2": 0,
+        "tex_tops1": 0,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 99,
+        "tex_btms1": 0,
+        "tex_btms2": 4,
+        "tex_btms3": 0,
+        "face_flags": 526336,
+        "hair_flags": 1028,
+        "tops_flags": 135266304,
+        "btms_flags": 163208757248,
+        "skin_color": 3,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 7
+      },
+      "evidence": [
+        {
+          "reference": "minigame_resort_island_residents_info.bin:row=107,field=character,record=guest_sub_05",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "talk_talker.bin:row=1563;sound_voicer.bin:row=879,token=raymond;character_character_data.bin:key=28065",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_raymond",
+      "label": "[Named Side Characters / 具名支线角色] Raymond / 雷蒙德",
+      "confirmed_identity": true,
+      "aliases": [
+        "Raymond",
+        "雷蒙德",
+        "レイモンド"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": [
+        {
+          "character_key": 28066,
+          "character_row": 2494,
+          "adv_model_id": 22639,
+          "model_row": 9951,
+          "character_symbol": "a_SH07_raymond_naked",
+          "model_symbol": "c_ea_SH07_raymond_naked",
+          "tops_model": "c_ca_t_naked",
+          "face_model": "c_ca_f_SH07_raymond",
+          "hair_model": "",
+          "btms_model": "c_ca_b_SH07_raymond",
+          "voicer": 879,
+          "variant_label": "[Appearance / 外观] Undressed / 无衣造型",
+          "model_metadata": {
+            "tex_skin": 0,
+            "tex_face1": 0,
+            "tex_face2": 0,
+            "tex_face3": 0,
+            "tex_face4": 0,
+            "tex_hair1": 4,
+            "tex_hair2": 0,
+            "tex_tops1": 0,
+            "tex_tops2": 0,
+            "tex_tops3": 0,
+            "tex_tops4": 0,
+            "tex_btms1": 0,
+            "tex_btms2": 4,
+            "tex_btms3": 0,
+            "face_flags": 264192,
+            "hair_flags": 1028,
+            "tops_flags": 1048576,
+            "btms_flags": 163208757248,
+            "skin_color": 3,
+            "eye_color": 0,
+            "tex_hair3": 0,
+            "skin_texture": 7
+          },
+          "evidence": [
+            {
+              "reference": "talk_talker.bin:row=1563;sound_voicer.bin:row=879,token=raymond;character_character_data.bin:key=28066",
+              "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "character_key": 25054,
+      "character_row": 2495,
+      "adv_model_id": 19628,
+      "model_row": 9952,
+      "character_symbol": "a_SH08_yasuda",
+      "model_symbol": "c_ea_SH08_yasuda",
+      "tops_model": "c_ca_x_SH08_yasuda",
+      "face_model": "c_ca_f_SH08_yasuda",
+      "hair_model": "c_ca_h_jugglerC",
+      "btms_model": "",
+      "voicer": 419,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 0,
+        "tex_hair2": 0,
+        "tex_tops1": 0,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 0,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 6144,
+        "hair_flags": 0,
+        "tops_flags": 5242880,
+        "btms_flags": 17179869184,
+        "skin_color": 1,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "minigame_resort_island_residents_info.bin:row=109,field=character,record=guest_sub_07",
+          "rule": "C: explicit display name -> Character key -> Model"
+        },
+        {
+          "reference": "talk_talker.bin:row=867;sound_voicer.bin:row=419,token=yasuda;character_character_data.bin:key=25054",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_yasuda",
+      "label": "[Named Side Characters / 具名支线角色] Ringmaster Yasuda / 安田团长",
+      "confirmed_identity": true,
+      "aliases": [
+        "Ringmaster Yasuda",
+        "安田团长",
+        "Yasuda",
+        "保田団長",
+        "帽子の男"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": []
+    },
+    {
+      "character_key": 23007,
+      "character_row": 2467,
+      "adv_model_id": 17575,
+      "model_row": 9924,
+      "character_symbol": "a_SH03_thomas",
+      "model_symbol": "c_ea_SH03_thomas",
+      "tops_model": "c_ca_x_SH03_thomas",
+      "face_model": "c_ca_f_SH03_thomas",
+      "hair_model": "",
+      "btms_model": "",
+      "voicer": 381,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 2,
+        "tex_hair2": 0,
+        "tex_tops1": 3,
+        "tex_tops2": 0,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 0,
+        "tex_btms2": 0,
+        "tex_btms3": 0,
+        "face_flags": 6144,
+        "hair_flags": 64,
+        "tops_flags": 1048576,
+        "btms_flags": 25769803776,
+        "skin_color": 1,
+        "eye_color": 0,
+        "tex_hair3": 0,
+        "skin_texture": 4
+      },
+      "evidence": [
+        {
+          "reference": "talk_talker.bin:row=1083;sound_voicer.bin:row=381,token=thomas;character_character_data.bin:key=23007",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_thomas",
+      "label": "[Named Side Characters / 具名支线角色] Thomas / 托马斯",
+      "confirmed_identity": true,
+      "aliases": [
+        "Thomas",
+        "托马斯",
+        "トーマス"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": [
+        {
+          "character_key": 23008,
+          "character_row": 2468,
+          "adv_model_id": 17576,
+          "model_row": 9925,
+          "character_symbol": "a_SH03_thomas_wind",
+          "model_symbol": "c_ea_SH03_thomas_wind",
+          "tops_model": "c_ca_x_SH03_thomas",
+          "face_model": "c_ca_f_SH03_thomas",
+          "hair_model": "",
+          "btms_model": "",
+          "voicer": 381,
+          "variant_label": "[Appearance / 外观] Wind scene / 风中造型",
+          "model_metadata": {
+            "tex_skin": 0,
+            "tex_face1": 0,
+            "tex_face2": 0,
+            "tex_face3": 0,
+            "tex_face4": 0,
+            "tex_hair1": 2,
+            "tex_hair2": 0,
+            "tex_tops1": 3,
+            "tex_tops2": 0,
+            "tex_tops3": 0,
+            "tex_tops4": 0,
+            "tex_btms1": 0,
+            "tex_btms2": 0,
+            "tex_btms3": 0,
+            "face_flags": 6144,
+            "hair_flags": 64,
+            "tops_flags": 1048576,
+            "btms_flags": 25769803776,
+            "skin_color": 1,
+            "eye_color": 0,
+            "tex_hair3": 0,
+            "skin_texture": 4
+          },
+          "evidence": [
+            {
+              "reference": "talk_talker.bin:row=1083;sound_voicer.bin:row=381,token=thomas;character_character_data.bin:key=23008",
+              "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "character_key": 25052,
+      "character_row": 9811,
+      "adv_model_id": 19626,
+      "model_row": 10260,
+      "character_symbol": "w_SH29_tony",
+      "model_symbol": "c_ew_SH29_tony",
+      "tops_model": "c_cw_t_alohaAO_chd",
+      "face_model": "c_cw_f_SH29_tony",
+      "hair_model": "",
+      "btms_model": "c_cw_b_swimsuitB_chd",
+      "voicer": 416,
+      "variant_label": "[Appearance / 外观] Standard / 标准造型",
+      "model_metadata": {
+        "tex_skin": 0,
+        "tex_face1": 0,
+        "tex_face2": 0,
+        "tex_face3": 0,
+        "tex_face4": 0,
+        "tex_hair1": 4,
+        "tex_hair2": 0,
+        "tex_tops1": 18,
+        "tex_tops2": 27,
+        "tex_tops3": 0,
+        "tex_tops4": 0,
+        "tex_btms1": 8,
+        "tex_btms2": 1,
+        "tex_btms3": 0,
+        "face_flags": 6144,
+        "hair_flags": 2,
+        "tops_flags": 3145728,
+        "btms_flags": 42949672960,
+        "skin_color": 3,
+        "eye_color": 1,
+        "tex_hair3": 0,
+        "skin_texture": 1
+      },
+      "evidence": [
+        {
+          "reference": "talk_talker.bin:row=1226;sound_voicer.bin:row=416,token=tony;character_character_data.bin:key=25052",
+          "rule": "A: unique speaker name/token + matching dedicated voicer/Character symbol + Model"
+        }
+      ],
+      "id": "side_tony",
+      "label": "[Named Side Characters / 具名支线角色] Tony / 托尼",
+      "confirmed_identity": true,
+      "aliases": [
+        "Tony",
+        "托尼",
+        "トニー"
+      ],
+      "groups": [
+        "named_side_characters"
+      ],
+      "extra_variants": []
+    }
+  ]
+}

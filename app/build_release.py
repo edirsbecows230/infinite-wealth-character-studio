@@ -18,7 +18,7 @@ COSTUME_METADATA = HERE.parent / "data" / "costume_vanilla_rpg_costume.json"
 BUILD = HERE / "build"
 RELEASE = HERE / "release"
 ICON = BUILD / "infinite_wealth_fluent.ico"
-NAME = "InfiniteWealthCharacterStudio_v0.7.0"
+NAME = "InfiniteWealthCharacterStudio_v0.8.0"
 
 
 def make_icon() -> None:
@@ -52,6 +52,7 @@ def main() -> int:
         SHARED / "female_npc_catalog.generated.json",
         SHARED / "male_npc_catalog.generated.json",
         COSTUME_METADATA,
+        HERE / "data" / "named_side_characters.json",
     ]
     missing = [str(path) for path in required if not path.is_file()]
     if missing:
@@ -85,6 +86,7 @@ def main() -> int:
         "--add-data", f"{required[1]};data",
         "--add-data", f"{required[2]};data",
         "--add-data", f"{required[3]};data",
+        "--add-data", f"{required[4]};data",
         "--exclude-module", "PySide6.QtWebEngineCore",
         "--exclude-module", "PySide6.QtWebEngineWidgets",
         "--exclude-module", "PySide6.QtQml",

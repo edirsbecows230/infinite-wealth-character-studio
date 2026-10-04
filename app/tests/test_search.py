@@ -108,16 +108,16 @@ class FinderPersistenceTests(unittest.TestCase):
                 state = FinderUserState(self.path)
                 self.assertTrue(state.load_error)
                 repo = DataRepository(state)
-                self.assertEqual(len(repo.ids_for_kind("all")), 5193)
+                self.assertEqual(len(repo.ids_for_kind("all")), 5218)
 
     def test_invalid_records_and_disappeared_targets_are_ignored(self):
         self.path.parent.mkdir()
         self.path.write_text(json.dumps({"favorites": ["chitose", "gone", 1],
-                                        "aliases": {"gone": "Karen", "chitose": "UFO", "bad": []}}))
+                                        "aliases": {"gone": "Gone alias fixture", "chitose": "UFO", "bad": []}}))
         repo = DataRepository(FinderUserState(self.path))
         self.assertEqual(repo.ids_for_kind("favorites"), ["chitose"])
-        self.assertEqual(repo.find_targets("UFO"), ["chitose"])
-        self.assertEqual(repo.find_targets("Karen"), [])
+        self.assertIn("chitose", repo.find_targets("UFO"))
+        self.assertEqual(repo.find_targets("Gone alias fixture"), [])
 
     def test_failed_atomic_replace_preserves_previous_file_and_memory(self):
         state = FinderUserState(self.path)

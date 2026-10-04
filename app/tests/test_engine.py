@@ -184,7 +184,8 @@ class EngineTests(unittest.TestCase):
             self.repository.summary.total,
             self.repository.summary.curated
             + self.repository.summary.female
-            + self.repository.summary.male,
+            + self.repository.summary.male
+            + self.repository.summary.named,
         )
         self.assertEqual(
             sum(len(source["context_entries"]) for source in self.repository.sources.values()), 574

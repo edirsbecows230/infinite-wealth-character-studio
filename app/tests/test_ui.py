@@ -268,7 +268,7 @@ class CharacterFinderUiTests(unittest.TestCase):
         self.assertIn(target_id, self.ids())
         self.dialog.clear_filter_button.click()
         self.assertIsNone(self.dialog.related_filter)
-        self.assertEqual(self.dialog.list.count(), 5193)
+        self.assertEqual(self.dialog.list.count(), 5218)
 
     def test_same_hair_and_same_model_use_exact_indexes(self):
         self.dialog.segmented.items["female"].click()
@@ -376,7 +376,9 @@ class CharacterFinderUiTests(unittest.TestCase):
                     self.assertLessEqual(dialog.widget.height(), self.window.height() - 48)
                     self.assertLessEqual(dialog.widget.width(), self.window.width() - 48)
                     self.assertLessEqual(dialog.inspector_scroll.horizontalScrollBar().maximum(), 0)
-                    self.assertEqual(dialog.list.count(), 5193)
+                    for item in dialog.segmented.items.values():
+                        self.assertLessEqual(item.geometry().right(), dialog.segmented.width())
+                    self.assertEqual(dialog.list.count(), 5218)
                     dialog.search.setText("0x5b6c chitose")
                     self.assertTrue(dialog.filter_timer.isActive())
                     deadline = time.monotonic() + 1.0
@@ -393,6 +395,95 @@ class CharacterFinderUiTests(unittest.TestCase):
         self.assertTrue(self.repository.user_state.is_favorite("chitose"))
         self.assertFalse(self.dialog.state_feedback.isHidden())
         self.assertIn("locked", self.dialog.state_feedback.text())
+
+    def test_named_category_real_karen_search_and_local_overlays(self):
+        self.dialog.segmented.items["named"].click()
+        self.assertEqual(self.ids(), self.repository.named_ids)
+        self.dialog.search.setText("Karen UFO")
+        self.dialog._populate()
+        self.assertEqual(self.ids(), ["side_karen"])
+        self.assertEqual(self.dialog.lbl_main_model.text(), "c_cw_x_SH12_karen")
+        self.assertIn("23397", self.dialog.lbl_row_key.text())
+        self.dialog.favorite_button.click()
+        self.dialog.save_alias("side_karen", "UFO night test")
+        reloaded = DataRepository(FinderUserState(self.config))
+        self.assertEqual(reloaded.ids_for_kind("favorites"), ["side_karen"])
+        self.assertEqual(reloaded.find_targets("UFO night"), ["side_karen"])
+
+    def test_named_display_names_follow_ui_language_and_keep_english_search(self):
+        expected = {"side_karen": "卡伦", "side_gondawara": "权田原组长",
+                    "side_okita": "冲田博士", "side_charlie": "查理",
+                    "side_mameoka": "豆冈", "side_sawai": "泽井",
+                    "side_ace": "艾斯", "side_aina": "艾娜", "side_alohappy": "阿罗哈皮",
+                    "side_bony_kashiwa": "邦尼柏", "side_danny": "丹尼",
+                    "side_elizabeth": "伊丽莎白", "side_ikari": "猪狩",
+                    "side_jack": "杰克", "side_james": "詹姆斯", "side_joker": "小丑",
+                    "side_king": "国王", "side_machiko": "真知子",
+                    "side_matt_tropico": "马特·特罗皮科", "side_nathan": "内森",
+                    "side_onishi": "大西", "side_raymond": "雷蒙德",
+                    "side_yasuda": "安田团长", "side_thomas": "托马斯", "side_tony": "托尼"}
+        self.dialog.segmented.items["named"].click()
+        for tid, name in expected.items():
+            with self.subTest(tid=tid):
+                self.select_id(tid)
+                self.assertEqual(self.dialog.detail_name.text(), name)
+                card = self.window.cards["ichiban"]
+                card.set_target(tid)
+                self.assertEqual(card.target_name.text(), name)
+                self.assertEqual(self.repository.find_targets(name), [tid])
+        english = TargetPickerDialog(self.repository, "en", "side_karen", self.window)
+        self.assertEqual(english.detail_name.text(), "Karen")
+        self.assertEqual(self.repository.find_targets("Karen UFO"), ["side_karen"])
+        english.close()
+
+    def test_top_back_closes_without_selecting_even_with_no_results(self):
+        from PySide6.QtCore import QTimer
+        from PySide6.QtWidgets import QDialog
+        with patch.object(self.engine, "apply") as apply, patch.object(self.engine.memory, "write") as write:
+            for language, query in (("zh", ""), ("en", "no_such_character_fixture")):
+                with self.subTest(language=language, query=query):
+                    dialog = TargetPickerDialog(self.repository, language, "chitose", self.window)
+                    dialog.search.setText(query)
+                    dialog._populate()
+                    self.assertEqual(dialog.back_button.text(), tx("finder_back", language))
+                    if query:
+                        self.assertFalse(dialog.choose.isEnabled())
+                    else:
+                        dialog.list.setCurrentRow(0)
+                    timed_out = []
+                    watchdog = QTimer(dialog)
+                    watchdog.setSingleShot(True)
+                    def force_close():
+                        timed_out.append(True)
+                        QDialog.done(dialog, QDialog.DialogCode.Rejected)
+                    watchdog.timeout.connect(force_close)
+                    watchdog.start(1500)
+                    QTimer.singleShot(300, dialog.back_button.click)
+                    result = dialog.exec()
+                    watchdog.stop()
+                    self.assertFalse(timed_out)
+                    self.assertEqual(result, QDialog.DialogCode.Rejected)
+                    self.assertEqual(dialog.selected_id, "chitose")
+                    self.assertFalse(dialog.isVisible())
+            self.assertEqual(self.window.cards["ichiban"].target_id, "chitose")
+            apply.assert_not_called()
+            write.assert_not_called()
+
+    def test_named_variant_selected_in_slot_without_engine_calls(self):
+        with patch.object(self.engine, "apply") as apply, patch.object(self.engine.memory, "write") as write:
+            card = self.window.cards["ichiban"]
+            card.set_target("side_gondawara")
+            self.assertEqual(card.mode.currentData(), "fixed_variant")
+            self.assertFalse(card.mode.isEnabled())
+            self.assertEqual(card.variant.count(), 2)
+            card.variant.setCurrentIndex(1)
+            self.assertEqual(card.selection().variant_index, 1)
+            self.assertIn("22834", card.variant_detail.text())
+            card.set_target("side_mameoka")
+            self.assertEqual(card.selection().variant_index, 0)
+            self.assertIn("25095", card.variant_detail.text())
+            apply.assert_not_called()
+            write.assert_not_called()
 
 
 if __name__ == "__main__":

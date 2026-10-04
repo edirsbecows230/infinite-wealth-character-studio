@@ -63,7 +63,7 @@ TEXT = {
         "Like a Dragon: Infinite Wealth — Character Studio",
         "如龙8 无尽财富 · 角色模型工坊",
     ),
-    "app_badge": ("v0.7.0 Public Edition", "v0.7.0 公开版"),
+    "app_badge": ("v0.8.0 Public Edition", "v0.8.0 公开版"),
     "subtitle": (
         "Real-time 10-slot character model & costume changer with multi-source support",
         "多角色实时模型与服装替换工具 · 10 槽位独立配置 · 即改即用",
@@ -158,6 +158,8 @@ TEXT = {
     "finder_save_error": ("Could not save local Finder preferences: {error}", "无法保存本地查找器配置：{error}"),
     "finder_load_error": ("Local Finder configuration could not be read; started with empty preferences.", "本地查找器配置无法读取，已使用空配置启动。"),
     "curated": ("Curated Characters", "精选角色"),
+    "named": ("Named Side", "具名支线"),
+    "finder_back": ("Back", "返回"),
     "female": ("Female NPCs", "女性 NPC"),
     "male": ("Male NPCs", "男性 NPC"),
     "all": ("All Characters", "全部角色"),
@@ -447,16 +449,19 @@ class TargetPickerDialog(MessageBoxBase):
         title_row.addWidget(self.title_label)
         title_row.addWidget(self.count_badge)
         title_row.addStretch(1)
+        self.back_button = PushButton(tx("finder_back", language))
+        self.back_button.clicked.connect(self.reject)
+        title_row.addWidget(self.back_button)
         self.clear_filter_button = PushButton(tx("clear_filter", language))
         title_row.addWidget(self.clear_filter_button)
         self.viewLayout.addLayout(title_row)
 
         self.segmented = SegmentedWidget()
-        for key in ("curated", "female", "male", "all", "favorites"):
+        for key in ("curated", "named", "female", "male", "all", "favorites"):
             self.segmented.addItem(routeKey=key, text=tx(key, language),
                 onClick=lambda _, k=key: self._on_kind_changed(k))
-        self.current_kind = "curated"
-        self.segmented.setCurrentItem("curated")
+        self.current_kind = "named" if current_id in repository.named_ids else "curated"
+        self.segmented.setCurrentItem(self.current_kind)
         self.viewLayout.addWidget(self.segmented)
         search_row = QHBoxLayout()
         self.search = SearchLineEdit()
@@ -573,7 +578,6 @@ class TargetPickerDialog(MessageBoxBase):
         self.list.currentItemChanged.connect(self._show_details)
         self.list.itemDoubleClicked.connect(lambda _: self._accept())
         self.choose.clicked.connect(self._accept)
-        self.cancelButton.clicked.connect(self.reject)
         self.previous_button.clicked.connect(lambda: self._move_candidate(-1))
         self.next_button.clicked.connect(lambda: self._move_candidate(1))
         self.clear_filter_button.clicked.connect(self._clear_filter)
@@ -642,7 +646,7 @@ class TargetPickerDialog(MessageBoxBase):
             self.list.setUpdatesEnabled(True)
             self.list.blockSignals(False)
         self.result_stat.setText(tx("result_count", self.language).format(matched=f"{len(matched):,}", total=f"{total:,}"))
-        for kind in ("curated", "female", "male", "all", "favorites"):
+        for kind in ("curated", "named", "female", "male", "all", "favorites"):
             self.segmented.setItemText(kind, f"{tx(kind, self.language)} · {len(self.repository.ids_for_kind(kind)):,}")
         self.choose.setEnabled(bool(matched))
         self._show_details(self.list.currentItem(), None)
@@ -951,13 +955,16 @@ class SourceCard(StudioCard):
             self._set_target(dialog.selected_id)
 
     def _set_target(self, target_id: str) -> None:
+        previous_target = self.target_id
         self.target_id = target_id
         target = self.repository.targets[target_id]
-        if target["fixed_npc"]:
+        if target["fixed_npc"] or target["kind"] == "named":
             self.mode.setCurrentIndex(self.mode.findData("fixed_variant"))
             self.mode.setEnabled(False)
         else:
             self.mode.setEnabled(True)
+        if target["kind"] == "named" and previous_target != target_id:
+            self.variant.setCurrentIndex(-1)
         self._refresh_target_text()
         self._refresh_variants()
         self.changed.emit()

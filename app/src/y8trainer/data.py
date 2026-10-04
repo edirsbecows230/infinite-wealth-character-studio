@@ -15,6 +15,7 @@ PLAN_FILE = "multi_source_selector.generated.json"
 FEMALE_FILE = "female_npc_catalog.generated.json"
 MALE_FILE = "male_npc_catalog.generated.json"
 COSTUME_FILE = "costume_vanilla_rpg_costume.json"
+NAMED_FILE = "named_side_characters.json"
 
 
 def _data_directories() -> Iterable[Path]:
@@ -48,10 +49,11 @@ class CatalogSummary:
     curated: int
     female: int
     male: int
+    named: int = 0
 
     @property
     def total(self) -> int:
-        return self.curated + self.female + self.male
+        return self.curated + self.female + self.male + self.named
 
 
 class DataRepository:
@@ -63,7 +65,10 @@ class DataRepository:
         female = _load_json(FEMALE_FILE)
         male = _load_json(MALE_FILE)
         costumes = _load_json(COSTUME_FILE)
+        named = _load_json(NAMED_FILE)
         self._validate(document, female, male, costumes)
+        if named.get("schema") != "y8.named_side_characters.v1":
+            raise ValueError("unsupported named side character data")
 
         self.schema = document["schema"]
         self.costumes = self._normalize_costumes(costumes)
@@ -76,6 +81,7 @@ class DataRepository:
         self.curated_ids: list[str] = []
         self.female_ids: list[str] = []
         self.male_ids: list[str] = []
+        self.named_ids: list[str] = []
         self.custom_ids: set[str] = set()
         self.targets: dict[str, dict[str, Any]] = {}
 
@@ -102,10 +108,18 @@ class DataRepository:
             self.targets[target["id"]] = target
             self.male_ids.append(target["id"])
 
+        for raw in named["entries"]:
+            target = self._normalize_named(raw)
+            if target["id"] in self.targets:
+                raise ValueError(f"duplicate target id {target['id']}")
+            self.targets[target["id"]] = target
+            self.named_ids.append(target["id"])
+
         self.summary = CatalogSummary(
             curated=len(self.curated_ids),
             female=len(self.female_ids),
             male=len(self.male_ids),
+            named=len(self.named_ids),
         )
         self._validate_runtime_invariants()
         self.search_index = CharacterSearchIndex(self.targets.values())
@@ -253,7 +267,7 @@ class DataRepository:
             prefix = "[Female NPC / 女性 NPC]"
         else:
             prefix = "[Male NPC / 男性 NPC]"
-        label = str(raw["label"]) if kind == "curated" else f"{prefix} {raw['label']}"
+        label = str(raw["label"]) if kind in ("curated", "named") else f"{prefix} {raw['label']}"
         variants = [{
             "id": f"catalog_{key}",
             "label": f"Catalog key {key} / 目录模型 — {raw.get('tops_model') or 'unknown'}",
@@ -307,6 +321,40 @@ class DataRepository:
         ).lower()
         return target
 
+    def _normalize_named(self, raw: dict[str, Any]) -> dict[str, Any]:
+        """Named identities use the existing selectable fixed-variant pipeline.
+
+        Unlike anonymous fixed NPCs, they retain the chosen variant index. The
+        default/context plans all select the primary key; no write path changes.
+        """
+        target = self._normalize_catalog(raw, "named")
+        appearances = [raw, *raw.get("extra_variants", [])]
+        for variant, appearance in zip(target["variants"], appearances):
+            variant["label"] = appearance["variant_label"]
+            variant["face_model"] = appearance.get("face_model") or ""
+            variant["hair_model"] = appearance.get("hair_model") or ""
+            variant["adv_model_id"] = int(appearance["adv_model_id"])
+        target["fixed_npc"] = False
+        key = target["standard_character"]
+        target["source_plans"] = {
+            source_id: {row: (key, key) for row in source["records"]}
+            for source_id, source in self.sources.items()
+        }
+        target["adv_model_id"] = int(raw["adv_model_id"])
+        target["aliases"] = list(raw.get("aliases", []))
+        # Preserve each appearance's technical identifiers in the identity's
+        # searchable text, without making extra copies of the NPC catalog.
+        target["search_text"] += " " + " ".join(
+            [*target["aliases"], *(
+                str(appearance.get(field) or "")
+                for appearance in appearances
+                for field in ("character_key", "character_row", "adv_model_id",
+                              "character_symbol", "model_symbol", "tops_model",
+                              "face_model", "hair_model", "btms_model", "voicer")
+            ), *(hex(int(appearance["character_key"])) for appearance in appearances)]
+        )
+        return target
+
     def ids_for_kind(self, kind: str) -> list[str]:
         if kind == "curated":
             return self.curated_ids
@@ -314,8 +362,10 @@ class DataRepository:
             return self.female_ids
         if kind == "male":
             return self.male_ids
+        if kind == "named":
+            return self.named_ids
         if kind == "all":
-            return self.curated_ids + self.female_ids + self.male_ids + sorted(self.custom_ids)
+            return self.curated_ids + self.named_ids + self.female_ids + self.male_ids + sorted(self.custom_ids)
         if kind == "favorites":
             return [target_id for target_id in self.ids_for_kind("all")
                     if self.user_state.is_favorite(target_id)]

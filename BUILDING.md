@@ -1,4 +1,4 @@
-# Building v0.7.0
+# Building v0.8.0
 
 Windows x64, Python 3.12. Commands below run from the repository root in PowerShell. The validation build used Python 3.12.3, PySide6 6.9.2, PySide6-Fluent-Widgets 1.11.2, PyInstaller 6.21.0 and Pillow 12.0.0.
 
@@ -22,7 +22,7 @@ Build executable:
 .\.venv\Scripts\python.exe app\build_release.py
 ```
 
-Output: `app/release/InfiniteWealthCharacterStudio_v0.7.0.exe` and SHA-256. All required data is embedded. Builds do not require game files. PyInstaller output is not guaranteed to have identical bytes between builds. Direct dependency constraints are listed in `app/requirements-build.txt`; transitive packages are not fully locked.
+Output: `app/release/InfiniteWealthCharacterStudio_v0.8.0.exe` and SHA-256. All required data is embedded. Builds do not require game files. PyInstaller output is not guaranteed to have identical bytes between builds. Direct dependency constraints are listed in `app/requirements-build.txt`; transitive packages are not fully locked.
 
 Build the separate CT:
 
@@ -42,3 +42,5 @@ $env:PYTHONPATH = "$PWD\app\src"
 ```
 
 Favorites and aliases live in the user's Qt AppDataLocation, outside bundled catalogs; see [Character Finder](app/CHARACTER_FINDER.md).
+
+The Named Side Characters overlay is maintained separately in `app/data/named_side_characters.json`. The standalone build embeds it alongside the four existing runtime data files; no CT data generation is needed.
